@@ -1,2 +1,2 @@
-# aaomile
+# AaoMile
 final year project 
