@@ -36,8 +36,8 @@ This is a web application designed for users to discover, create, and attend loc
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/event-meetup.git
-   cd event-meetup
+   git clone https://github.com/theujwalthakare/aaomile.git
+   cd aaomile
 
 2. Setup the PostgreSQL database:
 
@@ -61,7 +61,7 @@ spring.datasource.password=your_database_password
 
 1. Fork the repository:
    ```bash
-   git fork https://github.com/yourusername/event-meetup.git
+   git fork https://github.com/theujwalthakare/aaomile.git
 2. Create a new branch for your feature or bug fix:
   ```bash
     git checkout -b feature/my-feature
