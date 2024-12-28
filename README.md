@@ -1,4 +1,5 @@
-# Event Meetup Web Application
+# Event Creation Application :
+## Aaomile 🤝
 
 This is a web application designed for users to discover, create, and attend local events. It allows users to view events, register, and book tickets, with functionality similar to Meetup or the event section of BookMyShow. The application includes user login/registration, event creation, and a ticket generation feature.
 
