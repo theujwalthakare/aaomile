@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base ::parent(~{::#content},~{::title}  )}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaomile-Home Page</title>
+</head>
+<body>
+    <section id="content" class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        
+        <div class=" col-10 col-sm-8 col-lg-6">
+            <img th:src="@{/images/home_poster.jpg}" class="d-block mx-lg-auto img-fluid" width="600" height="500" alt="Event Image">
+        </div>
+        <div class="col-lg-5">
+            <h1 id="homePageHeading" class="display-5 fw-bold lh-1 mb-3">Welcome to The Event Hub You've Been Waiting For!</h1>
+            <p class="lead">From booking tickets to meeting like-minded individuals, we've designed an experience that’s as exciting as the events themselves. It's not just about attending—it's about living the moment, making memories, and feeling the rush of being where the action is.</p>
+            <a href="create_event" id="btn-explore" class="btn btn-primary btn-lg px-4 me-md-2">Create Event</a>
+        </div>
+        <hr>
+    </section>
+    <section id="content" class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="text-center ">
+            <h1  class="text-uppercase fw-bold mb-5">Upcoming Events</h1>
+          </div>
+        
+            <div id="scroll-content" class="row flex-nowrap  scroll-container no-select">
+                <!-- Event Card 1 -->
+                
+                
+                <!-- Add more cards as needed -->
+          
+            </div>
+    </section>
+  
+</body>
+</html>
