@@ -15,11 +15,11 @@ public class PageController {
         return "home";
     }
     @RequestMapping("/signup")
-    public String about(Model model) {
+    public String sigup(Model model) {
         return "signup";
     }
     @RequestMapping("/about")
-    public String login(Model model) {
+    public String about(Model model) {
         return "about";
     }
     @RequestMapping("/navbar")
@@ -27,9 +27,18 @@ public class PageController {
         return "navbar";
     }
 
-    @RequestMapping("/create_event")
-    public String create_event(Model model) {
-        return "create_event";
+    @RequestMapping("/login")
+    public String login(Model model) {
+        return "login";
+    }
+    
+    @RequestMapping("/Shows")
+    public String Shows(Model model) {
+        return "Shows";
+    }
+    @RequestMapping("/Events")
+    public String Events(Model model) {
+        return "Events";
     }
     //route
       

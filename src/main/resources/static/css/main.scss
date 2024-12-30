@@ -1,0 +1,39 @@
+.btn-secondary{
+    color:#ffffff !important;
+    background-color: #00286c !important;
+    border-color: #074fcb !important;
+}
+.bg-light{
+    color: #000000;
+    background-color: #ffdada !important;
+}
+.nav-link{
+    font-family: monospace !important;
+    font-size: large !important;
+    font-weight: 200 !important;
+}
+.nav-link:hover{
+    color: #730000 !important;
+     
+}
+
+
+.btn-secondary:hover{
+    color:#ffffff !important;
+    background-color: #213c69 !important;
+    border-color: #254c8e !important;
+}
+.bg-prime{
+    background-color: #fadada !important;
+    border-radius: 25px !important;
+  
+}
+.alies{
+    color: #00286c !important;
+    margin-top: 12px !important;
+     
+}
+.card-body{
+    align-items: center !important;
+}
+@import "../../../../../node_modules/bootstrap/scss/bootstrap.scss"

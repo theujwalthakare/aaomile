@@ -1,6 +1,7 @@
-
-<header data-th-fragment="navbar" class="p-3 text-bg-light text-dark">
-  <div class="container">
+ 
+<header class="navbar navbar-expand-lg bd-navbar sticky-top bg-light" data-th-fragment="navbar"  >
+ <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
+  <div class="container p-3">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start">
       <a href="/" class="d-flex align-items-center mb-1 mb-lg-0 text-black text-decoration-none">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="200" height="40" viewBox="30 29 400 110">
@@ -43,9 +44,13 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <!-- Indicate to home page  -->
         <li><a href="/" class="nav-link px-4 text-dark">Home</a></li>
-        <li><a href="#" class="nav-link px-4 text-dark">Events</a></li>
-        <li><a href="#" class="nav-link px-4 text-dark">Shows</a></li>
+        <!-- Events those organized by group of peoples , ex: Gathering ,hackathon event  -->
+        <li><a href="Events" class="nav-link px-4 text-dark">Events</a></li>
+        <!-- Shows like theater, movies, comedy shows -->
+        <li><a href="Shows" class="nav-link px-4 text-dark">Shows</a></li>
+        <!-- Description page about Aaomile -->
         <li><a href="about" class="nav-link px-4 text-dark">About</a></li>
       </ul>
 
@@ -54,11 +59,12 @@
       </form>
 
       <div class="text-end">
-        <button type="button" name="login" class="btn btn-outline-dark me-2">Login</button>
-        <button type="button" name="SignUp" class="btn btn-danger me-2">Sign-up</button>
+        <a href="login" class="btn btn-secondary  me-2">Login</a>
+        <a href="signup" class="btn btn-danger me-2">Sign-up</a>
       </div>
     </div>
   </div>
+</nav>
 </header>
  
 
