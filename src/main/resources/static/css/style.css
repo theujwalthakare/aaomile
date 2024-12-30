@@ -2,15 +2,17 @@
 /* General Body Styling */
 
 body {
-     font-family: 'Public Sans', sans-serif;
-     font-size: 16px;
-     line-height: 1.5;
-     color: #000000;
-     background-color: #f9f9f9;
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     position: relative;
+    
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
  }
 #homePageHeading{
      font-size: 40px;
@@ -26,76 +28,4 @@ body {
  
  /* Events Cards */
  
- .container {
-     position: relative;
-     overflow: hidden;
-     width: 100%;
-     margin: 0 auto;
-     padding: 0 20px;
-
- }
  
- .scroll-container {
-     display: flex;
-     overflow-x: hidden;
-     overflow-y: hidden;
-     scroll-behavior: smooth;
-     position: relative;
-     padding: 10px;
-     -webkit-overflow-scrolling: touch;
- }
- 
- .card-container {
-     display: inline-block;
-     margin: 8px;
-     width: 200px; 
-     min-width: 30px;
-
-}
- 
-.card {
-     width: 90%;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-     border-radius: 8px;
-     overflow: hidden;
-     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-     transition: all 0.3s;
- }
- .card-img-top {
-     width: 100%;
-     height: 500px; /* Adjust the height as needed */
-     object-fit: cover;
- }
- .card-body {
-     padding: 15px;
- }
- 
- .card-title {
-     font-size: 1.25rem;
-     margin-bottom: 0.5rem;
- }
- 
- .card-text {
-
-     font-size: 0.9rem;
-     margin-bottom: 0.5rem;
- }
- 
- .card-text i {
-     margin-right: 5px;
- }
- 
- .btn .btn-primary {
-     background-color: #f80e0a;
-     border-color: #000000;
-     transition: ease-in-out 0.3s;
- }
- 
- .btn .btn-primary:hover {
-     background-color: #00000073;
-     border-color: #ff0000;
-     transition: ease-in-out 0.3s;
- }
