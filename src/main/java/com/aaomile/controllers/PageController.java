@@ -2,8 +2,11 @@
 package com.aaomile.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import UserForms.Login;
 import ch.qos.logback.core.model.Model;
 
 
@@ -26,7 +29,7 @@ public class PageController {
     public String contact(Model model) {
         return "navbar";
     }
-
+    
     @RequestMapping("/login")
     public String login(Model model) {
         return "login";
@@ -40,6 +43,14 @@ public class PageController {
     public String Events(Model model) {
         return "Events";
     }
+
+    @RequestMapping(value= "/after_login", method=RequestMethod.POST)
+    public String processLogin(@ModelAttribute Login login) {
+        System.out.println(login);
+        System.out.println("Login Button Hit");
+        return"after_login";
+    }
+
     //route
       
      

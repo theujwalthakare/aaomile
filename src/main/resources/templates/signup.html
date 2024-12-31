@@ -88,27 +88,28 @@
                 </div>
               </div>
             </div>
-            <form action="#!">
+            <form data-th-action="@{'/login'}" method="post">     <!-- Form Start -->
               <div class="row gy-3 gy-md-4 overflow-hidden">
                 <div class="col-12">
                   <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" name="firstName" id="firstName" placeholder="First Name" required>
+                  <input type="email" class="form-control" name="firstName" id="firstName" placeholder="First Name" >   <!-- removed required -->
+                  
                 </div>
                 <div class="col-12">
                   <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
+                  <input type="email" class="form-control" name="lastName" id="lastName" placeholder="Last Name" >    <!-- removed required -->
                 </div>
                 <div class="col-12">
                   <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" >    <!-- removed required -->
                 </div>
                 <div class="col-12">
-                  <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                  <input type="password" class="form-control" name="password" id="password" value="" required>
+                  <label for="password" class="form-label">Create Password <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control" name="password" id="password" value="" >                 <!-- removed required -->
                 </div>
                 <div class="col-12">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" name="iAgree" id="iAgree" required>
+                    <input class="form-check-input" type="checkbox" value="" name="iAgree" id="iAgree" >                <!-- removed required -->
                     <label class="form-check-label text-secondary" for="iAgree">
                       I agree to the <a href="#!" class="link-primary text-decoration-none">terms and conditions</a>
                     </label>
@@ -116,7 +117,8 @@
                 </div>
                 <div class="col-12">
                   <div class="d-grid">
-                    <a  href="/" class="btn bsb-btn-xl btn-danger" type="submit">Sign up</a>
+                    <input type="submit" value="Sign Up" class="btn bsb-btn-xl btn-danger">
+                    <!-- <a  href="/" class="btn bsb-btn-xl btn-danger" type="submit">Sign up</a> -->
                   </div>
                 </div>
               </div>
