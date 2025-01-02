@@ -36,8 +36,9 @@
   margin-top: 12px !important;
 }
 
-.card-body {
-  align-items: center !important;
+.carousel img {
+  height: 300px;
+  width: 100%;
 }
 
 /*!
