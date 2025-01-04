@@ -1,35 +1,36 @@
 package com.aaomile.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
-import jakarta.persistence.Id;
 
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Table(name = "users")
+@Builder
 public class User {
+
+    public static Object builder;
+
+
     @Id
-    @Column(nullable = false)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
-    @Column(nullable = false)
-    private String password;
 
-    @Column(nullable = false)
-    private String name;
+    private String firstName;
 
-    @Column(nullable = false)
+    private String lastName;
+
     private String email;
 
-    @Column(nullable = false)
+    private String password;
+
     private String phone;
 
-    @Column(nullable = false)
-    private String address;
+
 }
