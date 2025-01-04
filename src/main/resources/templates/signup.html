@@ -82,23 +82,23 @@
             <div class="p-3">
               <h2 class="text-center">Registration</h2>
               <h3 class="fs-6 text-secondary text-center">Enter your details to register</h3>
-              <form data-th-action="@{'/login'}" method="post">
+              <form data-th-action="@{'/register'}" data-th-object="${userReg}" method="post">
                 <div class="row gy-3">
                   <div class="col-12">
                     <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name">
+                    <input type="text" class="form-control" name="firstName" id="firstName" data-th-field="*{firstName}" placeholder="First Name">
                   </div>
                   <div class="col-12">
                     <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name">
+                    <input type="text" class="form-control" name="lastName" id="lastName" data-th-field="*{lastName}"placeholder="Last Name">
                   </div>
                   <div class="col-12">
                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" name="email" id="email"  data-th-field="*{email}"placeholder="name@example.com">
                   </div>
                   <div class="col-12">
                     <label for="password" class="form-label">Create Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="password" data-th-field="*{password}" placeholder="Password">
                   </div>
                   <div class="col-12">
                     <div class="form-check">
