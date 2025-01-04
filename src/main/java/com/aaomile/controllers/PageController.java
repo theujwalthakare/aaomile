@@ -1,18 +1,18 @@
 package com.aaomile.controllers;
 
-import java.util.Optional;
+// import java.util.Optional;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.aaomile.entities.Login;
+// import com.aaomile.entities.Login;
 import com.aaomile.entities.User;
 import com.aaomile.forms.UserReg;
-import com.aaomile.repository.LoginRepository;
+// import com.aaomile.repository.LoginRepository;
 import com.aaomile.repository.UserRepo;
 import com.aaomile.service.UserService;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -54,7 +54,7 @@ public class PageController {
     //     System.out.println("Login Button Hit");
     //     return"after_login";
     // }
-    
+
     // @Autowired
     // private LoginRepository loginRepository;
     
