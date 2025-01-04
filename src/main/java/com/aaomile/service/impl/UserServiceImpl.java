@@ -27,12 +27,4 @@ public class UserServiceImpl implements UserService {
         return userRepo.existsByEmailAndPassword(email, password);
     }
 
-    
-    // @Override
-    // public Optional<User> getUserByEmailandPassword(String email, String password) {
-    //     return userRepo.findByEmailAndPassword(email,password);
-    // }
-    
-    
-
 }
