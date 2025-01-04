@@ -88,24 +88,27 @@
                 </div>
               </div>
             </div>
-            <form data-th-action="@{'/login'}" method="post">     <!-- Form Start -->
+            <form 
+            data-th-action="@{'/register'}" 
+            data-th-object="${userReg}" 
+            method="post">     <!-- Form Start -->
               <div class="row gy-3 gy-md-4 overflow-hidden">
                 <div class="col-12">
                   <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" name="firstName" id="firstName" placeholder="First Name" >   <!-- removed required -->
+                  <input type="text" class="form-control"  id="firstName" data-th-field="*{firstName}" placeholder="First Name" >   <!-- removed required -->
                   
                 </div>
                 <div class="col-12">
                   <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" name="lastName" id="lastName" placeholder="Last Name" >    <!-- removed required -->
+                  <input type="text" class="form-control"  id="lastName" data-th-field="*{lastName}" placeholder="Last Name" >    <!-- removed required -->
                 </div>
                 <div class="col-12">
                   <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" >    <!-- removed required -->
+                  <input type="email" class="form-control"  id="email" data-th-field="*{email}" placeholder="name@example.com" >    <!-- removed required -->
                 </div>
                 <div class="col-12">
                   <label for="password" class="form-label">Create Password <span class="text-danger">*</span></label>
-                  <input type="password" class="form-control" name="password" id="password" value="" >                 <!-- removed required -->
+                  <input type="password" class="form-control" id="password" data-th-field="*{password}" value="" >                 <!-- removed required -->
                 </div>
                 <div class="col-12">
                   <div class="form-check">
