@@ -1,5 +1,7 @@
 package com.aaomile.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,18 @@ public class UserServiceImpl implements UserService {
     public User createUser(User user) {
         return userRepo.save(user);
     }
+
+    @Override
+    public boolean existsByEmailAndPassword(String email, String password) {
+        return userRepo.existsByEmailAndPassword(email, password);
+    }
+
+    
+    // @Override
+    // public Optional<User> getUserByEmailandPassword(String email, String password) {
+    //     return userRepo.findByEmailAndPassword(email,password);
+    // }
+    
     
 
 }
