@@ -1,45 +1,56 @@
-.btn-secondary{
-    color:#ffffff !important;
-    background-color: #00286c !important;
-    border-color: #074fcb !important;
-}
-.bg-light{
-    color: #000000;
-    background-color: #ffdada !important;
-}
-.nav-link{
-    font-family: monospace !important;
-    font-size: large !important;
-    font-weight: 200 !important;
-}
-.nav-link:hover{
-    color: #730000 !important;
-     
-}
-
-
-.btn-secondary:hover{
-    color:#ffffff !important;
-    background-color: #213c69 !important;
-    border-color: #254c8e !important;
-}
-.bg-prime{
-    background-color: #fadada !important;
-    border-radius: 25px !important;
+// File: main.scss
+/* Dark mode styles */
+/* Custom styles for dark mode */
+ 
+/* Custom styles for navbar */
+/* Navbar background for light theme */
+body{
+  overflow-x: hidden !important;
   
+  max-width: 100% !important;
 }
-.alies{
-    color: #00286c !important;
-    margin-top: 12px !important;
-     
-}
-.carousel img {
-    height: 300px;
-    width: 100%;
-   
-
+body[data-bs-theme="light"] .nav-link {
+  color: #000 !important;
+  font: 1em sans-serif !important;
 }
 
+/* Nav-link styles for dark theme */
+body[data-bs-theme="dark"] .nav-link {
+  color: #fff !important;
+  font: 1em sans-serif !important;
+}
 
+/* Optional hover effect */
+.nav-link:hover {
+  text-shadow: 0 0 5px rgba(116, 92, 92, 0.5);
+  transition: text-shadow 0.2s ease !important;
+}
+#dark-icon {
+  background-color: none !important;
+  color:none !important;
+}
+
+  .container1.bg-prime {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #dccaca;
+    border-radius: 25px;
+  }
+
+  .form-control, .btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .container1.bg-prime {
+      padding: 10px;
+    }
+  }
 @import "../../../../../node_modules/bootstrap/scss/bootstrap.scss"
  

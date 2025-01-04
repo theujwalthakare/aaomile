@@ -4,7 +4,6 @@ import java.util.Optional;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-// import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,11 +47,13 @@ public class PageController {
         return "Events";
     }
 
-    @RequestMapping("/after_login")
-    public String afterLogin(Model model) {
-        return "after_login";
-    }
-    
+    // @RequestMapping(value= "/after_login", method=RequestMethod.POST)
+    // public String processLogin(@ModelAttribute Login login) {
+    //     System.out.println(login);
+    //     System.out.println("Login Button Hit");
+    //     return"after_login";
+    // }
+
     @Autowired
     private LoginRepository loginRepository;
     
