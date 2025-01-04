@@ -13,6 +13,7 @@ import com.aaomile.entities.Login;
 import com.aaomile.entities.User;
 import com.aaomile.forms.UserReg;
 import com.aaomile.repository.LoginRepository;
+import com.aaomile.repository.UserRepo;
 import com.aaomile.service.UserService;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -53,18 +54,32 @@ public class PageController {
     //     System.out.println("Login Button Hit");
     //     return"after_login";
     // }
-
-    @Autowired
-    private LoginRepository loginRepository;
+    
+    // @Autowired
+    // private LoginRepository loginRepository;
     
     // @RequestMapping(value= "/after_login", method=RequestMethod.POST)
-    @PostMapping("/after_login")
-    public String login(@RequestParam String id, @RequestParam String password, Model model) {
-        Optional<Login> user = loginRepository.findByIdAndPassword(id, password);
-        System.out.println("Login Button Hit");
-        if (user.isPresent()) {
-            return "after_login"; 
+    // @PostMapping("/after_login")
+    // public String login(@RequestParam String id, @RequestParam String password, Model model) {
+    //     Optional<User> user = loginRepository.findByEmailAndPassword(id, password);
+    //     System.out.println("Login Button Hit");
+    //     if (user.isPresent()) {
+    //         return "after_login"; 
             
+    //     } else {
+    //         model.addAttribute("error", "Invalid ID or password");
+    //         return "login";
+    //     }
+    // }
+
+    @Autowired
+    private UserRepo userRepo;
+
+    @RequestMapping("/after_login")
+    public String login(@RequestParam String email, @RequestParam String password, Model model) {
+        System.out.println("Login Button Hit");
+        if (userRepo.existsByEmailAndPassword(email, password)){
+            return "after_login"; 
         } else {
             model.addAttribute("error", "Invalid ID or password");
             return "login";
