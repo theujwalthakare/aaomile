@@ -6,7 +6,7 @@
     <title>Aaomile-Login</title>
 </head>
 <body>
-    <section id="content" class="vh-100 p-4 alies">
+    <!-- <section id="content" class="vh-100 p-4  ">
             <div class="container-fluid h-custom">
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-md-9 col-lg-6 col-xl-5">
@@ -30,8 +30,7 @@
                     <div class="divider d-flex align-items-center my-4">
                       <p class="text-center fw-bold mx-3 mb-0">Or</p>
                     </div>
-          
-                    <!-- Email input -->
+           
                     <div data-mdb-input-init class="form-outline mb-4">
                       
                       <label class="form-label" for="form3Example3">Email address</label>
@@ -39,7 +38,7 @@
                       placeholder="Enter a valid email address"/>
                     </div>
           
-                    <!-- Password input -->
+                    
                     <div data-mdb-input-init class="form-outline mb-3">
                       <label class="form-label" for="form3Example4">Password</label>
                       <input type="password" id="form3Example4" name="password"  class="form-control form-control-lg"
@@ -47,7 +46,7 @@
                     </div>
           
                     <div class="d-flex justify-content-between align-items-center">
-                      <!-- Checkbox -->
+                      
                       <div class="form-check mb-0">
                         <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
                         <label class="form-check-label" for="form2Example3">
@@ -61,8 +60,7 @@
                       <input type="submit" value="Login" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-lg"
                       style="padding-left: 2.5rem; padding-right: 2.5rem;">
 
-                      <!-- <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-lg"
-                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button> -->
+                     
 
                       <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="signup"
                           class="link-danger">Register</a></p>
@@ -73,9 +71,67 @@
               </div>
             </div>
            
-              <!-- Copyright -->
+              
           
               
+    </section> -->
+    <section id="content" class="p-3">
+      <div class="container1 bg-prime shadow-sm">
+        <div class="row">
+          <!-- Welcome Section -->
+          <div class="col-12 col-md-6">
+            <div class="p-3">
+              <h3 class="text-center">Welcome Back!</h3>
+              <img class="img-fluid rounded mx-auto d-block mb-3" th:src="@{/images/rb_557.png}" alt="BootstrapBrain Logo">
+              <p class="text-center">Don't have an account yet? <a href="signup" class="link-secondary text-decoration-none">Register now</a></p>
+            </div>
+          </div>
+    
+          <!-- Login Form Section -->
+          <div class="col-12 col-md-6">
+            <div class="p-3">
+              <h2 class="text-center">Login</h2>
+              <h3 class="fs-6 text-secondary text-center">Enter your credentials to log in</h3>
+              <form data-th-action="@{'/after_login'}" method="post">
+                <div class="row gy-3">
+                  <div class="col-12">
+                    <label for="username" class="form-label">Email <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="id" id="username" placeholder="name@example.com" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                  </div>
+                  <div class="col-12 d-flex justify-content-between align-items-center">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+                      <label class="form-check-label" for="rememberMe">Remember Me</label>
+                    </div>
+                    <a href="#!" class="link-primary text-decoration-none">Forgot Password?</a>
+                  </div>
+                  <div class="col-12">
+                    <input type="submit" class="btn btn-danger w-100">
+                  </div>
+                </div>
+              </form>
+              <hr>
+              <p class="text-center">Or log in with</p>
+              <div class="d-flex gap-3 flex-column flex-xl-row justify-content-center">
+                <a href="#!" class="btn bsb-btn-xl btn-outline-primary">
+                  <i class="bi bi-google"></i> <span class="ms-2">Google</span>
+                </a>
+                <a href="#!" class="btn bsb-btn-xl btn-outline-primary">
+                  <i class="bi bi-facebook"></i> <span class="ms-2">Facebook</span>
+                </a>
+                <a href="#!" class="btn bsb-btn-xl btn-outline-primary">
+                  <i class="bi bi-twitter"></i> <span class="ms-2">Twitter</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+    
 </body>
 </html>

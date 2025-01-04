@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,7 +49,10 @@ public class PageController {
     public String Events(Model model) {
         return "Events";
     }
-
+    @RequestMapping("user/CreateEvent")
+    public String CreateEvent(Model model) {
+        return "user/CreateEvent";
+    }
     // @RequestMapping(value= "/after_login", method=RequestMethod.POST)
     // public String processLogin(@ModelAttribute Login login) {
     //     System.out.println(login);

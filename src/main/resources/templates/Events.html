@@ -6,8 +6,33 @@
     <title>Aaomile-About Page</title>
 </head>
 <body>
-    <section id="content">
-        <h1>About page</h1>
-    </section>
+  <section id="content">
+    <div class="container mt-4">
+      <h2>All Music (8)</h2>
+      <div class="filters d-flex justify-content-between align-items-center">
+          <!-- Genre Filter Buttons -->
+          <div class="filter-buttons">
+              <button onclick="filterGenre('All')" class="active">All</button>
+              <button onclick="filterGenre('Workshops')">Workshops (85)</button>
+              <button onclick="filterGenre('Courses')">Courses (57)</button>
+              <button onclick="filterGenre('Health & Wellness')">Health & Wellness (29)</button>
+              <button onclick="filterGenre('Theatre')">Theatre (28)</button>
+              <button onclick="filterGenre('Kids & Fun')">Kids & Fun</button>
+          </div>
+  
+          <!-- Sorting Dropdown -->
+          <div class="sorting">
+              <select onchange="sortEvents()" id="sortDropdown">
+                  <option value="Popularity">Popularity</option>
+                  <option value="PriceLow">Price: Low to High</option>
+                  <option value="PriceHigh">Price: High to Low</option>
+              </select>
+          </div>
+      </div>
+  
+      <!-- Events Section -->
+      <div id="eventsContainer" class="row"></div>
+  </div>
+   </section>
 </body>
 </html>
