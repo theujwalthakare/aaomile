@@ -294,7 +294,7 @@ function displayEvents(filteredEvents) {
           <p class="card-text">Time: ${event.time}</p>
           <p class="card-text">Location: ${event.location}</p>
           <div class="d-flex justify-content-center align-items-center">
-            <a href="#" class="btn btn-danger">Book Now</a>
+            <a href="/book" class="btn btn-danger">Book Now</a>
           </div>
         </div>
       </div>
