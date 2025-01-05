@@ -51,7 +51,16 @@ public class PageController {
     public String creatEvent(Model model) {
         return "user/CreateEvent";
     }
-    
+    private int loginStatus;
+    @RequestMapping("/book")
+    public String book(Model model) {
+        if(loginStatus == 1){
+            return "/book";
+        }
+        else{
+            return "redirect:/login";
+        }
+    }
 
     // @RequestMapping(value= "/after_login", method=RequestMethod.POST)
     // public String processLogin(@ModelAttribute Login login) {
@@ -85,6 +94,7 @@ public class PageController {
         if (userRepo.existsByEmailAndPassword(email, password)){
             System.out.println("\n\nemail= "+email+" password= "+password);
             System.out.println("Login Button Hit\nLOGIN STATUS --> Successful");
+            loginStatus =  1;
             return "user/after_login"; 
         } else {
             model.addAttribute("error", "Invalid ID or password");
@@ -119,7 +129,6 @@ public class PageController {
         System.out.println("created user");
         System.out.println(userReg);
         System.out.println("Processing User register");
-
 
         return "redirect:/login";
     }
