@@ -47,6 +47,11 @@ public class PageController {
     public String Events(Model model) {
         return "Events";
     }
+    @RequestMapping("/user/CreateEvent")
+    public String creatEvent(Model model) {
+        return "user/CreateEvent";
+    }
+    
 
     // @RequestMapping(value= "/after_login", method=RequestMethod.POST)
     // public String processLogin(@ModelAttribute Login login) {
@@ -80,12 +85,12 @@ public class PageController {
         if (userRepo.existsByEmailAndPassword(email, password)){
             System.out.println("\n\nemail= "+email+" password= "+password);
             System.out.println("Login Button Hit\nLOGIN STATUS --> Successful");
-            return "after_login"; 
+            return "user/after_login"; 
         } else {
             model.addAttribute("error", "Invalid ID or password");
             System.out.println("\n\nemail= "+email+" password= "+password);
             System.out.println("Login Button Hit\nLOGIN STATUS --> Unsuccessful");
-            return "login";
+            return "redirect:/login";
         }
     }
     
