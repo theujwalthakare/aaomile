@@ -77,11 +77,14 @@ public class PageController {
 
     @RequestMapping("/after_login")
     public String login(@RequestParam String email, @RequestParam String password, Model model) {
-        System.out.println("Login Button Hit");
         if (userRepo.existsByEmailAndPassword(email, password)){
+            System.out.println("\n\nemail= "+email+" password= "+password);
+            System.out.println("Login Button Hit\nLOGIN STATUS --> Successful");
             return "after_login"; 
         } else {
             model.addAttribute("error", "Invalid ID or password");
+            System.out.println("\n\nemail= "+email+" password= "+password);
+            System.out.println("Login Button Hit\nLOGIN STATUS --> Unsuccessful");
             return "login";
         }
     }
