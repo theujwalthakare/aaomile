@@ -3,33 +3,28 @@
 /* Custom styles for dark mode */
 /* Custom styles for navbar */
 /* Navbar background for light theme */
-body {
-  overflow-x: hidden !important;
-  max-width: 100% !important;
+
+
+.btn-primary {
+  background-color: #ff7e5f;
+  border: none;
+  transition: all 0.3s ease-in-out;
 }
 
-body[data-bs-theme=light] .nav-link {
-  color: #000 !important;
-  font: 1em sans-serif !important;
+.btn-primary:hover {
+  background-color: #feb47b;
 }
 
-/* Nav-link styles for dark theme */
-body[data-bs-theme=dark] .nav-link {
-  color: #fff !important;
-  font: 1em sans-serif !important;
+.btn-outline-primary {
+  border-color: #ff7e5f;
+  color: #ff7e5f;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Optional hover effect */
-.nav-link:hover {
-  text-shadow: 0 0 5px rgba(116, 92, 92, 0.5);
-  transition: text-shadow 0.2s ease !important;
+.btn-outline-primary:hover {
+  background-color: #ff7e5f;
+  color: #fff;
 }
-
-#dark-icon {
-  background-color: none !important;
-  color: none !important;
-}
-
 .container1.bg-prime {
   max-width: 800px;
   margin: 0 auto;
@@ -102,8 +97,9 @@ h2, .h2, h3, .h3 {
   border: none;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(56, 48, 48, 0.1);
   margin-bottom: 20px;
+  
 }
 
 .badge-category {
@@ -117,14 +113,19 @@ h2, .h2, h3, .h3 {
   font-size: 12px;
   text-transform: uppercase;
 }
-
+.card{
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(56, 48, 48, 0.1);
+  margin-bottom: 30px;
+}
 .card-img-top {
   height: 200px;
   object-fit: cover;
 }
 
 .card-body {
-  padding: 15px;
+  padding: 10px;
 }
 
 .card-title {

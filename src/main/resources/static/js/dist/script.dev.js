@@ -8,29 +8,7 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-console.log("Script loaded"); // 
-
-function toggleTheme() {
-  var body = document.body;
-  var currentTheme = body.getAttribute('data-bs-theme');
-  var newTheme = currentTheme === 'light' ? 'dark' : 'light'; // Update the theme
-
-  body.setAttribute('data-bs-theme', newTheme); // Save the user's preference to localStorage
-
-  localStorage.setItem('theme', newTheme); // Toggle icons
-
-  document.getElementById('dark-icon').style.display = newTheme === 'light' ? 'inline' : 'none';
-  document.getElementById('light-icon').style.display = newTheme === 'dark' ? 'inline' : 'none';
-} // Load the saved theme on page load
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  var savedTheme = localStorage.getItem('theme') || 'light';
-  document.body.setAttribute('data-bs-theme', savedTheme); // Set the correct icon
-
-  document.getElementById('dark-icon').style.display = savedTheme === 'light' ? 'inline' : 'none';
-  document.getElementById('light-icon').style.display = savedTheme === 'dark' ? 'inline' : 'none';
-});
+console.log("Script loaded");
 var events = [{
   "id": 1,
   "name": "Virtual Stand-Up Comedy Night",

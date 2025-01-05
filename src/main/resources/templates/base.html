@@ -8,7 +8,7 @@ class="light">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-th-replace="${title}">Aaomile-Base Page</title>
-    
+    <link rel="icon" type="image" data-th-href="@{'/images/logo_icon.png'}">
     <link rel="stylesheet" data-th-href="@{'/css/main.css'}" />
     <!-- Bootstrap CSS -->
      
@@ -21,8 +21,8 @@ class="light">
 
 </head>
 
-<body data-bs-theme="dark">
-    
+<body>
+    <!-- <div data-th-replace="~{user_navbar :: user-navbar}"></div> -->
   <div data-th-replace="~{navbar :: navbar}"></div>
       <!-- main content -->
       

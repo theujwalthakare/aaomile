@@ -1,32 +1,5 @@
 console.log("Script loaded");
 
-// 
-
-function toggleTheme() {
-  const body = document.body;
-  const currentTheme = body.getAttribute('data-bs-theme');
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-  // Update the theme
-  body.setAttribute('data-bs-theme', newTheme);
-
-  // Save the user's preference to localStorage
-  localStorage.setItem('theme', newTheme);
-
-  // Toggle icons
-  document.getElementById('dark-icon').style.display = newTheme === 'light' ? 'inline' : 'none';
-  document.getElementById('light-icon').style.display = newTheme === 'dark' ? 'inline' : 'none';
-}
-
-// Load the saved theme on page load
-document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.body.setAttribute('data-bs-theme', savedTheme);
-
-  // Set the correct icon
-  document.getElementById('dark-icon').style.display = savedTheme === 'light' ? 'inline' : 'none';
-  document.getElementById('light-icon').style.display = savedTheme === 'dark' ? 'inline' : 'none';
-});
 
 const events =[
   {
