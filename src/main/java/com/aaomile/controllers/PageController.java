@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 @Controller
+@RequestMapping("/")
 public class PageController {
     
     @RequestMapping("/")
@@ -47,12 +48,8 @@ public class PageController {
     public String Events(Model model) {
         return "Events";
     }
-    @RequestMapping("/user/CreateEvent")
-    public String creatEvent(Model model) {
-        return "user/CreateEvent";
-    }
 
-    
+
     private boolean loginStatus;
     @RequestMapping("/book")
     public String book(Model model) {
