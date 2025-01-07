@@ -92,7 +92,12 @@
             <div class="p-3">
               <h2 class="text-center">Login</h2>
               <h3 class="fs-6 text-secondary text-center">Enter your credentials to log in</h3>
-              <form data-th-action="@{'/after_login'}" method="post">
+
+              <!-- error -->
+            <div class="alert alert-danger" role="alert" th:if="${param.error}">Invalid username and password.</div>
+            <div class="alert alert-success" role="alert" th:if="${param.logout}">You have been logged out.</div>
+
+              <form data-th-action="@{'/authentication'}" method="post">
                 <div class="row gy-3">
                   <div class="col-12">
                     <label for="username" class="form-label">Email <span class="text-danger">*</span></label>
