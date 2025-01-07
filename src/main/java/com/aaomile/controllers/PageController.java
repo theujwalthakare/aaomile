@@ -53,12 +53,12 @@ public class PageController {
     private boolean loginStatus;
     @RequestMapping("/book")
     public String book(Model model) {
-        if(loginStatus == true){
+        // if(loginStatus == true){
             return "/book";
-        }
-        else{
-            return "redirect:/login";
-        }
+        // }
+        // else{
+        //     return "redirect:/login";
+        // }
     }
 
     // @RequestMapping(value= "/after_login", method=RequestMethod.POST)
@@ -87,22 +87,22 @@ public class PageController {
     @Autowired
     private UserRepo userRepo;
 
-    @RequestMapping("/after_login")
-    public String login(@RequestParam String email, @RequestParam String password, Model model) {
-        if (userRepo.existsByEmailAndPassword(email, password)){
-            System.out.println("\n\nemail= "+email+" password= "+password);
-            System.out.println("Login Button Hit\nLOGIN STATUS --> Successful");
+    // @RequestMapping("/after_login")
+    // public String login(@RequestParam String email, @RequestParam String password, Model model) {
+    //     if (userRepo.existsByEmailAndPassword(email, password)){
+    //         System.out.println("\n\nemail= "+email+" password= "+password);
+    //         System.out.println("Login Button Hit\nLOGIN STATUS --> Successful");
 
-            loginStatus =  true;
-            model.addAttribute("LoggedInUser", email);
-            return "user/after_login"; 
-        } else {
-            model.addAttribute("error", "Invalid ID or password");
-            System.out.println("\n\nemail= "+email+" password= "+password);
-            System.out.println("Login Button Hit\nLOGIN STATUS --> Unsuccessful");
-            return "redirect:/login";
-        }
-    }
+    //         // loginStatus =  true;
+    //         model.addAttribute("LoggedInUser", email);
+    //         return "user/after_login"; 
+    //     } else {
+    //         model.addAttribute("error", "Invalid ID or password");
+    //         System.out.println("\n\nemail= "+email+" password= "+password);
+    //         System.out.println("Login Button Hit\nLOGIN STATUS --> Unsuccessful");
+    //         return "redirect:/login";
+    //     }
+    // }
     
     @Autowired
     private UserService userService;
