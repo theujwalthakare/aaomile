@@ -95,6 +95,7 @@
 
               <!-- error -->
             <div class="alert alert-danger" role="alert" th:if="${param.error}">Invalid username and password.</div>
+            <!-- logout -->
             <div class="alert alert-success" role="alert" th:if="${param.logout}">You have been logged out.</div>
 
               <form data-th-action="@{'/authentication'}" method="post">
@@ -122,7 +123,7 @@
               <hr>
               <p class="text-center">Or log in with</p>
               <div class="d-flex gap-3 flex-column flex-xl-row justify-content-center">
-                <a href="#!" class="btn bsb-btn-xl btn-outline-primary">
+                <a data-th-href="@{'/oauth2/authorization/google'}" class="btn bsb-btn-xl btn-outline-primary">
                   <i class="bi bi-google"></i> <span class="ms-2">Google</span>
                 </a>
                 <a href="#!" class="btn bsb-btn-xl btn-outline-primary">

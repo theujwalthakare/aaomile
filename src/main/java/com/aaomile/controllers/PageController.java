@@ -50,16 +50,10 @@ public class PageController {
     }
 
 
-    private boolean loginStatus;
-    @RequestMapping("/book")
-    public String book(Model model) {
-        // if(loginStatus == true){
-            return "/book";
-        // }
-        // else{
-        //     return "redirect:/login";
-        // }
-    }
+    // @RequestMapping("/book")
+    // public String book(Model model) {
+    //     return "user/book";
+    // }
 
     // @RequestMapping(value= "/after_login", method=RequestMethod.POST)
     // public String processLogin(@ModelAttribute Login login) {
