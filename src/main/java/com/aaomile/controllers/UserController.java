@@ -20,6 +20,16 @@ public class UserController {
         return "user/CreateEvent";
     }
 
+    @RequestMapping("/book")
+    public String book(Model model) {
+        return "user/book";
+    }
+
+    // @RequestMapping("/book")
+    // public String book(Model model) {
+    //     return "user/book";
+    // }
+
     // user/dashboard
     // user/edit profile
     // user/bookevent 
