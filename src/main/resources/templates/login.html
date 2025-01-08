@@ -6,79 +6,11 @@
     <title>Aaomile-Login</title>
 </head>
 <body>
-    <!-- <section id="content" class="vh-100 p-4  ">
-            <div class="container-fluid h-custom">
-              <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                    class="img-fluid" alt="Sample image">
-                </div>
-                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                  
-                  <form data-th-action="@{'/after_login'}" method="post">
-                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                      <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-                      <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-google"></i>
-                      </button>
-          
-                      <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-github"></i>
-                      </button>
-                    </div>
-          
-                    <div class="divider d-flex align-items-center my-4">
-                      <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                    </div>
-           
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      
-                      <label class="form-label" for="form3Example3">Email address</label>
-                      <input type="text" id="username" name="id" class="form-control form-control-lg"
-                      placeholder="Enter a valid email address"/>
-                    </div>
-          
-                    
-                    <div data-mdb-input-init class="form-outline mb-3">
-                      <label class="form-label" for="form3Example4">Password</label>
-                      <input type="password" id="form3Example4" name="password"  class="form-control form-control-lg"
-                        placeholder="Enter password"/>
-                    </div>
-          
-                    <div class="d-flex justify-content-between align-items-center">
-                      
-                      <div class="form-check mb-0">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                        <label class="form-check-label" for="form2Example3">
-                          Remember me
-                        </label>
-                      </div>
-                      <a href="signup" class="text-body">Forgot password?</a>
-                    </div>
-          
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                      <input type="submit" value="Login" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-lg"
-                      style="padding-left: 2.5rem; padding-right: 2.5rem;">
-
-                     
-
-                      <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="signup"
-                          class="link-danger">Register</a></p>
-                    </div>
-          
-                  </form>
-                </div>
-              </div>
-            </div>
-           
-              
-          
-              
-    </section> -->
-    <section id="content" class="p-3">
+   
+    <!-- <section id="content">
       <div class="container1 bg-prime shadow-sm">
         <div class="row">
-          <!-- Welcome Section -->
+          
           <div class="col-12 col-md-6">
             <div class="p-3">
               <h3 class="text-center">Welcome Back!</h3>
@@ -87,15 +19,15 @@
             </div>
           </div>
     
-          <!-- Login Form Section -->
+          
           <div class="col-12 col-md-6">
             <div class="p-3">
               <h2 class="text-center">Login</h2>
               <h3 class="fs-6 text-secondary text-center">Enter your credentials to log in</h3>
 
-              <!-- error -->
+       
             <div class="alert alert-danger" role="alert" th:if="${param.error}">Invalid username and password.</div>
-            <!-- logout -->
+     
           <div class="alert alert-success" role="alert" th:if="${param.logout}">You have been logged out.</div>
 
               <form data-th-action="@{'/authentication'}" method="post">
@@ -137,7 +69,57 @@
           </div>
         </div>
       </div>
+    </section> -->
+
+  <section id="content">
+    <section class=" dark:bg-gray-900">
+      <div class=" flex flex-col items-center justify-center px-6 py-4 mx-auto lg:py-1">
+          
+          <div class="w-full bg-gray-300 rounded-xl shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+              <div class="p-5 space-y-5 md:space-y-6 sm:p-8">
+                  <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                      Sign in to your account
+                  </h1>
+                  <form data-th-action="@{'/authentication'}" method="post" class="space-y-4 md:space-y-6">
+                      <div>
+                          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                          <input type="email" name="email" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-200 dark:focus:border-red-400" placeholder="name@company.com" required="">
+                      </div>
+                      <div>
+                          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white form-control">Password</label>
+                          <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                      </div>
+                      <div class="flex items-center justify-between">
+                          <div class="flex items-start">
+                              <div class="flex items-center h-5">
+                                <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" >
+                              </div>
+                              <div class="ml-3 text-sm">
+                                <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
+                              </div>
+                          </div>
+                          <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
+                      </div>
+                      <input type="submit" value="Login" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                      <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                          Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                      </p>
+                  </form>
+                  <hr>
+              <p class="text-center text-slate-50 ">Or log in with</p>
+              <div class="flex flex-col items-center justify-center ">
+                  <a data-th-href="@{'/oauth2/authorization/google'}" type="button" class="  text-white bg-[#f44242] hover:bg-[#d91c1c]/90 focus:ring-4 focus:outline-none focus:ring-[#f44242]/50 font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex     dark:focus:ring-[#d91c1c]/5 me-4 mb-4 ">
+                    <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                    <path fill-rule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clip-rule="evenodd"/>
+                    </svg>
+                    Sign in with Google
+                  </a>
+                </div>
+              </div>
+          </div>
+      </div>
     </section>
+  </section>
     
 </body>
 </html>

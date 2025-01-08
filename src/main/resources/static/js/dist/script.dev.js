@@ -9,6 +9,60 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 console.log("Script loaded");
+var currentTheme = getTheme(); //initial -->
+
+document.addEventListener("DOMContentLoaded", function () {
+  changeTheme();
+}); //TODO:
+
+function changeTheme() {
+  //set to web page
+  changePageTheme(currentTheme, ""); //set the listener to change theme button
+
+  var changeThemeButton = document.querySelector("#theme_change_button");
+  changeThemeButton.addEventListener("click", function (event) {
+    var oldTheme = currentTheme;
+    console.log("change theme button clicked");
+
+    if (currentTheme === "dark") {
+      //theme ko light
+      currentTheme = "light";
+    } else {
+      //theme ko dark
+      currentTheme = "dark";
+    }
+
+    console.log(currentTheme);
+    changePageTheme(currentTheme, oldTheme);
+  });
+} //set theme to localstorage
+
+
+function setTheme(theme) {
+  localStorage.setItem("theme", theme);
+} //get theme from localstorage
+
+
+function getTheme() {
+  var theme = localStorage.getItem("theme");
+  return theme ? theme : "light";
+} //change current page theme
+
+
+function changePageTheme(theme, oldTheme) {
+  //localstorage mein update karenge
+  setTheme(currentTheme); //remove the current theme
+
+  if (oldTheme) {
+    document.querySelector("html").classList.remove(oldTheme);
+  } //set the current theme
+
+
+  document.querySelector("html").classList.add(theme); // change the text of button
+
+  document.querySelector("#theme_change_button").querySelector("#Light").textContent = theme == "light" ? "" : "";
+}
+
 var events = [{
   "id": 1,
   "name": "Virtual Stand-Up Comedy Night",
@@ -257,7 +311,7 @@ function displayEvents(filteredEvents) {
   eventsContainer.innerHTML = ''; // Clear previous events
 
   filteredEvents.forEach(function (event) {
-    var eventCard = "\n    <div class=\"col-md-4\">\n      <div class=\"card\">\n        <img src=\"".concat(event.image, "\" alt=\"").concat(event.name, "\" class=\"card-img-top\">\n        <div class=\"card-body\">\n          <h5 class=\"card-title\">").concat(event.name, "</h5>\n          <p class=\"card-text\">Genre: ").concat(event.genre, "</p>\n          <p class=\"card-text price\">Price: ").concat(event.price == 0 ? 'Free' : event.price, "</p>\n          <p class=\"card-text\">Time: ").concat(event.time, "</p>\n          <p class=\"card-text\">Location: ").concat(event.location, "</p>\n          <div class=\"d-flex justify-content-center align-items-center\">\n            <a href=\"#\" class=\"btn btn-danger\">Book Now</a>\n          </div>\n        </div>\n      </div>\n    </div>\n    ");
+    var eventCard = "\n        <div class=\"flex flex-wrap justify-center gap-4\">\n    <!-- Event Card Template -->\n    <div class=\"event-card bg-white rounded-lg shadow-md overflow-hidden mb-4\">\n        <img src=\"".concat(event.image, "\" alt=\"").concat(event.name, "\" class=\"event-image w-full h-48 object-cover\">\n        <div class=\"event-details p-4\">\n            <h3 class=\"event-name text-xl font-bold text-gray-900\">").concat(event.name, "</h3>\n            <p class=\"event-price text-lg text-gray-700\">").concat(event.price, "</p>\n            <p class=\"event-time text-gray-600\">").concat(event.time, "</p>\n            <p class=\"event-location text-gray-600\">").concat(event.location, "</p>\n        </div>\n    </div>\n</div>\n    ");
     eventsContainer.innerHTML += eventCard;
   });
 } // Filter events by genre

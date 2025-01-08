@@ -6,216 +6,103 @@
     <title>Aaomile-Home Page</title>
 </head>
 <body >
-  <section id="content">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+  <section id="content"  class="bg-gray-100">
+<!-- Carousel animation on home page  -->
+<div id="animation-carousel" class="relative w-auto" data-carousel="static">
+  <!-- Carousel wrapper -->
+  <div class="relative h-56 overflow-hidden rounded-none md:h-96">
+       <!-- Item 1 -->
+      <div class="hidden duration-200 ease-linear" data-carousel-item>
+          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-
-      <!-- Image Sliders -->
-      <div class="carousel-inner">
-      <!-- Image one-->
-        <div class="carousel-item active">
-          <img src="/images/event/opt2.png" class="d-block w-100" alt="...">
-        </div>
-
-        <!-- image two -->
-        <div class="carousel-item">
-          <img src="https://user-images.githubusercontent.com/78242022/282697437-bb8d7140-128f-44e9-a11f-d0d5c8d29f87.png" class="d-block w-100" alt="...">
-        </div>
-
-        <!-- Image Three -->
-        <div class="carousel-item">
-          <img src="https://user-images.githubusercontent.com/78242022/273443248-130249b5-87b7-423d-9281-48d810bcd30d.jpg" class="d-block w-100" alt="...">
-        </div>
-
-        <!-- Image Four -->
-        <div class="carousel-item">
-          <img src="https://user-images.githubusercontent.com/78242022/273443251-9c210d6f-35ba-4861-885e-9b2e684ab339.jpg" class="d-block w-100" alt="...">
-        </div>
-
-        <!-- Image Five -->
-        <div class="carousel-item">
-          <img src="https://user-images.githubusercontent.com/78242022/282697428-7690f46f-5446-475a-be69-dbf5d8ccfacd.png" class="d-block w-100" alt="...">
-        </div>
+      <!-- Item 2 -->
+      <div class="hidden duration-200 ease-linear" data-carousel-item>
+          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-
-      <!-- Carousel Controls -->
-     <section>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-     </section>
-    </div>
-</section>
-
- <section id="content">
-  <div class="container mt-5">
-    <i></i>
-    <h2 class="text-uppercase ">Find New Experiences</h2>
-    <p>Explore. Discover. Make a Plan</p>
-    <div class="row">
-  
-      <!-- Comedy Card -->
-      <div  class="col-md-2 col-6">
-        <a href="Events?genre=comedy" class="text-white text-decoration-none">
-          <div class="experience-card bg-orange text-white">
-            <h5>Comedy</h5>
-          </div>
-        </a>
+      <!-- Item 3 -->
+      <div class="hidden duration-200 ease-linear" data-carousel-item="active">
+          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-    
-      <!-- Music Card -->
-      <div class="col-md-2 col-6">
-        <a href="Events?genre=music" class="text-white text-decoration-none">
-          <div class="experience-card bg-pink text-white">
-            <h5>Music</h5>
-          </div>
-        </a>
+      <!-- Item 4 -->
+      <div class="hidden duration-200 ease-linear" data-carousel-item>
+          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-  
-      <!-- Workshops Card -->
-      <div class="col-md-2 col-6">
-        <a href="Events?genre=workshops" class="text-white text-decoration-none">
-          <div class="experience-card bg-black text-white">
-            <h5>Workshops</h5>
-          </div>
-        </a>
+      <!-- Item 5 -->
+      <div class="hidden duration-200 ease-linear" data-carousel-item>
+          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-  
-      <!-- Courses Card -->
-      <div class="col-md-2 col-6">
-        <a href="Events?genre=courses" class="text-white text-decoration-none">
-          <div class="experience-card bg-teal text-white">
-            <h5>Courses</h5>
-          </div>
-        </a>
-      </div>
-  
-      <!-- Theatre & Art Card -->
-      <div class="col-md-2 col-6">
-        <a href="Events?genre=theatre-art" class="text-white text-decoration-none">
-          <div class="experience-card bg-light-blue text-white">
-            <h5>Theatre & Art</h5>
-          </div>
-        </a>
-      </div>
-  
-      <!-- Pocket Friendly Card -->
-      <div class="col-md-2 col-6">
-        <a href="Events?genre=kids-&-art" class="text-white text-decoration-none">
-          <div class="experience-card bg-light-green text-white">
-            <h5>kids & arts</h5>
-          </div>
-        </a>
-      </div>
-  
-    </div>
   </div>
- </section>
-
-
- 
-  
-
-
-  <section id="content">
-    <div class="container mt-5">
-      <h2 class="text-uppercase">Featured Events</h2>
-    
-      <!-- Carousel Start -->
-      <div id="featuredEventsCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="row">
-              <!-- Card 1 -->
-              <div class="col-md-3">
-                <div class="card event-card">
-                  <div class="badge-category">Health & Wellness</div>
-                  <img src="https://via.placeholder.com/300x400" class="card-img-top" alt="Find your Ikigai">
-                  <div class="card-body">
-                    <h5 class="card-title">Find your Ikigai (Access it Anytime, Anywhere)</h5>
-                    <p><i class="bi bi-calendar-event"></i> July 4 | 1:31PM - July 4 | 1:31PM</p>
-                    <p><i class="bi bi-play-circle"></i> Watch On Insider</p>
-                    <p class="price">₹399</p>
-                    <a href="/book" class="btn btn-danger">Book Now</a>
-                  </div>
-                </div>
+  <!-- Slider controls -->
+  <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+          </svg>
+          <span class="sr-only">Previous</span>
+      </span>
+  </button>
+  <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          </svg>
+          <span class="sr-only">Next</span>
+      </span>
+  </button>
+</div>
+<!-- End of Carousel animation on home page  -->
+<!-- Events Section -->
+</section>
+<section id="content" class="bg-gray-100 py-10">
+  <div class="container mx-auto px-4">
+      <i></i>
+      <h2 class="text-uppercase text-center text-2xl font-bold mb-4">Find New Experiences</h2>
+      <p class="text-center text-gray-600 mb-8">Explore. Discover. Make a Plan</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <!-- Comedy Card -->
+          <a href="Events?genre=comedy" class="text-white text-decoration-none block">
+              <div class="experience-card bg-orange text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+                  <h5 class="text-lg font-bold">Comedy</h5>
               </div>
-              <!-- Card 2 -->
-              <div class="col-md-3">
-                <div class="card event-card">
-                  <div class="badge-category">Theatre</div>
-                  <img src="https://via.placeholder.com/300x400" class="card-img-top" alt="Tughlaq">
-                  <div class="card-body">
-                    <h5 class="card-title">Tughlaq - A Rehearsed Reading</h5>
-                    <p><i class="bi bi-calendar-event"></i> Video on Demand</p>
-                    <p><i class="bi bi-play-circle"></i> Watch On Insider</p>
-                    <p class="price">₹149</p>
-                    <a href="/book" class="btn btn-danger">Book Now</a>
-                  </div>
-                </div>
+          </a>
+          
+          <!-- Music Card -->
+          <a href="Events?genre=music" class="text-white text-decoration-none block">
+              <div class="experience-card bg-pink text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+                  <h5 class="text-lg font-bold">Music</h5>
               </div>
-              <!-- Card 3 -->
-              <div class="col-md-3">
-                <div class="card event-card">
-                  <div class="badge-category">Courses</div>
-                  <img src="https://via.placeholder.com/300x400" class="card-img-top" alt="Wine 101">
-                  <div class="card-body">
-                    <h5 class="card-title">Wine 101 by Gargi Kothari</h5>
-                    <p><i class="bi bi-calendar-event"></i> Video on Demand</p>
-                    <p><i class="bi bi-play-circle"></i> Watch On Insider</p>
-                    <p class="price">₹1500</p>
-                    <a href="/book" class="btn btn-danger">Book Now</a>
-                  </div>
-                </div>
+          </a>
+          
+          <!-- Workshops Card -->
+          <a href="Events?genre=workshops" class="text-white text-decoration-none block">
+              <div class="experience-card bg-black text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+                  <h5 class="text-lg font-bold">Workshops</h5>
               </div>
-              <!-- Card 4 -->
-              <div class="col-md-3">
-                <div class="card event-card">
-                  <div class="badge-category">Workshops</div>
-                  <img src="https://via.placeholder.com/300x400" class="card-img-top" alt="Terence Lewis Dance">
-                  <div class="card-body">
-                    <h5 class="card-title">Terence Lewis Dance - Contemporary Tutorials</h5>
-                    <p><i class="bi bi-calendar-event"></i> Video on Demand</p>
-                    <p><i class="bi bi-play-circle"></i> Watch On Insider</p>
-                    <p class="price">₹700</p>
-                    <a href="/book" class="btn btn-danger">Book Now</a>
-                  </div>
-                </div>
+          </a>
+          
+          <!-- Courses Card -->
+          <a href="Events?genre=courses" class="text-white text-decoration-none block">
+              <div class="experience-card bg-teal text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+                  <h5 class="text-lg font-bold">Courses</h5>
               </div>
-            </div>
-          </div>
-    
-          <!-- Additional slides can be added here with more cards -->
-    
-        </div>
-    
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#featuredEventsCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#featuredEventsCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+          </a>
+          
+          <!-- Theatre & Art Card -->
+          <a href="Events?genre=theatre-art" class="text-white text-decoration-none block">
+              <div class="experience-card bg-light-blue text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+                  <h5 class="text-lg font-bold">Theatre & Art</h5>
+              </div>
+          </a>
+          
+          <!-- Pocket Friendly Card -->
+          <a href="Events?genre=kids-&-art" class="text-white text-decoration-none block">
+              <div class="experience-card bg-light-green text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
+                  <h5 class="text-lg font-bold">Kids & Arts</h5>
+              </div>
+          </a>
       </div>
-      <!-- Carousel End -->
-    </div>
-    
-  </section>
+  </div>
+</section>
  
 </body>
 </html> 
