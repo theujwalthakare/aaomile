@@ -95,6 +95,7 @@
 
               <!-- error -->
             <div class="alert alert-danger" role="alert" th:if="${param.error}">Invalid username and password.</div>
+            <!-- logout -->
             <div class="alert alert-success" role="alert" th:if="${param.logout}">You have been logged out.</div>
 
               <form data-th-action="@{'/authentication'}" method="post">
