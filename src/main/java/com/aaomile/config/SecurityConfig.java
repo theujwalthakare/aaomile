@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -50,6 +51,7 @@ public class SecurityConfig {
 
         //default login form.. if neended to change any thing related to login form refer below.
         // httpSecurity.formLogin(Customizer.withDefaults());
+
         //also can change the spring security login form with personalized.
         httpSecurity.formLogin(formLogin -> {
             formLogin.loginPage("/login");
@@ -59,20 +61,22 @@ public class SecurityConfig {
             formLogin.passwordParameter("password");
         });
 
+
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
         httpSecurity.logout(logoutForm -> {
             logoutForm.logoutUrl("/logout");
             logoutForm.logoutSuccessUrl("/login?logout=true");
         });
 
-        //oauth configuration
+
+        //for default oauth2 login option
+        // httpSecurity.oauth2Login(Customizer.withDefaults());
+
+        // customized oauth2 configuration
         httpSecurity.oauth2Login(oauth->{
             oauth.loginPage("/login");
+            oauth.defaultSuccessUrl("/user/after_login");
         });
-
-
-
-        
         return httpSecurity.build();
 
     }
