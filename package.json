@@ -1,5 +1,18 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.3"
-  }
+  },
+  "name": "aaomile",
+  "version": "1.0.0",
+  "description": "This is a web application designed for users to discover, create, and attend local events. It allows users to view events, register, and book tickets, with functionality similar to Meetup or the event section of BookMyShow. The application includes user login/registration, event creation, and a ticket generation feature.",
+  "main": "index.js",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

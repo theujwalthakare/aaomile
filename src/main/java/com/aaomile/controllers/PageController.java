@@ -39,11 +39,7 @@ public class PageController {
     public String login(Model model) {
         return "login";
     }
-    
-    @RequestMapping("/Shows")
-    public String Shows(Model model) {
-        return "Shows";
-    }
+ 
     @RequestMapping("/Events")
     public String Events(Model model) {
         return "Events";
