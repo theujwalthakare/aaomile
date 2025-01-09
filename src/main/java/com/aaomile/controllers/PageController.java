@@ -44,7 +44,10 @@ public class PageController {
     public String Events(Model model) {
         return "Events";
     }
-
+    @RequestMapping("/forgotpass")
+    public String forgotpass(Model model) {
+        return "forgotpass";
+    }
 
     // @RequestMapping("/book")
     // public String book(Model model) {
