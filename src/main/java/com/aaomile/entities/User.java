@@ -3,7 +3,6 @@ package com.aaomile.entities;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +29,8 @@ public class User implements UserDetails {
 
     private String lastName;
 
+    private String fullName;
+
     private String email;
 
     private String password;
@@ -37,6 +38,12 @@ public class User implements UserDetails {
     private String phone;
 
     private String gender;
+
+    private String profilePic;
+
+    private boolean emailVerified = false;
+    
+    private boolean phoneVerified = false;
 
 
     // @ElementCollection(fetch = FetchType.EAGER)
