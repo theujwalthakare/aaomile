@@ -10,6 +10,13 @@
       <h1>This is after login page</h1>
         <p>thidv heading section </p>
         <a href="/logout"> LOGOUT </a>
+            <p th:text="${loggedInUser.fullName}"></p>
+            <p th:text="${loggedInUser.email}"></p>
+
+            <div th:if="${loggedInUser}"> 
+                <p> Hi this is</p> <p th:text="${loggedInUser.fullName}"></p>
+                <p> My Email is </p><p th:text="${loggedInUser.email}"></p>
+            </div>
     </section>
 </body>
 </html>
