@@ -1,6 +1,5 @@
 package com.aaomile.service.impl;
 
-import java.util.List;
 
 // import java.util.Optional;
 
@@ -9,10 +8,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.aaomile.entities.User;
-import com.aaomile.helper.AppConstansts;
 import com.aaomile.repository.UserRepo;
 import com.aaomile.service.UserService;
-import com.aaomile.helper.ResourceNotFoundException;
 
 @Service
 public class UserServiceImpl implements UserService {
