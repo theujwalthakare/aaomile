@@ -12,7 +12,7 @@ import com.aaomile.entities.User;
 import com.aaomile.helper.AppConstansts;
 import com.aaomile.repository.UserRepo;
 import com.aaomile.service.UserService;
-
+import com.aaomile.helper.ResourceNotFoundException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -38,6 +38,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean existsByEmailAndPassword(String email, String password) {
         return userRepo.existsByEmailAndPassword(email, password);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+
+        return userRepo.findByEmail(email).orElse(null);
     }
 
 }
