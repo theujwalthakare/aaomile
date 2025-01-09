@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 @Controller
-@RequestMapping("/")
+// @RequestMapping("/")
 public class PageController {
     
     @RequestMapping("/")
