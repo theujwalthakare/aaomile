@@ -1,9 +1,19 @@
 package com.aaomile.entities;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -41,20 +51,29 @@ public class User implements UserDetails {
 
     private String profilePic;
 
+    private String provider;
+    
+    // @Enumerated(value = EnumType.STRING)
+    // // SELF, GOOGLE, FACEBOOK, TWITTER, LINKEDIN, GITHUB
+    // private Providers provider = Providers.SELF;
+
     private boolean emailVerified = false;
     
     private boolean phoneVerified = false;
 
 
-    // @ElementCollection(fetch = FetchType.EAGER)
-    // private List<String> roleList = new ArrayList<>();
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roleList = new ArrayList<>();
     
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-        // Collection<SimpleGrantedAuthority> roles = roleList.stream().map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
-        // return roles;
+        // list of roles[USER,ADMIN]
+        // Collection of SimpGrantedAuthority[roles{ADMIN,USER}]
+        Collection<SimpleGrantedAuthority> roles = roleList.stream().map(role -> new SimpleGrantedAuthority(role))
+                .collect(Collectors.toList());
+        return roles;
     }
+
 
     //for project username is email
     @Override
