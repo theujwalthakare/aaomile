@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{base ::parent(~{::#content},~{::title} )}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" 
+th:replace="~{base ::parent(~{::#content},~{::title} )}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,6 @@
 </head>
 <body>
     <section id="content">
-      <h1>This is after login page</h1>
-        <p>thidv heading section </p>
-        <a href="/logout"> LOGOUT </a>
-        <a href="/logout" class="text-white bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-[#EA4335]/50 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:focus:ring-[#EA4335]/55 me-2 mb-2"> LOGOUT </a>
-        <p th:text="${loggedInUser.fullName}"></p>
-        <p th:text="${loggedInUser.email}"></p>
-
-        <div th:if="${loggedInUser}"> 
-            <p> Hi this is</p> <p th:text="${loggedInUser.fullName}"></p>
-            <p> My Email is </p><p th:text="${loggedInUser.email}"></p>
-            <p>Profile pic <img th:src="${loggedInUser.profilePic}"></p>
-        </div>
     </section>
 </body>
 </html>

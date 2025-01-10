@@ -34,7 +34,15 @@ public class UserController {
     public String book(Model model) {
         return "user/book";
     }
+    @RequestMapping("/dashboard")
+    public String dashboard(Model model) {
+        return "user/dashboard";
+    }
 
+    @RequestMapping("/eventFormApplication")
+    public String eventFormApplication(Model model) {
+        return "user/eventFormApplication";
+    }
     // @RequestMapping("/book")
     // public String book(Model model) {
     //     return "user/book";

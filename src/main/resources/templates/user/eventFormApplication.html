@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base ::parent(~{::#content},~{::title} )}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaomile-About Page</title>
+</head>
+<body>
+    <section id="content" class=" py-10 mx-auto max-w-screen-xl p-4 mt-10 pt-36">
+        
+        
+<div class="container mx-auto p-8 max-w-screen-lg ">
+    <h1 class="text-3xl font-bold mb-6">Create Your Event</h1>
+
+    <form method="post" action="/events/create">
+        <!-- Basic Event Information -->
+        <h2 class="text-2xl  font-bold mb-4">Basic Event Information</h2>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Event Name</label>
+            <input type="text" name="EventName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Description</label>
+            <textarea name="description" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"></textarea>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Genre</label>
+            <select name="genre" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                <option value="">Select a Genre</option>
+                <option value="music">Music</option>
+                <option value="art">Art</option>
+                <option value="workshop">Workshop</option>
+                <option value="theatre">Theatre</option>
+                <option value="play">Play</option>
+                <!-- hackathon -->
+                <option value="hackathon">Hackathon</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Event Type</label>
+            <div class="flex items-center space-x-4">
+                <label class="inline-flex items-center">
+                    <input type="radio" name="type" value="in-person" class="form-radio" required>
+                    <span class="ml-2">In-Person</span>
+                </label>
+                <label class="inline-flex items-center">
+                    <input type="radio" name="type" value="virtual" class="form-radio" required>
+                    <span class="ml-2">Virtual</span>
+                </label>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Event Image</label>
+            <input type="file" name="image" class="mt-1  rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
+        </div>
+
+        <!-- Date & Time -->
+        <h2 class="text-2xl font-bold mb-4">Date & Time</h2>
+        <div id="date-range-picker" date-rangepicker class="flex items-center">
+            <div class="relative">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                   <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                  </svg>
+              </div>
+              <input id="datepicker-range-start" name="start" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date start">
+            </div>
+            <span class="mx-4 text-gray-500">to</span>
+            <div class="relative">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                   <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                  </svg>
+              </div>
+              <input id="datepicker-range-end" name="end" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date end">
+          </div>
+          </div>
+
+        <!-- Location Information -->
+        <h2 class="text-2xl font-bold pt-10 mb-4">Location Information</h2>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Venue Name</label>
+            <input type="text" name="venue" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Address</label>
+            <input type="text" name="Eventaddress" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="mb-4">
+                <label class="block text-sm font-medium">City</label>
+                <input type="text" name="city" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">State/Province</label>
+                <input type="text" name="state" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Postal Code</label>
+            <input type="text" name="postalCode" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+
+        <!-- Ticketing Options -->
+        <h2 class="text-2xl font-bold pt-10 mb-4">Ticketing Options</h2>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Ticket Type</label>
+            <select name="ticketType" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                <option value="free">Free</option>
+                <option value="paid">Paid</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Ticket Price (if paid)</label>
+            <input type="number" name="ticketPrice" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Total Tickets</label>
+            <input type="number" name="totalTickets" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+
+        <!-- Submit Button -->
+    <div class="flex justify-center ">
+        <input type="submit" value="Create Event" id="myButton" class="bg-red-500 text-center cursor-pointer justify-center text-white px-6 py-2 rounded">
+    </div>
+    </form>
+</div>
+    </section>
+</body>
+</html>
