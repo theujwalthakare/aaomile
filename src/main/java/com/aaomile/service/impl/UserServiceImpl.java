@@ -1,6 +1,5 @@
 package com.aaomile.service.impl;
 
-import java.util.List;
 
 // import java.util.Optional;
 
@@ -9,10 +8,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.aaomile.entities.User;
-import com.aaomile.helper.AppConstansts;
 import com.aaomile.repository.UserRepo;
 import com.aaomile.service.UserService;
-
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -39,5 +36,11 @@ public class UserServiceImpl implements UserService {
     public boolean existsByEmailAndPassword(String email, String password) {
         return userRepo.existsByEmailAndPassword(email, password);
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepo.findByEmail(email).orElse(null);
+    }
+
 
 }

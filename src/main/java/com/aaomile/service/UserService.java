@@ -11,5 +11,7 @@ public interface UserService {
     User createUser(User user); //to insert vales in user table
 
     boolean existsByEmailAndPassword(String email, String password);  // to check the email and password for login
+    
+    User getUserByEmail(String email);
 
 }

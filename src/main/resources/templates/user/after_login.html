@@ -9,7 +9,16 @@
     <section id="content">
       <h1>This is after login page</h1>
         <p>thidv heading section </p>
-        <a href="/logout"> LOGOUT </a>
-    </section>
+        <a href="/logout" class="text-white bg-red-700 hover:bg-red-800  focus:ring-4 focus:outline-none focus:ring-[#EA4335]/50 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:focus:ring-[#EA4335]/55 me-2 mb-2"> LOGOUT </a>
+            <p th:text="${loggedInUser.fullName}"></p>
+            <p th:text="${loggedInUser.email}"></p>
+
+            <div th:if="${loggedInUser}"> 
+                <p> Hi this is</p> <p th:text="${loggedInUser.fullName}"></p>
+                <p> My Email is </p><p th:text="${loggedInUser.email}"></p>
+                <img class="w-10 h-10 rounded-full" th:src="${loggedInUser.profilePic}" alt="Rounded avatar">
+                <!-- <img thsrc="" alt="default"> -->
+            </div>
+        </section>
 </body>
 </html>

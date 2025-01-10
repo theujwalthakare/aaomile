@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 // import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 // import com.aaomile.entities.Login;
 import com.aaomile.entities.User;
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 @Controller
-// @RequestMapping("/")
+@RequestMapping("/")
 public class PageController {
     
     @RequestMapping("/")
@@ -34,7 +33,7 @@ public class PageController {
     public String contact(Model model) {
         return "navbar";
     }
-    
+    // to give login view
     @RequestMapping("/login")
     public String login(Model model) {
         return "login";
@@ -99,7 +98,7 @@ public class PageController {
     
     @Autowired
     private UserService userService;
-    
+    // to give registration view
     @RequestMapping("/signup")
     public String sigup(Model model) {
         UserReg userReg = new UserReg();
@@ -107,6 +106,7 @@ public class PageController {
         return "signup";
     }
 
+    // process registration
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String signup(@ModelAttribute UserReg userReg) {
 
@@ -115,7 +115,10 @@ public class PageController {
         .lastName(userReg.getLastName())
         .email(userReg.getEmail())
         .password(userReg.getPassword())
+        .provider("SELF")
+        .profilePic("/images/blank.jpg") // change link incase of default image change
         .build();
+
 
         userService.createUser(user);
 
