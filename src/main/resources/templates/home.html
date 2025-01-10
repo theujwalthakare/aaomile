@@ -6,103 +6,15 @@
     <title>Aaomile-Home Page</title>
 </head>
 <body >
-  <section id="content"  class="bg-gray-100">
-<!-- Carousel animation on home page  -->
-<div id="animation-carousel" class="relative w-auto" data-carousel="static">
-  <!-- Carousel wrapper -->
-  <div class="relative h-56 overflow-hidden rounded-none md:h-96">
-       <!-- Item 1 -->
-      <div class="hidden duration-200 ease-linear" data-carousel-item>
-          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-      <!-- Item 2 -->
-      <div class="hidden duration-200 ease-linear" data-carousel-item>
-          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-      <!-- Item 3 -->
-      <div class="hidden duration-200 ease-linear" data-carousel-item="active">
-          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-      <!-- Item 4 -->
-      <div class="hidden duration-200 ease-linear" data-carousel-item>
-          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-      <!-- Item 5 -->
-      <div class="hidden duration-200 ease-linear" data-carousel-item>
-          <img th:src="@{'/images/event/opt2.png'}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-  </div>
-  <!-- Slider controls -->
-  <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-          </svg>
-          <span class="sr-only">Previous</span>
-      </span>
-  </button>
-  <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-          </svg>
-          <span class="sr-only">Next</span>
-      </span>
-  </button>
-</div>
-<!-- End of Carousel animation on home page  -->
-<!-- Events Section -->
+
+
+<section id="content" class=" py-10 mx-auto max-w-screen-xl p-4 mt-10">
+    <h1 class="mb-4  text-center font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"></span> <span>Where</span> <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Creativity</span> Meets Community!</h1>
+    <p class="text-xl text-gray-700 mt-5 mx-auto italic font-semibold text-center w-9/12">Welcome to Aaomile — your go-to platform for discovering exciting events and experiences happening around you! Whether it's a concert, art exhibition, workshop, or festival, we make it easy for you to find and book your favorite events in just a few clicks.</p>
 </section>
-<section id="content" class="bg-gray-100 py-10">
-  <div class="container mx-auto px-4">
-      <i></i>
-      <h2 class="text-uppercase text-center text-2xl font-bold mb-4">Find New Experiences</h2>
-      <p class="text-center text-gray-600 mb-8">Explore. Discover. Make a Plan</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <!-- Comedy Card -->
-          <a href="Events?genre=comedy" class="text-white text-decoration-none block">
-              <div class="experience-card bg-orange text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
-                  <h5 class="text-lg font-bold">Comedy</h5>
-              </div>
-          </a>
-          
-          <!-- Music Card -->
-          <a href="Events?genre=music" class="text-white text-decoration-none block">
-              <div class="experience-card bg-pink text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
-                  <h5 class="text-lg font-bold">Music</h5>
-              </div>
-          </a>
-          
-          <!-- Workshops Card -->
-          <a href="Events?genre=workshops" class="text-white text-decoration-none block">
-              <div class="experience-card bg-black text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
-                  <h5 class="text-lg font-bold">Workshops</h5>
-              </div>
-          </a>
-          
-          <!-- Courses Card -->
-          <a href="Events?genre=courses" class="text-white text-decoration-none block">
-              <div class="experience-card bg-teal text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
-                  <h5 class="text-lg font-bold">Courses</h5>
-              </div>
-          </a>
-          
-          <!-- Theatre & Art Card -->
-          <a href="Events?genre=theatre-art" class="text-white text-decoration-none block">
-              <div class="experience-card bg-light-blue text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
-                  <h5 class="text-lg font-bold">Theatre & Art</h5>
-              </div>
-          </a>
-          
-          <!-- Pocket Friendly Card -->
-          <a href="Events?genre=kids-&-art" class="text-white text-decoration-none block">
-              <div class="experience-card bg-light-green text-white p-4 rounded-lg shadow-md h-full flex flex-col justify-between">
-                  <h5 class="text-lg font-bold">Kids & Arts</h5>
-              </div>
-          </a>
-      </div>
-  </div>
+<section class="max-w-screen-xl" id="content">
+
 </section>
  
 </body>
-</html> 
+</html>  
