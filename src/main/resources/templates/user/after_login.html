@@ -16,8 +16,9 @@
             <div th:if="${loggedInUser}"> 
                 <p> Hi this is</p> <p th:text="${loggedInUser.fullName}"></p>
                 <p> My Email is </p><p th:text="${loggedInUser.email}"></p>
-                <p>Profile pic <img th:src="${loggedInUser.profilePic}"></p>
+                <img class="w-10 h-10 rounded-full" th:src="${loggedInUser.profilePic}" alt="Rounded avatar">
+                <!-- <img thsrc="" alt="default"> -->
             </div>
-    </section>
+        </section>
 </body>
 </html>

@@ -116,7 +116,9 @@ public class PageController {
         .email(userReg.getEmail())
         .password(userReg.getPassword())
         .provider("SELF")
+        .profilePic("/images/blank.jpg") // change link incase of default image change
         .build();
+
 
         userService.createUser(user);
 
