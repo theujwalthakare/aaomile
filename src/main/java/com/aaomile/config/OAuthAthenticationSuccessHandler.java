@@ -12,7 +12,6 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import com.aaomile.entities.User;
-import com.aaomile.entities.Providers;
 import com.aaomile.repository.UserRepo;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

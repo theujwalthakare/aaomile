@@ -34,6 +34,7 @@ public class RootController {
         System.out.println(user);
         System.out.println(user.getFullName());
         System.out.println(user.getEmail());
+        System.out.println(user.getProfilePic());
         model.addAttribute("loggedInUser", user);
     }
 
