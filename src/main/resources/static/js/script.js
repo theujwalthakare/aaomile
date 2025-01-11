@@ -94,4 +94,12 @@ setTimeout(function() {
       toast.style.display = 'none';
     }, 500); // Wait for the transition to finish
   }
-}, 2000);
+}, 1000);
+
+const dropdown = FlowbiteInstances.getInstance('Dropdown', 'dropdownTimepicker');
+const $saveTimeButton = document.getElementById('saveTimeButton');
+
+$saveTimeButton.addEventListener('click', function() {
+    // save time code and then hide the dropdown
+    dropdown.hide();
+});
