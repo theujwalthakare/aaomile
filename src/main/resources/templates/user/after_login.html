@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" 
 th:replace="~{base ::parent(~{::#content},~{::title} )}" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,8 @@ th:replace="~{base ::parent(~{::#content},~{::title} )}" xmlns:th="http://www.th
 </head>
 <body>
     <section id="content">
+        <h1>Profile page</h1>
     </section>
+    <div data-th-replace="~{about::about}"></div>
 </body>
 </html>
