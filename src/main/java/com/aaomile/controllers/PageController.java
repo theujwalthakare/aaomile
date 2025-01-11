@@ -113,6 +113,7 @@ public class PageController {
         User user = User.builder()
         .firstName(userReg.getFirstName())
         .lastName(userReg.getLastName())
+        .fullName(userReg.getFirstName()+" "+userReg.getLastName())
         .email(userReg.getEmail())
         .password(userReg.getPassword())
         .provider("SELF")

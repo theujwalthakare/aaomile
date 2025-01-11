@@ -80,7 +80,7 @@ function startLoading() {
     // Redirect after another 2 seconds
     setTimeout(function() {
       // Redirect to the next HTML page (change the URL to your target HTML file)
-      window.open("/user/eventFormApplication","_blank");  // Replace with the actual file name or URL
+      window.open("/user/event/create","_blank");  // Replace with the actual file name or URL
     }, 1000); // 2-second delay before redirection
   }, 2000); // 3-second delay for loading
 }
