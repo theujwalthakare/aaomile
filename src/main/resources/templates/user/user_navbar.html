@@ -118,7 +118,7 @@
 
       <div class="flex items-center gap-2 rtl:space-x-reverse">
         <a href="/user/CreateEvent"
-          class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2  text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-5 focus:outline-none focus:ring-pink-100 dark:focus:ring-pink-800">
+          class="relative  inline-flex  items-center justify-center p-0.5 mb-2 me-2  text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-5 focus:outline-none focus:ring-pink-100 dark:focus:ring-pink-800">
           <span
             class="relative px-4 py-2 transition-all ease-in duration-0 bg-white dark:bg-gray-900 rounded-full group-hover:bg-opacity-0">
             List Your Event
@@ -126,12 +126,13 @@
         </a>
 
 
-        <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+        <div class=" hidden md:flex w-full  md:w-auto"  >
           <div class="flex flex-col items-start w-full md:flex-row md:space-x-4 md:items-center">
             <button id="theme_change_button" class="bg-gray-200 px-3 py-2 mr-2  mb-2 rounded-full dark:bg-gray-500">
               <i class="fa-solid fa-circle-half-stroke" id="Light"></i>
             </button>
-
+        </div>
+      </div>
 
             <!-- Login  -->
 
@@ -141,12 +142,12 @@
 
 
 
-            <div class="flex items-center gap-4" type="button" data-drawer-target="drawer-right-example"
+            <div class="flex  items-center gap-4" type="button" data-drawer-target="drawer-right-example"
               data-drawer-show="drawer-right-example" data-drawer-placement="right"
               aria-controls="drawer-right-example">
               <img class="w-10 h-10 mb-1.5 rounded-full" th:src="${loggedInUser.profilePic}" alt="">
               <div class="font-medium dark:text-white">
-                <div><p class="underline pb-2" data-th-text="${loggedInUser.fullName}"></p></div>
+                <div class="hidden"><p class="underline pb-2" data-th-text="${loggedInUser.fullName}"></p></div>
               </div>
             </div>
 
@@ -171,7 +172,7 @@
                   
                   <li class="p-9">  
                     <div class="flex-row me-2">
-                    <a href="#"
+                    <a href="/user/dashboard"
                       class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                       
                       <svg
@@ -241,18 +242,7 @@
                       <span class="flex-1 ms-3 whitespace-nowrap">Bookings</span>
                     </a>
                   </li>
-                  <li>
-                    <a href="#"
-                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                      <svg
-                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
-                      </svg>
-                      <span class="flex-1 ms-3 whitespace-nowrap">Sign out</span>
-                    </a>
-                  </li>
+                 
                   <li>
                     <a href="#"
                       class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -268,17 +258,43 @@
                       <span class="flex-1 ms-3 whitespace-nowrap">Terms & Conditions</span>
                     </a>
                   </li>
+                  <!-- <li class="pb-0 ">
+                    <a href="#"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <svg
+                        class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+                      </svg>
+                      <span class="flex-1 ms-3 whitespace-nowrap">Sign out</span>
+                    </a>
+                  </li> -->
                 </ul>
+              </div>
+              <div>
+                <!-- add signout button at botom of the drower -->
+                 <a th:href="@{'/logout'}" type="button"
+                  class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                  <svg
+                    class="flex-shrink-0 w-5 h-full text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 16">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+                  </svg>
+                  <span class=" ms-3 justify-end whitespace-nowrap">Sign out</span>
+
+                </a>
               </div>
             </div>
 
 
           </div>
-        </div>
+        
       </div>
     </div>
   </div>
-  <div class="bg-gray-400 dark:bg-gray-600">
+  <div class="bg-gray-300 dark:bg-gray-600">
     <div class="max-w-screen-xl px-4 py-3 mx-auto">
       <div class="flex items-center">
         <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
