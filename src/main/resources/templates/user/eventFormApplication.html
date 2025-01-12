@@ -9,6 +9,382 @@
 
 <body>
     <section id="content" class=" py-10 mx-auto max-w-screen-xl p-4 mt-10 pt-38">
+              
+<div class=" bg-gray-600 fon mx-auto p-8 max-w-screen-md rounded-lg text-gray-950">
+    <h1 class="text-3xl font-bold mb-6">Create Your Event</h1>
+
+    <!-- form start  -->
+    <form 
+    data-th-action="@{'/user/event/create'}" 
+    data-th-object="${eventForm}" 
+    method="post">
+        <!-- Basic Event Information -->
+        <h2 class="text-2xl  font-bold mb-4">Basic Event Information</h2>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Event Name</label>
+            <input data-th-field="*{eventName}" type="text" name="EventName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Description</label>
+            <textarea data-th-field="*{eventDiscription}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"></textarea>
+        </div>
+        <!-- genre info -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Genre</label>
+            <select name="genre" data-th-field="*{eventGenre}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                <option value="None">Select a Genre</option>
+                <option value="music">Music</option>
+                <option value="art">Art</option>
+                <option value="workshop">Workshop</option>
+                <option value="theatre">Theatre</option>
+                <option value="play">Play</option>
+                <option value="hackathon">Hackathon</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Event Type</label>
+            <div class="flex items-center space-x-4">
+                <label class="inline-flex items-center">
+                    <input type="radio" name="type" data-th-field="*{eventType}" value="in-person" class="form-radio" required>
+                    <span class="ml-2">In-Person</span>
+                </label>
+                <label class="inline-flex items-center">
+                    <input type="radio" name="type" data-th-field="*{eventType}" value="virtual" class="form-radio" required>
+                    <span class="ml-2">Virtual</span>
+                </label>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Event Image</label>
+            <input type="file"  name="image" class="mt-1  rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
+        </div>
+
+        <!-- Date & Time & Event Duration -->
+        <h2 class="text-2xl font-bold mb-4">Date & Time</h2>
+        <div  class="flex items-center">
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    </svg>
+                </div>
+                <input datepicker id="datepicker-range-start" date data-th-field="*{eventDate}" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date start">
+            </div>
+            <!-- time picker -->
+            <div class="relative">
+                <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <input type="time" data-th-field="*{eventTime}" id="time" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-2" required/>
+            </div>
+        </div>
+
+        <!-- Location Information -->
+        <h2 class="text-2xl font-bold pt-10 mb-4">Location Information</h2>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Venue Name</label>
+            <input type="text" data-th-field="*{eventVenue}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Address</label>
+            <input type="text" data-th-field="*{eventAddress}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="mb-4">
+                <label class="block text-sm font-medium">City</label>
+                <input type="text" data-th-field="*{eventCity}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">State/Province</label>
+                <input type="text" data-th-field="*{eventState}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Postal Code</label>
+            <input type="text" data-th-field="*{eventPincode}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+
+        <!-- Ticketing Options -->
+        <h2 class="text-2xl font-bold pt-10 mb-4">Ticketing Options</h2>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Ticket Type</label>
+            <select data-th-field="*{ticketType}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                <option value="free">Free</option>
+                <option value="paid">Paid</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Ticket Price (if paid)</label>
+            <input type="number" data-th-field="*{ticketPrice}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+            <label class="block text-sm font-medium">Total Tickets</label>
+            <input type="number" data-th-field="*{seates}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+
+        <!-- Submit Button -->
+    <div class="flex justify-center ">
+        <input type="submit" value="Submit" id="myButton" class="bg-red-500 text-center cursor-pointer translate-x-52 link-offset-3-hover justify-center text-white px-6 py-2 rounded">
+    </div>
+    </form>
+</div>
+        <!-- drawer component -->
+        <div id="drawer-right-example"
+        class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
+        tabindex="-1" aria-labelledby="drawer-right-label">
+        <h5 id="drawer-right-label"
+            class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
+            class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            viewBox="0 0 20 20">
+            <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          </svg>Right drawer</h5>
+        <button type="button" data-drawer-hide="drawer-right-example" aria-controls="drawer-right-example"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+          </svg>
+          <span class="sr-only">Close menu</span>
+        </button>
+        <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">Supercharge your hiring by taking advantage of
+          our <a href="#"
+            class="text-blue-600 underline font-medium dark:text-blue-500 hover:no-underline">limited-time
+            sale</a> for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1
+          design job board.</p>
+        <div class="grid grid-cols-2 gap-4">
+          <a href="#"
+            class="px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Learn
+            more</a>
+          <a href="#"
+            class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Get
+            access <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg></a>
+        </div>
+      </div>
+
+
+
+        <div class=" bg-gray-600 fon mx-auto p-8 max-w-screen-md rounded-lg text-gray-950">
+            <h1 class="text-3xl font-bold mb-6">Create Your Event</h1>
+
+            <form class="" method="post" action="/events/create">
+                <!-- Basic Event Information -->
+                <h2 class="text-2xl  font-bold mb-4">Basic Event Information</h2>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Event Name</label>
+                    <input type="text" name="EventName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Description</label>
+                    <textarea name="description"
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Genre</label>
+                    <select name="genre" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                        <option value="">Select a Genre</option>
+                        <option value="music">Music</option>
+                        <option value="art">Art</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="theatre">Theatre</option>
+                        <option value="play">Play</option>
+                        <!-- hackathon -->
+                        <option value="hackathon">Hackathon</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Event Type</label>
+                    <div class="flex items-center space-x-4">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="type" value="in-person" class="form-radio" required>
+                            <span class="ml-2">In-Person</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="type" value="virtual" class="form-radio" required>
+                            <span class="ml-2">Virtual</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Event Image</label>
+                    <input type="file" name="image"
+                        class="mt-1  rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
+                </div>
+
+                <!-- Date & Time -->
+                <h2 class="text-2xl font-bold pt-3 pb-7 mb-7">Date & Times <span class="text-red-600">*</span></h2>
+                <div class="flex items-center">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                            </svg>
+                        </div>
+                        <input datepicker id="datepicker-range-start" date name="start" type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Select date start" required>
+                    </div>
+                    <!-- time picker -->
+                    <div class="relative">
+                        <div class="absolute inset-y-0 end-0 top-0  pe-3.5 pointer-events-none">
+                            <svg class="w-4 h-10 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <input type="time" id="time"
+                            class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-32 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-2"
+                            min="09:00" max="18:00" value="00:00" required />
+                    </div>
+                </div>
+                    <div class="max-w-md  pt-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Duration (HH:MM:SS)
+                        </label>
+                        <div class="flex gap-2">
+                            <!-- Hours -->
+                            <div class="flex-1">
+                                <select id="hours" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="" selected>HH</option>
+                                </select>
+                            </div>
+                    
+                            <span class="flex items-center text-gray-500 dark:text-gray-400">:</span>
+                    
+                            <!-- Minutes -->
+                            <div class="flex-1">
+                                <select id="minutes" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="" selected>MM</option>
+                                </select>
+                            </div>
+                    
+                            <span class="flex items-center text-gray-500 dark:text-gray-400">:</span>
+                    
+                            <!-- Seconds -->
+                            <div class="flex-1">
+                                <select id="seconds" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="" selected >SS</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Selected Duration Display -->
+                        <div class="mt-3 text-md  dark:text-gray-900">
+                            Selected Duration: <span id="selected-duration">00:00:00</span>
+                        </div>
+                    </div>
+           
+
+                <!-- Location Information -->
+                <h2 class="text-2xl font-bold pt-10 mb-4">Location Information</h2>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Venue Name</label>
+                    <input type="text" name="venue" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                        required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Address</label>
+                    <input type="text" name="Eventaddress"
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium">City</label>
+                        <input type="text" name="city" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium">State/Province</label>
+                        <input type="text" name="state" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Postal Code</label>
+                    <input type="text" name="postalCode" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                        required>
+                </div>
+
+                <!-- Ticketing Options -->
+                <h2 class="text-2xl font-bold pt-10 mb-4">Ticketing Options</h2>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Ticket Type</label>
+                    <select name="ticketType" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                        <option value="free">Free</option>
+                        <option value="paid">Paid</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Ticket Price (if paid)</label>
+                    <input type="number" name="ticketPrice"
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Total Tickets</label>
+                    <input type="number" name="totalTickets"
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center ">
+                    <input type="submit" value="Submit" id="myButton"
+                        class="bg-red-500 text-center cursor-pointer translate-x-52 link-offset-3-hover justify-center text-white px-6 py-2 rounded">
+                </div>
+            </form>
+        </div>
+
+
+        <!-- drawer component -->
+        <div id="drawer-right-example"
+            class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
+            tabindex="-1" aria-labelledby="drawer-right-label">
+            <h5 id="drawer-right-label"
+                class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
+                    class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>Right drawer</h5>
+            <button type="button" data-drawer-hide="drawer-right-example" aria-controls="drawer-right-example"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close menu</span>
+            </button>
+            <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">Supercharge your hiring by taking advantage of
+                our <a href="#"
+                    class="text-blue-600 underline font-medium dark:text-blue-500 hover:no-underline">limited-time
+                    sale</a> for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the
+                #1
+                design job board.</p>
+            <div class="grid grid-cols-2 gap-4">
+                <a href="#"
+                    class="px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Learn
+                    more</a>
+                <a href="#"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Get
+                    access <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg></a>
+            </div>
+        </div>
 
     </section>
     <script>
