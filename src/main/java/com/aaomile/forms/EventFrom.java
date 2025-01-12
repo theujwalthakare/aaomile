@@ -1,5 +1,7 @@
 package com.aaomile.forms;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,7 +23,7 @@ public class EventFrom {
 
     private String eventType;
 
-    private String eventBanner;
+    private MultipartFile eventBanner;
     
     private String eventDate;
     
@@ -46,7 +48,7 @@ public class EventFrom {
     private String seates;
     
     private String creatorEmail;
-   
+    
     private String creatorName;
 
 
