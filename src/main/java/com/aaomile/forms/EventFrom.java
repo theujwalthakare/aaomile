@@ -40,7 +40,9 @@ public class EventFrom {
     
     private String eventPincode;
     
-    // private String eventDuration;
+    private String hours;
+    private String minutes;
+    private String seconds;
     
     private String ticketType;
     
