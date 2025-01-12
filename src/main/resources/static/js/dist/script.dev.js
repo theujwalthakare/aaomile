@@ -81,59 +81,58 @@ setTimeout(function () {
       toast.style.display = 'none';
     }, 500); // Wait for the transition to finish
   }
-}, 1000);
-var animation = lottie.loadAnimation({
-  container: document.getElementById('lottie-animation'),
-  // Container element
-  renderer: 'svg',
-  // Render type: 'svg', 'canvas', or 'html'
-  loop: true,
-  // Animation loop
-  autoplay: true,
-  // Auto-play the animation
-  path: '/images/Animation.json' // Path to your JSON file
-
-}); // const dropdown = FlowbiteInstances.getInstance('Dropdown', 'dropdownTimepicker');
+}, 1000); // const dropdown = FlowbiteInstances.getInstance('Dropdown', 'dropdownTimepicker');
 // const $saveTimeButton = document.getElementById('saveTimeButton');
 // $saveTimeButton.addEventListener('click', function() {
 //     // save time code and then hide the dropdown
 //     dropdown.hide();
 // });
 
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 4,
-  spaceBetween: 22,
-  slidesPerGroup: 2,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      slidesPerGroup: 1
-    },
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 30,
-      slidesPerGroup: 2
-    },
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      slidesPerGroup: 2
-    },
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 40,
-      slidesPerGroup: 1
+document.addEventListener('DOMContentLoaded', function () {
+  var hoursSelect = document.getElementById('hours');
+  var minutesSelect = document.getElementById('minutes');
+  var secondsSelect = document.getElementById('seconds');
+  var selectedDuration = document.getElementById('selected-duration'); // Populate hours (0-23)
+
+  for (var i = 0; i <= 23; i++) {
+    var option = document.createElement('option');
+    option.value = i;
+    option.text = i.toString().padStart(2, '0');
+    hoursSelect.appendChild(option);
+  } // Populate minutes and seconds (0-59)
+
+
+  [minutesSelect, secondsSelect].forEach(function (select) {
+    for (var _i = 0; _i <= 59; _i++) {
+      var _option = document.createElement('option');
+
+      _option.value = _i;
+      _option.text = _i.toString().padStart(2, '0');
+      select.appendChild(_option);
     }
+  }); // Update duration display
+
+  function updateDuration() {
+    var hours = hoursSelect.value.padStart(2, '0');
+    var minutes = minutesSelect.value.padStart(2, '0');
+    var seconds = secondsSelect.value.padStart(2, '0');
+    selectedDuration.textContent = "".concat(hours || '00', ":").concat(minutes || '00', ":").concat(seconds || '00');
+  } // Add event listeners
+
+
+  hoursSelect.addEventListener('change', updateDuration);
+  minutesSelect.addEventListener('change', updateDuration);
+  secondsSelect.addEventListener('change', updateDuration); // Get duration value as total seconds
+
+  function getDurationInSeconds() {
+    var hours = parseInt(hoursSelect.value) || 0;
+    var minutes = parseInt(minutesSelect.value) || 0;
+    var seconds = parseInt(secondsSelect.value) || 0;
+    return hours * 3600 + minutes * 60 + seconds;
+  } // Get formatted duration
+
+
+  function getFormattedDuration() {
+    return selectedDuration.textContent;
   }
 });

@@ -39,9 +39,9 @@ public class PageController {
         return "login";
     }
  
-    @RequestMapping("/Events")
-    public String Events(Model model) {
-        return "Events";
+    @RequestMapping("/Events-details")
+    public String Eventsdetails(Model model) {
+        return "Events-details";
     }
     @RequestMapping("/forgotpass")
     public String forgotpass(Model model) {
