@@ -7,12 +7,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-// @Builder
+@ToString
 public class EventFrom {
 
     private String eventName;
@@ -39,7 +40,7 @@ public class EventFrom {
     
     private String eventPincode;
     
-    private String eventDuration;
+    // private String eventDuration;
     
     private String ticketType;
     
@@ -49,7 +50,7 @@ public class EventFrom {
     
     private String creatorEmail;
     
-    private String creatorName;
+    // private int creatorName;
 
 
 }
