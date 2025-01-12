@@ -26,15 +26,21 @@ public class RootController {
         if(authentication == null){
             return;
         }
-        System.out.println("Adding LOGGED IN USER INFO");
+        logger.info("------------------------------------------------------------");
+        logger.info("GOOGLE LOGIN INITIATED");
+        logger.info("LOGGED IN USER INFO");
         String username = Helper.getEmailOfLoggedInUser(authentication);
         
         logger.info("User Logged in {}", username);
         User user = userService.getUserByEmail(username);
-        System.out.println(user);
-        System.out.println(user.getFullName());
-        System.out.println(user.getEmail());
-        System.out.println(user.getProfilePic());
+        // System.out.println(user.toString());
+        // System.out.println(user.getFullName());
+        // System.out.println(user.getEmail());
+        // System.out.println(user.getProfilePic());
+        logger.info("USER =>"+user.toString());
+        logger.info("FULL NAME =>"+user.getFullName());
+        logger.info("USER EMAIL =>"+user.getEmail());
+        logger.info("PROFILE PIC =>"+user.getProfilePic());
         model.addAttribute("loggedInUser", user);
     }
 
