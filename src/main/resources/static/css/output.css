@@ -131,6 +131,9 @@
 .pt-28{
   padding-top:15px;
 }
+.pt-29{
+  padding-top:59px;
+}
 @media (max-width:768px){
   .container{
       padding:20px;
