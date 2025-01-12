@@ -1,16 +1,19 @@
 package com.aaomile.forms;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-// @Builder
+@ToString
 public class EventFrom {
 
     private String eventName;
@@ -21,7 +24,7 @@ public class EventFrom {
 
     private String eventType;
 
-    private String eventBanner;
+    private MultipartFile eventBanner;
     
     private String eventDate;
     
@@ -37,7 +40,7 @@ public class EventFrom {
     
     private String eventPincode;
     
-    private String eventDuration;
+    // private String eventDuration;
     
     private String ticketType;
     
@@ -46,8 +49,8 @@ public class EventFrom {
     private String seates;
     
     private String creatorEmail;
-   
-    private String creatorName;
+    
+    // private int creatorName;
 
 
 }

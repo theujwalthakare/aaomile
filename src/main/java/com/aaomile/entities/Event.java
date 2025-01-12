@@ -49,7 +49,7 @@ public class Event {
     
     private String eventPincode;
     
-    private String eventDuration;
+    // private String eventDuration;
     
     private String ticketType;
     
