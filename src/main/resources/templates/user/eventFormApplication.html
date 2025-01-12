@@ -13,7 +13,10 @@
     <h1 class="text-3xl font-bold mb-6">Create Your Event</h1>
 
     <!-- form start  -->
-    <form method="post" data-th-action="@{'/user/event/add'}" data-th-object="${eventForm}">
+    <form 
+    data-th-action="@{'/user/event/create'}" 
+    data-th-object="${eventForm}" 
+    method="post">
         <!-- Basic Event Information -->
         <h2 class="text-2xl  font-bold mb-4">Basic Event Information</h2>
         <div class="mb-4">
@@ -52,10 +55,10 @@
         </div>
         <div class="mb-4">
             <label class="block text-sm font-medium">Event Image</label>
-            <input type="file" data-th-field="*{eventBanner}" name="image" class="mt-1  rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
+            <input type="file"  name="image" class="mt-1  rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
         </div>
 
-        <!-- Date & Time -->
+        <!-- Date & Time & Event Duration -->
         <h2 class="text-2xl font-bold mb-4">Date & Time</h2>
         <div  class="flex items-center">
             <div class="relative">
@@ -73,7 +76,7 @@
                         <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                     </svg>
                 </div>
-                <input type="time" data-th-field="*{eventTime}" id="time" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-2" min="09:00" max="18:00" required/>
+                <input type="time" data-th-field="*{eventTime}" id="time" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-2" required/>
             </div>
         </div>
 
@@ -126,8 +129,6 @@
     </div>
     </form>
 </div>
-
-
         <!-- drawer component -->
         <div id="drawer-right-example"
         class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
@@ -166,8 +167,6 @@
             </svg></a>
         </div>
       </div>
-
- 
     </section>
 </body>
 </html>
