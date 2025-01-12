@@ -3,11 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaomile-About Page</title>
+    <title>Aaomile-About</title>
 </head>
+
 <body>
     <section id="content">
-        <h1>About page</h1>
+
+
+        <div class="sm:pl-64 pt-28 pb-16">
+            <div class="flex items-center justify-start md:pt-32 flex-col">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-2xl w-full">
+                    <div class="flex flex-col ">
+                        <img data-th-src="@{${loggedInUser.profilePic}}" 
+                            alt="Profile Photo" class="w-32 h-32 rounded-full shadow-lg object-cover mb-4">
+                              
+                        <label for="website-admin"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
+                            <div class="flex">
+                                <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+                                  </svg>
+                                </span>
+                                <p type="text" id="website-admin" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-th-text="${loggedInUser.fullName}"></p>
+                              </div>
+
+                       <!-- User Email Id -->
+
+                              <label  for="email-address-icon" class="block mb-4 mt-5 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
+                              <div class="relative">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                    <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+                                    <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+                                  </svg>
+                                </div>
+                                <p type="text" id="email-address-icon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" data-th-text="${loggedInUser.email}"></p>
+                              </div>
+                             <!-- phone number -->
+                             <label for="phone-input" class="block mb-4 mt-5 text-sm font-medium text-gray-900 dark:text-white">Phone number:</label>
+                             <div class="relative">
+                                 <div class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
+                                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
+                                         <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
+                                     </svg>
+                                 </div>
+                                 <input type="text" id="phone" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+91-45698-97890" required />
+                             </div>
+                             <p id="helper-text-explanation" class="mt-2 text-sm text-red-400 dark:text-red-400">Select a phone number that matches the format.</p>
+                         </div>
+                        <!-- gender -->
+                        <label for="gender" class="block mb-4 mt-5  text-sm font-medium text-gray-900 dark:text-white">Select Your Gender</label>
+                        <select id="gender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                          <option selected>Choose a Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                          <option value="transgender">Other</option>
+                        </select>
+
+                        <!-- date of birth -->
+                        <label for="dob" class="block mb-4 mt-5 text-sm font-medium text-gray-900 dark:text-white">Date of Birth</label>
+                        <input type="date" id="dob" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+
+                        <!-- address -->
+                        <label for="address" class="block mb-4 mt-5 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+                        <textarea id="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+                        
+                        <!-- add two button with red and black color for save and edit option -->
+                        <div class="flex justify-center gap-7 mt-6">
+                            <button class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit"  >
+                                Save
+                            </button>
+                            <button class=" focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="submit"  > 
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
     </section>
 </body>
 </html>

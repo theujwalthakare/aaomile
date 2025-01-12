@@ -55,12 +55,6 @@ function changePageTheme(theme, oldTheme) {
   document.querySelector("#theme_change_button").querySelector("#Light").textContent = theme == "light" ? "" : "";
 }
 
-var toggleButton = document.getElementById('menu-toggle');
-var menuContent = document.getElementById('menu-content');
-toggleButton.addEventListener('click', function () {
-  menuContent.classList.toggle('hidden');
-});
-
 function startLoading() {
   // Show loading message and hide the button
   document.getElementById('myButton').classList.add('hidden');
@@ -72,7 +66,7 @@ function startLoading() {
 
     setTimeout(function () {
       // Redirect to the next HTML page (change the URL to your target HTML file)
-      window.open("/user/eventFormApplication", "_blank"); // Replace with the actual file name or URL
+      window.open("/user/event/create", "_blank"); // Replace with the actual file name or URL
     }, 1000); // 2-second delay before redirection
   }, 2000); // 3-second delay for loading
 }
@@ -88,9 +82,58 @@ setTimeout(function () {
     }, 500); // Wait for the transition to finish
   }
 }, 1000);
-var dropdown = FlowbiteInstances.getInstance('Dropdown', 'dropdownTimepicker');
-var $saveTimeButton = document.getElementById('saveTimeButton');
-$saveTimeButton.addEventListener('click', function () {
-  // save time code and then hide the dropdown
-  dropdown.hide();
+var animation = lottie.loadAnimation({
+  container: document.getElementById('lottie-animation'),
+  // Container element
+  renderer: 'svg',
+  // Render type: 'svg', 'canvas', or 'html'
+  loop: true,
+  // Animation loop
+  autoplay: true,
+  // Auto-play the animation
+  path: '/images/Animation.json' // Path to your JSON file
+
+}); // const dropdown = FlowbiteInstances.getInstance('Dropdown', 'dropdownTimepicker');
+// const $saveTimeButton = document.getElementById('saveTimeButton');
+// $saveTimeButton.addEventListener('click', function() {
+//     // save time code and then hide the dropdown
+//     dropdown.hide();
+// });
+
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  spaceBetween: 22,
+  slidesPerGroup: 2,
+  loop: true,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      slidesPerGroup: 1
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+      slidesPerGroup: 2
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 2
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+      slidesPerGroup: 1
+    }
+  }
 });
