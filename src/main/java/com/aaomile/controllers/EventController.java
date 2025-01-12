@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,8 @@ import com.aaomile.forms.EventFrom;
 import com.aaomile.helper.Helper;
 import com.aaomile.service.EventService;
 import com.aaomile.service.UserService;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/user/event")
@@ -34,7 +37,7 @@ public class EventController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String saveEvent(@ModelAttribute EventFrom eventFrom, Authentication authentication){
+    public String saveEvent(@Valid @ModelAttribute EventFrom eventFrom,BindingResult result ,Authentication authentication){
 
         String username = Helper.getEmailOfLoggedInUser(authentication);
         User user = userService.getUserByEmail(username);
@@ -42,6 +45,15 @@ public class EventController {
         String email = Helper.getEmailOfLoggedInUser(authentication);
 // 
         // User uname = userService.getUserByEmail(email);
+
+
+        //validation
+        if(result.hasErrors()){
+            
+            return "user/eventFormApplication";
+        }
+
+        //process image
 
         Event event = new Event();
         event.setEventName(eventFrom.getEventName());
@@ -59,8 +71,10 @@ public class EventController {
         event.setTicketType(eventFrom.getTicketType());
         event.setTicketPrice(eventFrom.getTicketPrice());
         event.setSeates(eventFrom.getSeates());
+        // event.setEventDuration(eventFrom.getHours()+"hr"+eventFrom.getMinutes()+"min"+eventFrom.getSeconds()+"sec");
+        event.setEventDuration(eventFrom.getHours()+":"+eventFrom.getMinutes()+":"+eventFrom.getSeconds());
         event.setUser(user);
-        event.setCreatorEmail(email);
+        event.setCreatorEmail(email); 
 
         eventService.save(event);
         System.out.println(eventFrom);
