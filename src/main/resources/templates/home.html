@@ -358,3 +358,177 @@
 </script>
 </body>
 </html>  
+
+
+
+<!-- this is dynamic implementation section where pages are redesign for dynamic implementation of data from databse 
+   -->
+
+  <!-- section of cards of genre wise event display section -->
+
+  <!-- 
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div th:each="genre : ${genres}" class="group cursor-pointer" 
+         th:onclick="'window.location.href=\'/events/genre/' + ${genre.name} + '\''">
+        <div th:class="${'rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105 ' + genre.backgroundColor}">
+            <div th:class="${'rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 ' + genre.iconBgColor}">
+                <i th:class="${'text-3xl ' + genre.iconClass + ' ' + genre.iconColor}"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center text-gray-800 mb-2" th:text="${genre.name}">Genre Name</h3>
+            <p class="text-gray-600 text-center text-sm" th:text="${genre.description}">Description</p>
+        </div>
+    </div>
+</div>
+
+  -->
+<!-- section for sliding event cards -->
+
+<!-- 
+ 
+<div class="swiper mySwiper h-100">
+  <div class="swiper-wrapper">
+      <div th:each="event : ${featuredEvents}" class="swiper-slide">
+          <a th:href="@{'/events/' + ${event.id}}">
+              <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
+                  <img th:src="@{${event.imageUrl}}" 
+                       th:alt="${event.name}" 
+                       class="w-full h-full object-cover rounded-lg">
+              </div>
+              <div class="w-64">
+                  <h3 class="text-lg font-bold" th:text="${event.name}">Event Name</h3>
+                  <p class="text-gray-600" th:text="${#temporals.format(event.eventDate, 'dd-MM-yyyy')}">Date</p>
+                  <p th:text="${'₹ ' + event.price}">Price</p>
+              </div>
+          </a>
+      </div>
+  </div>
+</div>
+
+ 
+
+-->
+
+<!-- 
+db setup
+INSERT INTO genre (name, description, icon_class, background_color, icon_bg_color, icon_color) VALUES
+('Comedy', 'Comedy & Entertainment', 'fas fa-laugh-beam', 'bg-blue-400', 'bg-pink-100', 'text-pink-500'),
+('Music', 'Live Concerts & Shows', 'fas fa-music', 'bg-purple-400', 'bg-yellow-100', 'text-yellow-600'),
+('Theatre', 'Plays & Dramas', 'fas fa-theater-masks', 'bg-green-400', 'bg-blue-100', 'text-blue-500'),
+('Sports', 'Games & Athletics', 'fas fa-football-ball', 'bg-red-400', 'bg-green-100', 'text-green-500'),
+('Dance', 'Dance Performances', 'fas fa-dancing', 'bg-yellow-400', 'bg-purple-100', 'text-purple-500'),
+('Workshop', 'Learning & Development', 'fas fa-chalkboard-teacher', 'bg-indigo-400', 'bg-orange-100', 'text-orange-500');
+
+////////////////////////
+
+Create a Genre entity:
+
+@Entity
+public class Genre {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String description;
+    private String iconClass;  // Store FontAwesome icon class
+    private String backgroundColor; // Store Tailwind background color class
+    private String iconBgColor;    // Store icon background color class
+    private String iconColor;      // Store icon color class
+    
+    // Getters, setters, constructors
+}
+
+
+/////////////////////////
+Create a GenreRepository:
+
+@Repository
+public interface GenreRepository extends JpaRepository<Genre, Long> {
+    Genre findByName(String name);
+}
+
+
+////////////////////////
+Update the Controller:
+
+@Controller
+public class HomeController {
+    
+    @Autowired
+    private GenreRepository genreRepository;
+    
+    @GetMapping("/")
+    public String home(Model model) {
+        List<Genre> genres = genreRepository.findAll();
+        model.addAttribute("genres", genres);
+        return "home";
+    }
+}
+
+
+///////////////////////////
+
+You can also create a configuration class to initialize these genres programmatically:
+
+@Configuration
+public class GenreConfig {
+    
+    @Autowired
+    private GenreRepository genreRepository;
+    
+    @PostConstruct
+    public void initGenres() {
+        if (genreRepository.count() == 0) {
+            List<Genre> genres = new ArrayList<>();
+            
+            Genre comedy = new Genre();
+            comedy.setName("Comedy");
+            comedy.setDescription("Comedy & Entertainment");
+            comedy.setIconClass("fas fa-laugh-beam");
+            comedy.setBackgroundColor("bg-blue-400");
+            comedy.setIconBgColor("bg-pink-100");
+            comedy.setIconColor("text-pink-500");
+            genres.add(comedy);
+            
+            // Add more genres here
+            
+            genreRepository.saveAll(genres);
+        }
+    }
+}
+
+
+///////////////////////////
+For a more maintainable approach, you could also create an enum for predefined genres:
+
+public enum GenreType {
+    COMEDY("Comedy", "Comedy & Entertainment", "fas fa-laugh-beam", "bg-blue-400", "bg-pink-100", "text-pink-500"),
+    MUSIC("Music", "Live Concerts & Shows", "fas fa-music", "bg-purple-400", "bg-yellow-100", "text-yellow-600");
+    
+    private final String name;
+    private final String description;
+    private final String iconClass;
+    private final String backgroundColor;
+    private final String iconBgColor;
+    private final String iconColor;
+    
+    // Constructor and getters
+}
+
+
+
+
+////////////////////////////
+This implementation:
+
+Maintains the same visual design as your reference
+
+Makes the categories dynamic and database-driven
+
+Allows easy customization of colors and icons
+
+Keeps the hover effects and animations
+
+Uses FontAwesome icons
+
+Maintains the responsive grid layout
+-->
