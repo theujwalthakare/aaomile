@@ -27,7 +27,6 @@ public class RootController {
             return;
         }
         logger.info("------------------------------------------------------------");
-        logger.info("GOOGLE LOGIN INITIATED");
         logger.info("LOGGED IN USER INFO");
         String username = Helper.getEmailOfLoggedInUser(authentication);
         

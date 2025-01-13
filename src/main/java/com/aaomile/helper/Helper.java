@@ -26,14 +26,14 @@ public class Helper {
             if (clientId.equalsIgnoreCase("google")) {
 
                 // sign with google
-                // logger.info("GOOGLE LOGIN INITIATED");
+                logger.info("GOOGLE LOGIN");
                 username = oauth2User.getAttribute("email").toString();
 
             }
             return username;
         }
         else{
-            logger.info("Form Local DB");
+            logger.info("LOGIN THROUGH DATABASE");
             return authentication.getName();
         }
     }
