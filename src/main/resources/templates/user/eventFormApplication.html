@@ -10,11 +10,12 @@
 <body >
     <section id="content" class="text-black py-10 mx-auto max-w-screen-xl p-4 mt-10 pt-38">
               
-<div class=" bg-gray-600 dark:bg-gray-600 mx-auto p-8 max-w-screen-md rounded-lg ">
-    <h1 class="text-3xl font-bold mb-6">Create Your Event</h1>
+<div id="eventformbg" class="  mx-auto p-8 max-w-screen-md rounded-lg ">
+    <h1 class="text-3xl font-bold mb-6" >Create Your Event</h1>
 
     <!-- form start  -->
     <form 
+   
     data-th-action="@{'/user/event/create'}" 
     data-th-object="${eventForm}" 
     method="post">
@@ -54,9 +55,18 @@
                 </label>
             </div>
         </div>
-        <div class="mb-4">
+        <!-- <div class="mb-4">
             <label class="block text-sm font-medium">Event Image</label>
             <input type="file"  name="image" class="mt-1  rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
+        </div> -->
+        <div class="mb-4 flex items-center gap-4">
+            <div>
+                <label class="block text-sm font-medium">Event Image</label>
+                <input type="file" name="image" id="imageInput" accept="image/*" class="mt-1 rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
+            </div>
+            <div class="image-preview">
+                <img id="preview" src="" alt="Preview" style="max-width: 200px; max-height: 200px; display: none;">
+            </div>
         </div>
 
         <!-- Date & Time & Event Duration -->
@@ -262,6 +272,25 @@
       return selectedDuration.textContent;
   }
 });
+document.getElementById('imageInput').addEventListener('change', function(event) {
+    const preview = document.getElementById('preview');
+    const file = event.target.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+        
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = '';
+        preview.style.display = 'none';
+    }
+});
+
       </script>
 </body>
 

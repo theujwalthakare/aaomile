@@ -141,7 +141,7 @@
     
 
 </section>
-<section id="content" class="py-10 mx-auto max-w-screen-xl p-6 ">
+<section id="content" class="py-10 mx-auto p-3 ">
   <div class="mx-auto max-w-screen-xl p-4">
     <!-- Add margin-top for spacing below cards -->
     <div class="mt-16 flex items-center gap-4 mx-auto max-w-screen-xl p-4 pt-16">
@@ -227,9 +227,12 @@
       </div>
     </div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
+      <div>
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
+         <div class="swiper-pagination min-h-96" ></div>
+      </div>
+ 
 </div>
 </section>
 <script>
@@ -237,12 +240,13 @@
   var swiper = new Swiper(".mySwiper", {
   slidesPerView: 4,
   spaceBetween: 20,
-  slidesPerGroup: 2,
+  slidesPerGroup: 4,
   loop: true,
   loopFillGroupWithBlank: true,
   pagination: {
       el: ".swiper-pagination",
       clickable: true,
+      // clickable: true,
   },
   navigation: {
       nextEl: ".swiper-button-next",

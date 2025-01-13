@@ -46,7 +46,9 @@
 .swiper-slide .event-details {
   padding: 16px;
 }
-
+#eventformbg{
+  background:linear-gradient(45deg, rgb(246, 237, 255), rgb(108, 107, 107));
+}
 .swiper-slide .event-details h3 {
   font-size: 18px;
   font-weight: bold;
