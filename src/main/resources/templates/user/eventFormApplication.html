@@ -59,14 +59,17 @@
             <label class="block text-sm font-medium">Event Image</label>
             <input type="file"  name="image" class="mt-1  rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
         </div> -->
-        <div class="mb-4 flex items-center gap-4">
+        <div class="mb-4 flex items-start gap-4">
             <div>
                 <label class="block text-sm font-medium">Event Image</label>
-                <input type="file" name="image" id="imageInput" accept="image/*" class="mt-1 rounded-full bg-slate-900 w-screen border-spacing-1 border-2">
+                <input type="file" name="image" id="imageInput" accept="image/*" class="mt-1 rounded-md bg-slate-900 w-screen border-spacing-1 border-2" required>
+                <span id="imageInput" class="text-red-800 block font-thin ">Image Name Should be similar to Event name</span>
+
             </div>
             <div class="image-preview">
-                <img id="preview" src="" alt="Preview" style="max-width: 200px; max-height: 200px; display: none;">
+                <img id="preview" src="" alt="Preview" style="max-width: 200px;padding-left: 15px; max-height: 200px; display: none;">
             </div>
+
         </div>
 
         <!-- Date & Time & Event Duration -->
