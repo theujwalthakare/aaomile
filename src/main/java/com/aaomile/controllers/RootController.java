@@ -32,11 +32,7 @@ public class RootController {
         
         logger.info("User Logged in {}", username);
         User user = userService.getUserByEmail(username);
-        // System.out.println(user.toString());
-        // System.out.println(user.getFullName());
-        // System.out.println(user.getEmail());
-        // System.out.println(user.getProfilePic());
-        logger.info("USER =>"+user.toString());
+        logger.info("USER =>"+ user);
         logger.info("FULL NAME =>"+user.getFullName());
         logger.info("USER EMAIL =>"+user.getEmail());
         logger.info("PROFILE PIC =>"+user.getProfilePic());
