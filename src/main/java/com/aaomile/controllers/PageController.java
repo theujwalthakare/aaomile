@@ -2,6 +2,8 @@ package com.aaomile.controllers;
 
 // import java.util.Optional;
 import org.springframework.ui.Model;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 // import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 @RequestMapping("/")
 public class PageController {
-    
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     @RequestMapping("/")
     public String index(Model model) {
         return "home";
@@ -123,10 +126,14 @@ public class PageController {
 
         userService.createUser(user);
 
-        System.out.println("created user");
-        System.out.println(userReg);
-        System.out.println("Processing User register");
-
+        // System.out.println("created user");
+        // System.out.println(userReg);
+        // System.out.println("Processing User register");
+        logger.info("---------------------------------------------------------------");
+        logger.info("PROCESSING NEW SELF REGISTRATION");
+        logger.info(userReg.toString());
+        logger.info("CREATED NEW USER");
+        
         return "redirect:/login";
     }
 

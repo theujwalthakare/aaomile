@@ -1,5 +1,7 @@
 package com.aaomile.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +17,7 @@ import com.aaomile.service.impl.SecurityCustomUserDetailService;
 @Configuration
 public class SecurityConfig {
 
+    Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
     // @Bean
     // public UserDetailsService userDetailsService() {
     //     UserDetails user = User
