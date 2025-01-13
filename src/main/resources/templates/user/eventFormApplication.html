@@ -11,24 +11,39 @@
     <section id="content" class="text-black py-10 mx-auto max-w-screen-xl p-4 mt-10 pt-38">
               
 <div id="eventformbg" class="  mx-auto p-8 max-w-screen-md rounded-lg ">
+
+    <!-- <div data-th-replace="message::messagebox"></div> -->
+
     <h1 class="text-3xl font-bold mb-6" >Create Your Event</h1>
 
     <!-- form start  -->
     <form 
-   
     data-th-action="@{'/user/event/create'}" 
     data-th-object="${eventForm}" 
-    method="post">
+    method="post"
+    enctype="multipart/form-data">
         <!-- Basic Event Information -->
         <h2 class="text-2xl  font-bold mb-4">Basic Event Information</h2>
         <div class="mb-4">
             <label class="block text-sm font-medium">Event Name</label>
-            <input data-th-field="*{eventName}" type="text" name="EventName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            <input data-th-field="*{eventName}" type="text" name="EventName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventName)}"
+        data-th-errors="*{eventName}">
+        Name cant be empty </p> -->
+
         <div class="mb-4">
             <label class="block text-sm font-medium">Description</label>
             <textarea data-th-field="*{eventDiscription}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"></textarea>
         </div>
+
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventDiscription)}"
+        data-th-errors="*{eventDiscription}">Discription is required</p> -->
+
         <!-- genre info -->
         <div class="mb-4">
             <label class="block text-sm font-medium">Genre</label>
@@ -42,18 +57,31 @@
                 <option value="hackathon">Hackathon</option>
             </select>
         </div>
+
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventGenre)}"
+        data-th-errors="*{eventGenre}">Event Genre is required</p> -->
+
+        <div class="mb-4">
+
         <div class="mb-4">
             <label class="block text-sm font-medium">Event Type</label>
             <div class="flex items-center space-x-4">
                 <label class="inline-flex items-center">
-                    <input type="radio" name="type" data-th-field="*{eventType}" value="in-person" class="form-radio" required>
+                    <input type="radio" name="type" data-th-field="*{eventType}" value="in-person" class="form-radio" >
                     <span class="ml-2">In-Person</span>
                 </label>
                 <label class="inline-flex items-center">
-                    <input type="radio" name="type" data-th-field="*{eventType}" value="virtual" class="form-radio" required>
+                    <input type="radio" name="type" data-th-field="*{eventType}" value="virtual" class="form-radio" >
                     <span class="ml-2">Virtual</span>
                 </label>
             </div>
+            <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventType)}"
+        data-th-errors="*{eventType}">Event Type is required</p> -->
+        <div class="mb-4">
         </div>
         <!-- <div class="mb-4">
             <label class="block text-sm font-medium">Event Image</label>
@@ -62,7 +90,7 @@
         <div class="mb-4 flex items-start gap-4">
             <div>
                 <label class="block text-sm font-medium">Event Image</label>
-                <input type="file" name="image" id="imageInput" accept="image/*" class="mt-1 rounded-md bg-slate-900 w-screen border-spacing-1 border-2" required>
+                <input type="file"data-th-field="*{eventBanner}"  id="imageInput"  accept="image/*" class="mt-1 rounded-md bg-slate-900 w-screen border-spacing-1 border-2" >
                 <span id="imageInput" class="text-red-800 block font-thin ">Image Name Should be similar to Event name</span>
 
             </div>
@@ -83,6 +111,10 @@
                 </div>
                 <input datepicker id="datepicker-range-start" date data-th-field="*{eventDate}" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date start">
             </div>
+            <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventDate)}"
+        data-th-errors="*{eventDate}">Event Date is required</p> -->
             <!-- time picker -->
             <div class="relative">
                 <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
@@ -90,9 +122,12 @@
                         <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                     </svg>
                 </div>
-                <input type="time" data-th-field="*{eventTime}" id="time" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-2" required/>
+                <input type="time" data-th-field="*{eventTime}" id="time" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-2" />
             </div>
-            
+            <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventTime)}"
+        data-th-errors="*{eventTime}">Event Time is required</p> -->
         </div>
         <div class="max-w-md  pt-4">
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -105,6 +140,11 @@
                         <option value="" selected>HH</option>
                     </select>
                 </div>
+
+                <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('hours)}"
+        data-th-errors="*{hours}">Duration is required</p> -->
         
                 <span class="flex items-center text-gray-500 dark:text-gray-400">:</span>
         
@@ -114,6 +154,11 @@
                         <option value="" selected>MM</option>
                     </select>
                 </div>
+                
+                <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('minutes)}"
+        data-th-errors="*{minutes}">Duration is required</p> -->
         
                 <span class="flex items-center text-gray-500 dark:text-gray-400">:</span>
         
@@ -134,26 +179,55 @@
         <h2 class="text-2xl font-bold pt-10 mb-4">Location Information</h2>
         <div class="mb-4">
             <label class="block text-sm font-medium">Venue Name</label>
-            <input type="text" data-th-field="*{eventVenue}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            <input type="text" data-th-field="*{eventVenue}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
+
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventVenue)}"
+        data-th-errors="*{eventVenue}">Event Venue is required</p> -->
+
         <div class="mb-4">
             <label class="block text-sm font-medium">Address</label>
-            <input type="text" data-th-field="*{eventAddress}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            <input type="text" data-th-field="*{eventAddress}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
+
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventAddress)}"
+        data-th-errors="*{eventAddress}">Event Adddress is required</p> -->
+
         <div class="grid grid-cols-2 gap-4">
             <div class="mb-4">
                 <label class="block text-sm font-medium">City</label>
-                <input type="text" data-th-field="*{eventCity}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                <input type="text" data-th-field="*{eventCity}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
             </div>
+
+            <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventCity)}"
+        data-th-errors="*{eventCity}">Event City is required</p> -->
+            
             <div class="mb-4">
                 <label class="block text-sm font-medium">State/Province</label>
-                <input type="text" data-th-field="*{eventState}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                <input type="text" data-th-field="*{eventState}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
             </div>
+
+            <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventState)}"
+        data-th-errors="*{eventState}">Event State is required</p> -->
+
         </div>
         <div class="mb-4">
             <label class="block text-sm font-medium">Postal Code</label>
-            <input type="text" data-th-field="*{eventPincode}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            <input type="text" data-th-field="*{eventPincode}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
+
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('eventPincode)}"
+        data-th-errors="*{eventPincode}">PinCode is required</p> -->
 
         <!-- Ticketing Options -->
         <h2 class="text-2xl font-bold pt-10 mb-4">Ticketing Options</h2>
@@ -164,14 +238,31 @@
                 <option value="paid">Paid</option>
             </select>
         </div>
+
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('ticketType)}"
+        data-th-errors="*{ticketType}">Ticket type is required</p> -->
+
         <div class="mb-4">
             <label class="block text-sm font-medium">Ticket Price (if paid)</label>
             <input type="number" data-th-field="*{ticketPrice}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
         </div>
+
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('ticketPrice)}"
+        data-th-errors="*{ticketPrice}">Ticket price is required</p> -->
+
         <div class="mb-4">
             <label class="block text-sm font-medium">Total Tickets</label>
-            <input type="number" data-th-field="*{seates}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            <input type="number" data-th-field="*{seates}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
+
+        <!-- <p
+        class="text-red-500"
+        data-th-if="${#fields.hasErrors('seates)}"
+        data-th-errors="*{seates}">Number of is required</p> -->
 
         <!-- Submit Button -->
     <div class="flex justify-center ">

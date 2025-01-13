@@ -34,6 +34,8 @@ public class Event {
     private String eventType;
 
     private String eventBanner;
+
+    private String cloudBannerId;
     
     private String eventDate;
     
