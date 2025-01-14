@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>page to display all exhibition events</h1>
+    <div th:unless="${exhibitionEvent.empty}">
+        <div th:each="exhibition : ${exhibitionEvent}">
+          <p data-th-text="${exhibition.eventId}"><span>Event Id</span></p>
+          <p data-th-text="${exhibition.eventName}"></p>
+          <p data-th-text="${exhibition.eventDiscription}">
+            <span>Event Dicription</span>
+          </p>
+          <p data-th-text="${exhibition.eventGenre}"><span>Event Genre</span></p>
+          <p data-th-text="${exhibition.eventType}"><span>Event Type</span></p>
+          <img class="w-500 h-500" th:src="@{${exhibition.eventBanner}}">
+          <p data-th-text="${exhibition.cloudBannerId}"><span>Event Banner</span></p>
+          <p data-th-text="${exhibition.eventDate}"><span>Event Date</span></p>
+          <p data-th-text="${exhibition.eventTime}"><span>Event Time</span></p>
+          <p data-th-text="${exhibition.eventVenue}"><span>Event Venue</span></p>
+          <p data-th-text="${exhibition.eventAddress}"><span>Event Address</span></p>
+          <p data-th-text="${exhibition.eventCity}"><span>Event City</span></p>
+          <p data-th-text="${exhibition.eventState}"><span>Event State</span></p>
+          <p data-th-text="${exhibition.eventPincode}"><span>Event PinCode</span></p>
+          <p data-th-text="${exhibition.eventDuration}">
+            <span>Event Duration</span>
+          </p>
+          <p data-th-text="${exhibition.ticketType}"><span>Event ticketType</span></p>
+          <p data-th-text="${exhibition.ticketPrice}">
+            <span>Event ticket Price</span>
+          </p>
+          <p data-th-text="${exhibition.seates}"><span>Event Seates</span></p>
+          <hr>
+        </div>
+      </div>
+</body>
+</html>
