@@ -2,6 +2,9 @@ package com.aaomile.controllers;
 
 // import java.util.Optional;
 import org.springframework.ui.Model;
+
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +18,17 @@ import com.aaomile.entities.User;
 import com.aaomile.forms.UserReg;
 // import com.aaomile.repository.LoginRepository;
 import com.aaomile.repository.UserRepo;
+import com.aaomile.service.EventService;
 import com.aaomile.service.UserService;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import com.aaomile.entities.Event;;
 
 
 @Controller
 @RequestMapping("/")
 public class PageController {
+
+    
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
     @RequestMapping("/")
@@ -49,6 +56,34 @@ public class PageController {
     @RequestMapping("/forgotpass")
     public String forgotpass(Model model) {
         return "forgotpass";
+    }
+
+    @Autowired 
+    private EventService eventService;
+    //to display events bycomedy comedy genre
+    @RequestMapping("/home/comedy")
+    public String eventByComedy(Model model){
+        return"comedy";
+    }
+    @RequestMapping("/home/music")
+    public String eventByMusic(Model model){
+        return"music";
+    }
+    @RequestMapping("/home/workshop")
+    public String eventByWorkshop(Model model){
+        return"workshop";
+    }
+    @RequestMapping("/home/exhibition")
+    public String eventByExhibition(Model model){
+        return"exhibition";
+    }
+    @RequestMapping("/home/theater")
+    public String eventByTheater(Model model){
+        return"theater";
+    }
+    @RequestMapping("/home/hackathon")
+    public String eventByHackathon(Model model){
+        return"hackathon";
     }
 
     // @RequestMapping("/book")
