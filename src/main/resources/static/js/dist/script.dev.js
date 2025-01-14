@@ -88,6 +88,28 @@ setTimeout(function () {
 //     dropdown.hide();
 // });
 
+var setVanta = function setVanta() {
+  if (window.VANTA) window.VANTA.GLOBE({
+    el: "#about-banner",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0xe30707,
+    color2: 0xbd0000,
+    size: 1.40,
+    backgroundColor: 0x38
+  });
+};
+
+_strk.push(function () {
+  setVanta();
+  window.edit_page.Event.subscribe("Page.beforeNewOneFadeIn", setVanta);
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   var hoursSelect = document.getElementById('hours');
   var minutesSelect = document.getElementById('minutes');
