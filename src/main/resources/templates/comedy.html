@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div th:unless="${comedyEvent.empty}">
+      <div th:each="comedy : ${comedyEvent}">
+        <p data-th-text="${comedy.eventId}"><span>Event Id</span></p>
+        <p data-th-text="${comedy.eventName}"></p>
+        <p data-th-text="${comedy.eventDiscription}">
+          <span>Event Dicription</span>
+        </p>
+        <p data-th-text="${comedy.eventGenre}"><span>Event Genre</span></p>
+        <p data-th-text="${comedy.eventType}"><span>Event Type</span></p>
+        <img th:src="@{${comedy.eventBanner}}" >
+        <p data-th-text="${comedy.cloudBannerId}"><span>Event Banner</span></p>
+        <p data-th-text="${comedy.eventDate}"><span>Event Date</span></p>
+        <p data-th-text="${comedy.eventTime}"><span>Event Time</span></p>
+        <p data-th-text="${comedy.eventVenue}"><span>Event Venue</span></p>
+        <p data-th-text="${comedy.eventAddress}"><span>Event Address</span></p>
+        <p data-th-text="${comedy.eventCity}"><span>Event City</span></p>
+        <p data-th-text="${comedy.eventState}"><span>Event State</span></p>
+        <p data-th-text="${comedy.eventPincode}"><span>Event PinCode</span></p>
+        <p data-th-text="${comedy.eventDuration}">
+          <span>Event Duration</span>
+        </p>
+        <p data-th-text="${comedy.ticketType}"><span>Event ticketType</span></p>
+        <p data-th-text="${comedy.ticketPrice}">
+          <span>Event ticket Price</span>
+        </p>
+        <p data-th-text="${comedy.seates}"><span>Event Seates</span></p>
+        <hr>
+      </div>
+    </div>
+  </body>
+</html>

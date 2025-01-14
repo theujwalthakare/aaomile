@@ -57,4 +57,9 @@ public class EventServiceImpl implements EventService {
         return eventRepo.findByUserId(id);
     }
 
+    @Override
+    public List<Event> getByGenre(String genre) {
+        return eventRepo.findByEventGenre(genre);
+    }
+
 }
