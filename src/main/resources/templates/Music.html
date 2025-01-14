@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+  <section id="content" class="pt-16">
     <h1>page to display all music events</h1>
     <div th:unless="${musicEvent.empty}">
-        <div th:each="music : ${musicEvent}">
-          <p data-th-text="${music.eventId}"><span>Event Id</span></p>
+        <!-- <div th:each="music : ${musicEvent}"> -->
+          <!-- <p data-th-text="${music.eventId}"><span>Event Id</span></p>
           <p data-th-text="${music.eventName}"></p>
           <p data-th-text="${music.eventDiscription}">
             <span>Event Dicription</span>
@@ -33,8 +34,63 @@
             <span>Event ticket Price</span>
           </p>
           <p data-th-text="${music.seates}"><span>Event Seates</span></p>
-          <hr>
+          <hr> -->
+
+          <!-- <h2 class="text-3xl font-bold mb-6" th:text="${genre + ' Events'}">Events</h2> -->
+          
+          <!-- No events message -->
+          <!-- <div th:if="${#lists.isEmpty(events)}" class="text-center py-8">
+            <p class="text-gray-600">No events found for this category.</p>
+          </div> -->
+          
+          <!-- Events Grid -->
+          <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div th:each="music : ${musicEvent}" class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <!-- Event Image -->
+                    <img  th:src="@{${music.eventBanner}}"class="w-full h-48 object-cover" alt="Event banner">
+                    <div class="p-6">
+                        <!-- Event Details -->
+                        <h3 data-th-text="${music.eventName}" class="text-xl font-bold mb-2"></h3>
+                        <p data-th-text="${music.eventDiscription}" class="text-gray-600 mb-4 line-clamp-2"></p>
+                        
+                        <!-- Date, Time & Location -->
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-gray-500">
+                                <i class="far fa-calendar-alt w-5"></i>
+                                <span data-th-text="${music.eventDate}"></span>
+                                <i class="far fa-clock w-5 ml-4"></i>
+                                <span data-th-text="${music.eventTime}"></span>
+                            </div>
+                            <div class="flex items-center text-gray-500">
+                                <i class="fas fa-map-marker-alt w-5"></i>
+                                <span data-th-text="${music.eventVenue + ', ' + music.eventCity}"></span>
+                            </div>
+                        </div>
+    
+                        <!-- Price & Duration -->
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-green-600" 
+                                  th:text="${'₹' + music.ticketPrice}"></span>
+                            <span class="text-sm text-gray-500" 
+                                  th:text="${music.eventDuration}"></span>
+                        </div>
+    
+                        <!-- Action Button -->
+                        <a th:href="@{'/event/' + ${music.eventId}}" 
+                           class="block w-full text-center bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
       </div>
+
+    </section>
+    <script>
+
+    </script>
 </body>
 </html>
