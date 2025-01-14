@@ -15,7 +15,7 @@ import com.aaomile.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 
-    private Logger logger = LoggerFactory.getLogger(UserController.class);
+    // private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -43,6 +43,35 @@ public class UserController {
     public String eventFormApplication(Model model) {
         return "user/eventFormApplication";
     }
+
+    // @Autowired 
+    // private EventService eventService;
+    // @RequestMapping("/home/comedy")
+    // public String eventByComedy(Model model){
+    //     return"comedy";
+    // }
+    // @RequestMapping("/home/music")
+    // public String eventByMusic(Model model){
+    //     return"music";
+    // }
+    // @RequestMapping("/home/workshop")
+    // public String eventByWorkshop(Model model){
+    //     return"workshop";
+    // }
+    // @RequestMapping("/home/exhibition")
+    // public String eventByExhibition(Model model){
+    //     return"exhibition";
+    // }
+    // @RequestMapping("/home/theater")
+    // public String eventByTheater(Model model){
+    //     return"theater";
+    // }
+    // @RequestMapping("/home/hackathon")
+    // public String eventByHackathon(Model model){
+    //     return"hackathon";
+    // }
+
+
     // @RequestMapping("/book")
     // public String book(Model model) {
     //     return "user/book";
