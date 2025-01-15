@@ -1,39 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    <div th:unless="${comedyEvent.empty}">
-      <div th:each="comedy : ${comedyEvent}">
-        <p data-th-text="${comedy.eventId}"><span>Event Id</span></p>
-        <p data-th-text="${comedy.eventName}"></p>
-        <p data-th-text="${comedy.eventDiscription}">
-          <span>Event Dicription</span>
-        </p>
-        <p data-th-text="${comedy.eventGenre}"><span>Event Genre</span></p>
-        <p data-th-text="${comedy.eventType}"><span>Event Type</span></p>
-        <img th:src="@{${comedy.eventBanner}}" >
-        <p data-th-text="${comedy.cloudBannerId}"><span>Event Banner</span></p>
-        <p data-th-text="${comedy.eventDate}"><span>Event Date</span></p>
-        <p data-th-text="${comedy.eventTime}"><span>Event Time</span></p>
-        <p data-th-text="${comedy.eventVenue}"><span>Event Venue</span></p>
-        <p data-th-text="${comedy.eventAddress}"><span>Event Address</span></p>
-        <p data-th-text="${comedy.eventCity}"><span>Event City</span></p>
-        <p data-th-text="${comedy.eventState}"><span>Event State</span></p>
-        <p data-th-text="${comedy.eventPincode}"><span>Event PinCode</span></p>
-        <p data-th-text="${comedy.eventDuration}">
-          <span>Event Duration</span>
-        </p>
-        <p data-th-text="${comedy.ticketType}"><span>Event ticketType</span></p>
-        <p data-th-text="${comedy.ticketPrice}">
-          <span>Event ticket Price</span>
-        </p>
-        <p data-th-text="${comedy.seates}"><span>Event Seates</span></p>
-        <hr>
+    <section id="content" class="pt-16">
+      <div th:unless="${comedyEvent.empty}">
+          <h1 class="text-center dark:text-gray-100 font-extrabold text-2xl">Events Listed By Comedy</h1>
+          <div class="container mx-auto px-8 py-12">
+              <div class="swiper mySwiper">
+                  <div class="swiper-wrapper">
+                      <div th:each="comedy: ${comedyEvent}" class="swiper-slide">
+                          <div class="dark:bg-gray-100 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 h-full">
+                              <!-- Event Image -->
+                              <img th:src="@{${comedy.eventBanner}}" class="w-full h-56 object-cover" alt="Event banner">
+                              <div class="p-4">
+                                  <!-- Event Details -->
+                                  <h3 data-th-text="${comedy.eventName}" class="text-lg font-bold mb-2 truncate"></h3>
+                                  <p data-th-text="${comedy.eventDiscription}" class="text-gray-600 mb-3 line-clamp-2 text-sm"></p>
+                                  
+                                  <!-- Date, Time & Location -->
+                                  <div class="space-y-2 mb-3">
+                                      <div class="flex items-center text-gray-500 text-sm">
+                                          <i class="far fa-calendar-alt w-4"></i>
+                                          <span data-th-text="${comedy.eventDate}"></span>
+                                          <i class="far fa-clock w-4 ml-3"></i>
+                                          <span data-th-text="${comedy.eventTime}"></span>
+                                      </div>
+                                      <div class="flex items-center text-gray-500 text-sm">
+                                          <i class="fas fa-map-marker-alt w-4"></i>
+                                          <span data-th-text="${comedy.eventVenue + ', ' + comedy.eventCity}"></span>
+                                      </div>
+                                  </div>
+                  
+                                  <!-- Price & Duration -->
+                                  <div class="flex justify-between items-center mb-3">
+                                      <span class="text-lg font-bold text-green-600" th:text="${'₹' + comedy.ticketPrice}"></span>
+                                      <span class="text-sm text-gray-500" th:text="${comedy.eventDuration}"></span>
+                                  </div>
+                  
+                                  <!-- Action Button -->
+                                  <a th:href="@{'/event/' + ${comedy.eventId}}" 
+                                     class="block w-full text-center bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300">
+                                      View Details
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Add Navigation -->
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+              </div>
+          </div>
       </div>
-    </div>
+  </section>
+  
+  <script>
+  const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+      },
+      navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+          640: {
+              slidesPerView: 2,
+          },
+          768: {
+              slidesPerView: 3,
+          },
+          1024: {
+              slidesPerView: 4,
+          },
+      },
+  });
+  </script>
   </body>
 </html>
+<!-- <div th:unless="${comedyEvent.empty}">
+  <div th:each="comedy : ${comedyEvent}">
+    <p data-th-text="${comedy.eventId}"><span>Event Id</span></p>
+    <p data-th-text="${comedy.eventName}"></p>
+    <p data-th-text="${comedy.eventDiscription}">
+      <span>Event Dicription</span>
+    </p>
+    <p data-th-text="${comedy.eventGenre}"><span>Event Genre</span></p>
+    <p data-th-text="${comedy.eventType}"><span>Event Type</span></p>
+    <img th:src="@{${comedy.eventBanner}}" >
+    <p data-th-text="${comedy.cloudBannerId}"><span>Event Banner</span></p>
+    <p data-th-text="${comedy.eventDate}"><span>Event Date</span></p>
+    <p data-th-text="${comedy.eventTime}"><span>Event Time</span></p>
+    <p data-th-text="${comedy.eventVenue}"><span>Event Venue</span></p>
+    <p data-th-text="${comedy.eventAddress}"><span>Event Address</span></p>
+    <p data-th-text="${comedy.eventCity}"><span>Event City</span></p>
+    <p data-th-text="${comedy.eventState}"><span>Event State</span></p>
+    <p data-th-text="${comedy.eventPincode}"><span>Event PinCode</span></p>
+    <p data-th-text="${comedy.eventDuration}">
+      <span>Event Duration</span>
+    </p>
+    <p data-th-text="${comedy.ticketType}"><span>Event ticketType</span></p>
+    <p data-th-text="${comedy.ticketPrice}">
+      <span>Event ticket Price</span>
+    </p>
+    <p data-th-text="${comedy.seates}"><span>Event Seates</span></p>
+    <hr>
+  </div>
+</div> -->

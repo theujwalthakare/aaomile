@@ -144,7 +144,7 @@
             <div class=" mb-1.5 items-center gap-4 cursor-pointer flex"  data-drawer-target="drawer-right-example"
               data-drawer-show="drawer-right-example" data-drawer-placement="right"
               aria-controls="drawer-right-example">
-              <img class="w-10 h-10  rounded-full" th:src="${loggedInUser.profilePic}" alt="">
+              <img class="w-10 h-10 p-1 rounded-full ring-2 bg-cover ring-gray-300 dark:ring-gray-500" th:src="${loggedInUser.profilePic}" alt="">
               <div class="font-medium dark:text-white hidden md:flex">
                 <div>Hey<p class="pr-6" data-th-text="${loggedInUser.firstName}"></p></div>
               </div>
