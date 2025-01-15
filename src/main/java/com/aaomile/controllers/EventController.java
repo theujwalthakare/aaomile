@@ -1,6 +1,5 @@
 package com.aaomile.controllers;
 
-import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.aaomile.entities.Event;
 import com.aaomile.entities.User;
@@ -43,7 +44,6 @@ public class EventController {
 
     @RequestMapping("/create")
     public String addEventView(Model model){
-        Logger logger = LoggerFactory.getLogger(this.getClass());
 
         EventFrom eventFrom = new EventFrom();
         model.addAttribute("eventForm", eventFrom);
@@ -52,13 +52,16 @@ public class EventController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String saveEvent(@Valid @ModelAttribute EventFrom eventFrom,BindingResult result ,Authentication authentication, HttpSession session){
+    public String saveEvent(@Valid @ModelAttribute EventFrom eventFrom,
+                                    BindingResult result ,
+                                    Authentication authentication, 
+                                    HttpSession session,
+                                    @RequestParam("eventBanner") MultipartFile file){
 
         String email = Helper.getEmailOfLoggedInUser(authentication);
         User user = userService.getUserByEmail(email);
 
         // String email = Helper.getEmailOfLoggedInUser(authentication);
-// 
         // User uname = userService.getUserByEmail(email);
 
 
@@ -69,20 +72,23 @@ public class EventController {
         }
 
         //process image
+        // String fileName = UUID.randomUUID().toString();   //this creates a random 128 bits ID NEVER UNCOMMENT
+        // String bannerName = eventFrom.getEventName();        // this takes the event name as id for to store at cloudinary
+        //banner upload programm                              // NEVER UNCOMMENT
+        // String bannerURL =  imageService.uploadImage(eventFrom.getEventBanner(),bannerName);
 
-        // String fileName = UUID.randomUUID().toString();   //this creates a random 128 bits ID 
-        String bannerName = eventFrom.getEventName();        // this takes the event name as id for to store at cloudinary
-        //banner upload programm
-        String bannerURL =  imageService.uploadImage(eventFrom.getEventBanner(),bannerName);
 
+        //--------------------------local Db process 
+        String name = eventFrom.getEventName();
+        String relativePath = imageService.uploadImage(file, name);
 
         Event event = new Event();
         event.setEventName(eventFrom.getEventName());
         event.setEventDiscription(eventFrom.getEventDiscription());
         event.setEventGenre(eventFrom.getEventGenre());
         event.setEventType(eventFrom.getEventType());
-        event.setEventBanner(bannerURL);  //banner url to DB
-        event.setCloudBannerId(bannerName); //random generated file
+        event.setEventBanner(relativePath);  //banner url to DB
+        event.setCloudBannerId(eventFrom.getEventName()); //random generated file
         event.setEventDate(eventFrom.getEventDate());
         event.setEventTime(eventFrom.getEventTime());
         event.setEventVenue(eventFrom.getEventVenue());
