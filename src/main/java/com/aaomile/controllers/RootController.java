@@ -49,7 +49,7 @@ public class RootController {
 
     @ModelAttribute
     public void eventByComedy(Model model){
-        String genre = "comedy";
+        String genre = "Comedy";
 
         List<Event> events = eventService.getByGenre(genre);
         model.addAttribute("comedyEvent", events);
@@ -58,7 +58,7 @@ public class RootController {
 
     @ModelAttribute
     public void eventByMusic(Model model){
-        String genre = "music";
+        String genre = "Music";
 
         List<Event> events = eventService.getByGenre(genre);
         model.addAttribute("musicEvent", events);
@@ -67,7 +67,7 @@ public class RootController {
 
     @ModelAttribute
     public void eventByWorkshop(Model model){
-        String genre = "workshop";
+        String genre = "Workshop";
 
         List<Event> events = eventService.getByGenre(genre);
         model.addAttribute("workshopEvent", events);
@@ -76,7 +76,7 @@ public class RootController {
 
     @ModelAttribute
     public void eventByExhibition(Model model){
-        String genre = "exhibition";
+        String genre = "Exhibition";
 
         List<Event> events = eventService.getByGenre(genre);
         model.addAttribute("exhibitionEvent", events);
@@ -85,7 +85,7 @@ public class RootController {
 
     @ModelAttribute
     public void eventByTheater(Model model){
-        String genre = "theater";
+        String genre = "Theater";
 
         List<Event> events = eventService.getByGenre(genre);
         model.addAttribute("theaterEvent", events);
@@ -94,7 +94,7 @@ public class RootController {
 
     @ModelAttribute
     public void eventByHackathon(Model model){
-        String genre = "hackathon";
+        String genre = "Hackathon";
 
         List<Event> events = eventService.getByGenre(genre);
         model.addAttribute("hackathonEvent", events);
