@@ -43,6 +43,7 @@ public class RootController {
         logger.info("FULL NAME =>"+user.getFullName());
         logger.info("USER EMAIL =>"+user.getEmail());
         logger.info("PROFILE PIC =>"+user.getProfilePic());
+        logger.info("User Id =>"+user.getId());
         model.addAttribute("loggedInUser", user);
     }
 
