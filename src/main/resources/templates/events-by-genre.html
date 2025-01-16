@@ -20,8 +20,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div th:each="event : ${events}" class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <!-- Event Image -->
-                <img th:if="${event.eventBanner}" th:src="@{${event.eventBanner}}" 
-                     class="w-full h-48 object-cover" alt="Event banner">
+                 <div class="h-56">
+                    <img th:if="${event.eventBanner}" th:src="@{${event.eventBanner}}" 
+                    class="w-full h-full object-cover" alt="Event banner">
+                 </div>
+                
                 <div class="p-6">
                     <!-- Event Details -->
                     <h3 th:text="${event.eventName}" class="text-xl font-bold mb-2"></h3>
