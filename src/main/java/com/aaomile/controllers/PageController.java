@@ -21,6 +21,8 @@ import com.aaomile.repository.UserRepo;
 import com.aaomile.service.EventService;
 import com.aaomile.service.UserService;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import com.aaomile.entities.Event;;
 
 
@@ -85,6 +87,19 @@ public class PageController {
     public String eventByHackathon(Model model){
         return"hackathon";
     }
+
+    @RequestMapping("/event/{eventId}")
+    public String showEventDetails(@PathVariable int eventId, Model model) {
+    // Fetch the event by ID from your service
+    Event event = eventService.getById(eventId);
+    
+    if (event != null) {
+        model.addAttribute("event", event);
+        return "sampleEventDisplay"; // Name of your template
+    }
+    
+    return "redirect:/"; // Redirect to home if event not found
+}
 
     // @RequestMapping("/book")
     // public String book(Model model) {

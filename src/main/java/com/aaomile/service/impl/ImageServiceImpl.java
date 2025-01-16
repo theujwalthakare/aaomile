@@ -56,7 +56,6 @@ public class ImageServiceImpl implements ImageService {
             // Save the file
             Path filePath = directory.resolve(newFileName);
             eventBanner.transferTo(filePath.toFile());
-            System.out.println("Saving file to: " + filePath.toAbsolutePath());
 
             // Return the relative path
             return "/images/uploads/eventBanner/" + newFileName;
