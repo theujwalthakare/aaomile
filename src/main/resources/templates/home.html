@@ -1,338 +1,264 @@
 <!DOCTYPE html>
-<html lang="en"  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aaomile-Home Page</title>
-</head>
-<body >
-<!-- Landing page headline -->
-<section id="content" class=" py-10 mx-auto max-w-screen-xl p-4 pt-36">
-   
-   <h1 class="  text-center font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"></span> <span>Where</span> <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Creativity</span> Meets Community!</h1>
-    <p class="text-xl text-gray-800 mt-5 mx-auto italic font-semibold text-center w-9/12">Welcome to Aaomile — your go-to platform for discovering exciting events and experiences happening around you! Whether it's a concert, art exhibition, workshop, or festival, we make it easy for you to find and book your favorite events in just a few clicks.</p>
-</section>
+  </head>
+  <body>
+    <!-- Landing page headline -->
+    <section id="content" class="py-10 mx-auto max-w-screen-xl p-4 pt-36">
+      <h1
+        class="text-center font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+      >
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+        ></span>
+        <span>Where</span>
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+          >Creativity</span
+        >
+        Meets Community!
+      </h1>
+      <p
+        class="text-xl text-gray-800 mt-5 mx-auto italic font-semibold text-center w-9/12"
+      >
+        Welcome to Aaomile — your go-to platform for discovering exciting events
+        and experiences happening around you! Whether it's a concert, art
+        exhibition, workshop, or festival, we make it easy for you to find and
+        book your favorite events in just a few clicks.
+      </p>
+    </section>
 
+    <!-- Categories section -->
+    <section id="content" class="px-4 py-8 justify-center">
+      <div class="max-w-screen-md mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8 dark:text">
+          Discover Events by Category
+        </h2>
 
-<!-- Categories section -->
-<section id="content" class="px-4 py-8  justify-center ">
-  <div class="max-w-screen-md mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-8 dark:text">Discover Events by Category</h2>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <!-- Comedy Card -->
-          <a class="group cursor-pointer"  href='home/comedy'>
-              <div class="bg-slate-100 rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105">
-                  <div class="bg-pink-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-laugh-beam text-3xl text-pink-500"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Comedy Shows</h3>
-                  <p class="text-gray-600 text-center text-sm">Comedy & Entertainment</p>
+          <a class="group cursor-pointer" href="home/comedy">
+            <div
+              class="bg-slate-100 rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105"
+            >
+              <div
+                class="bg-pink-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-laugh-beam text-3xl text-pink-500"></i>
               </div>
-            </a>
+              <h3 class="text-xl font-bold text-center text-gray-800 mb-2">
+                Comedy Shows
+              </h3>
+              <p class="text-gray-600 text-center text-sm">
+                Comedy & Entertainment
+              </p>
+            </div>
+          </a>
 
           <!-- Theater Card -->
-          <a class="group cursor-pointer"  href='home/theater'>
-              <div class="bg-orange-500 rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105">
-                  <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-theater-masks text-3xl text-purple-500"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Theater Shows</h3>
-                  <p class="text-gray-600 text-center text-sm">Drama & Stage Performances</p>
+          <a class="group cursor-pointer" href="home/theater">
+            <div
+              class="bg-orange-500 rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105"
+            >
+              <div
+                class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-theater-masks text-3xl text-purple-500"></i>
               </div>
-            </a>
+              <h3 class="text-xl font-bold text-center text-gray-800 mb-2">
+                Theater Shows
+              </h3>
+              <p class="text-gray-600 text-center text-sm">
+                Drama & Stage Performances
+              </p>
+            </div>
+          </a>
 
           <!-- Workshop Card -->
-          <a class="group cursor-pointer"  href='home/workshop' >
-              <div class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105">
-                  <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-paint-brush text-3xl text-blue-500"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Workshops</h3>
-                  <p class="text-gray-600 text-center text-sm">Art, Dance & Creative Sessions</p>
+          <a class="group cursor-pointer" href="home/workshop">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105"
+            >
+              <div
+                class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-paint-brush text-3xl text-blue-500"></i>
               </div>
-            </a>
+              <h3 class="text-xl font-bold text-center text-gray-800 mb-2">
+                Workshops
+              </h3>
+              <p class="text-gray-600 text-center text-sm">
+                Art, Dance & Creative Sessions
+              </p>
+            </div>
+          </a>
 
           <!-- Music Concert Card -->
-          <a class="group cursor-pointer" href='home/music'>
-              <div class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105">
-                  <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-music text-3xl text-green-500"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Music Concerts</h3>
-                  <p class="text-gray-600 text-center text-sm">Live Music & Performances</p>
+          <a class="group cursor-pointer" href="home/music">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105"
+            >
+              <div
+                class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-music text-3xl text-green-500"></i>
               </div>
-            </a>
+              <h3 class="text-xl font-bold text-center text-gray-800 mb-2">
+                Music Concerts
+              </h3>
+              <p class="text-gray-600 text-center text-sm">
+                Live Music & Performances
+              </p>
+            </div>
+          </a>
 
           <!-- Exhibition Card -->
-          <a class="group cursor-pointer" href='home/exhibition'>
-              <div class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105">
-                  <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-image text-3xl text-yellow-500"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Exhibitions</h3>
-                  <p class="text-gray-600 text-center text-sm">Art & Cultural Exhibitions</p>
+          <a class="group cursor-pointer" href="home/exhibition">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105"
+            >
+              <div
+                class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-image text-3xl text-yellow-500"></i>
               </div>
-            </a>
+              <h3 class="text-xl font-bold text-center text-gray-800 mb-2">
+                Exhibitions
+              </h3>
+              <p class="text-gray-600 text-center text-sm">
+                Art & Cultural Exhibitions
+              </p>
+            </div>
+          </a>
 
           <!-- Hackathon Card -->
-          <a class="group cursor-pointer"  href='home/hackathon'>
-              <div class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105">
-                  <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <i class="fas fa-laptop-code text-3xl text-red-500"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Hackathons</h3>
-                  <p class="text-gray-600 text-center text-sm">Tech Events & Competitions</p>
+          <a class="group cursor-pointer" href="home/hackathon">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 group-hover:scale-105"
+            >
+              <div
+                class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-laptop-code text-3xl text-red-500"></i>
               </div>
-            </a>
+              <h3 class="text-xl font-bold text-center text-gray-800 mb-2">
+                Hackathons
+              </h3>
+              <p class="text-gray-600 text-center text-sm">
+                Tech Events & Competitions
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
+    <section id="content" class="py-10 mx-auto max-w-screen-xl p-4 pt-36">
+      <!-- making featured events cards -->
 
-
-<section id="content" class="py-10 mx-auto max-w-screen-xl p-4 pt-36">
-    <!-- making featured events cards -->
-    
-    <div class=" p-4">
-      <!-- Add margin-top for spacing below cards -->
-      <div class="mt-16 flex items-center gap-4 mx-auto max-w-screen-xl p-4 pt-16">
-          <img th:src="@{'/images/Events/cards-images/icons/featured-icon.png'}" 
-               class="h-10 w-10 object-contain" 
-               alt="Featured Events Icon">
-          <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-none">
-              Featured Events
+      <div class="p-4">
+        <!-- Add margin-top for spacing below cards -->
+        <div
+          class="mt-16 flex items-center gap-4 mx-auto max-w-screen-xl p-4 pt-16"
+        >
+          <img
+            th:src="@{'/images/Events/cards-images/icons/featured-icon.png'}"
+            class="h-10 w-10 object-contain"
+            alt="Featured Events Icon"
+          />
+          <h1
+            class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-none"
+          >
+            Featured Events
           </h1>
-      </div>
-  </div>
-
-    <!-- add caursole to slide this div card -->
-
-    <div class="swiper mySwiper h-100">
-      <div class="swiper-wrapper">
-      <a href="/Events-details">
-          <div class="swiper-slide">
-              <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-                  <!-- Event content goes here -->
-
-                  <img th:src="@{'/images/Events/cards-images/comedy/com-1.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                  
-              </div>
-              <div class=" w-64">
-                <h3 class="text-lg font-bold">Event Name 3guhijoj </h3>
-                <p class="text-gray-600">Date: 2023-10-25</p>
-                <p>₹ 966</p>
-            </div>
-          </div>
-        </a>
-          <div class="swiper-slide">
-              <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-                  <!-- Event content goes here -->
-                  <img th:src="@{'/images/Events/cards-images/comedy/com-2.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                  
-                </div>
-                <div class="flex flex-col items-center  w-64">
-                  <h3 class="text-lg font-bold">Event Name 3</h3>
-                  <p class="text-gray-600">Date: 2023-10-25</p> 
-              </div>
-          </div>
-          <div class="swiper-slide">
-              <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-                  <!-- Event content goes here -->
-                  <img th:src="@{'/images/Events/cards-images/comedy/com-3.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                  
-              </div>
-              <div class=" flex flex-col items-center  w-64">
-                <h3 class="text-lg font-bold">Event Name 3</h3>
-                <p class="text-gray-600">Date: 2023-10-25</p> 
-            </div>
-          </div>
-          <div class="swiper-slide">
-              <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-                <img th:src="@{'/images/Events/cards-images/comedy/com-4.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                  
-              </div>
-              <div class=" flex flex-col items-center  w-64">
-                <h3 class="text-lg font-bold">Event Name 3</h3>
-                <p class="text-gray-600">Date: 2023-10-25</p> 
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-              <img th:src="@{'/images/Events/cards-images/comedy/com-5.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                
-            </div>
-            <div class=" flex flex-col items-center  w-64">
-              <h3 class="text-lg font-bold">Event Name 3</h3>
-              <p class="text-gray-600">Date: 2023-10-25</p> 
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-            <img th:src="@{'/images/Events/cards-images/comedy/com-6.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-              
-          </div>
-          <div class="pb flex flex-col items-center  w-64">
-            <h3 class="text-lg font-bold">Event Name 3</h3>
-            <p class="text-gray-600">Date: 2023-10-25</p> 
         </div>
       </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-   
-  </div>
-    <br>
-    
 
-</section>
-<section id="content" class="py-10 mx-auto p-3 ">
-  <div class="mx-auto max-w-screen-xl p-4">
-    <!-- Add margin-top for spacing below cards -->
-    <div class="mt-16 flex items-center gap-4 mx-auto max-w-screen-xl p-4 pt-16">
-      
-        <svg height="50" width="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="workshop">
-          <path fill="#549bff" d="m20.75,5v8.75h-1.5V5c0-.689-.561-1.25-1.25-1.25H6c-.689,0-1.25.561-1.25,1.25v8.75h-1.5V5c0-1.517,1.233-2.75,2.75-2.75h12c1.517,0,2.75,1.233,2.75,2.75Zm-5.75.25h-6c-.414,0-.75.336-.75.75s.336.75.75.75h6c.414,0,.75-.336.75-.75s-.336-.75-.75-.75Z"></path>
-          <path fill="#112d55" d="m21.53,18.488c-.317-1.058-.956-1.968-1.808-2.629.629-.593,1.028-1.428,1.028-2.359,0-1.792-1.458-3.25-3.25-3.25-.727,0-1.391.248-1.933.653-.473-1.53-1.884-2.653-3.567-2.653s-3.094,1.122-3.567,2.653c-.542-.404-1.206-.653-1.933-.653-1.792,0-3.25,1.458-3.25,3.25,0,.931.399,1.766,1.028,2.359-.852.661-1.491,1.571-1.808,2.629-.16.538-.06,1.104.276,1.555.334.449.847.707,1.405.707h1.362c.06.124.131.244.221.354.338.411.837.646,1.367.646h9.797c.53,0,1.029-.235,1.367-.646.09-.109.162-.229.221-.354h1.362c.559,0,1.071-.258,1.405-.707.336-.45.437-1.017.276-1.555Zm-4.03-6.738c.965,0,1.75.785,1.75,1.75s-.785,1.75-1.75,1.75-1.75-.785-1.75-1.75.785-1.75,1.75-1.75Zm-5.5-2c1.24,0,2.25,1.01,2.25,2.25s-1.01,2.25-2.25,2.25-2.25-1.01-2.25-2.25,1.01-2.25,2.25-2.25Zm-5.5,2c.965,0,1.75.785,1.75,1.75s-.785,1.75-1.75,1.75-1.75-.785-1.75-1.75.785-1.75,1.75-1.75Zm-2.552,7.396c-.029-.039-.073-.121-.041-.229.295-.986.988-1.784,1.9-2.246.224.049.454.078.693.078.101,0,.197-.021.296-.03-.599.726-1.036,1.585-1.291,2.53h-1.354c-.109,0-.174-.064-.203-.104Zm13.159,1.004c-.051.062-.129.1-.209.1H7.102c-.08,0-.158-.037-.209-.1-.041-.05-.057-.104-.046-.158.478-2.458,2.646-4.242,5.153-4.242s4.676,1.784,5.153,4.242c.011.055-.005.108-.046.158Zm2.944-1.004c-.029.039-.094.104-.203.104h-1.354c-.254-.945-.692-1.804-1.291-2.53.099.009.194.03.296.03.238,0,.469-.029.693-.078.912.462,1.605,1.26,1.9,2.246.032.107-.012.189-.041.229Z"></path>
-        </svg>
-       
-        <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-none">
-         workshops
-        </h1>
-    </div>
-</div>
-  <div class="swiper mySwiper h-100">
-    <div class="swiper-wrapper">
-    <a href="/Events-details">
-        <div class="swiper-slide">
-            <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
+      <!-- add caursole to slide this div card -->
+
+      <div class="swiper mySwiper h-100">
+        <div class="swiper-wrapper" th:unless="${allEvent.empty}">
+          <div  class="swiper-slide" th:each="allEvents: ${allEvent}">
+              <div class="group overflow-hidden flex flex-col  items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2"
+              >
+              <!--  -->
                 <!-- Event content goes here -->
 
-                <img th:src="@{'/images/Events/cards-images/workshop/work-1.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                
-            </div>
-            <div class=" flex flex-col items-center  w-64">
-              <h3 class="text-lg font-bold">Trading Workshop</h3>
-              <p class="text-gray-600">Buisness</p> 
-              <p>₹ 999</p>
-          </div>
-        </div>
-      </a>
-        <div class="swiper-slide">
-            <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-                <!-- Event content goes here -->
-                <img th:src="@{'/images/Events/cards-images/workshop/work-2.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                
+                <img
+                  th:src="@{${allEvents.eventBanner}}"
+                  alt="Event Image 3"
+                  class="transition-transform group-hover:scale-200 duration-400"
+                />
               </div>
-              <div class="flex flex-col items-center  w-64">
-                <h3 class="text-lg font-bold">Date Night Painting Party</h3>
-                <p class="text-gray-600">Arts and Craft</p>
-                <p >₹ 1599</p> 
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-                <!-- Event content goes here -->
-                <img th:src="@{'/images/Events/cards-images/workshop/work-3.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                
-            </div>
-            <div class=" flex flex-col items-center  w-64">
-              <h3 class="text-lg font-bold">Event Name 3</h3>
-              <p class="text-gray-600">Date: 2023-10-25</p> 
+              <div class="w-64">
+                <h3 class="text-lg font-bold" data-th-text="${allEvents.eventName}"></h3>
+                <p class="text-gray-600" data-th-text="${allEvents.eventDate}"></p>
+                <p data-th-text="${'Rs.' + allEvents.ticketPrice}"> </p>
+              </div>
           </div>
         </div>
-        <div class="swiper-slide">
-            <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-              <img th:src="@{'/images/Events/cards-images/workshop/work-4.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-                
-            </div>
-            <div class=" flex flex-col items-center  w-64">
-              <h3 class="text-lg font-bold">Event Name 3</h3>
-              <p class="text-gray-600">Date: 2023-10-25</p> 
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-            <img th:src="@{'/images/Events/cards-images/workshop/work-5.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-              
-          </div>
-          <div class=" flex flex-col items-center  w-64">
-            <h3 class="text-lg font-bold">Event Name 3</h3>
-            <p class="text-gray-600">Date: 2023-10-25</p> 
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
-      <div class="swiper-slide">
-        <div class="flex flex-col items-center justify-center w-64 h-100 bg-white dark:bg-gray-800 rounded-lg shadow-lg mx-2 my-2">
-          <img th:src="@{'/images/Events/cards-images/workshop/work-6.avif'}"alt="Event Image 3" class="w-full h-full object-cover rounded-lg">
-            
-        </div>
-        <div class="pb flex flex-col items-center  w-64">
-          <h3 class="text-lg font-bold">Event Name 3</h3>
-          <p class="text-gray-600">Date: 2023-10-25</p> 
-      </div>
-    </div>
-    </div>
-      <div>
-         <div class="swiper-button-next"></div>
-         <div class="swiper-button-prev"></div>
-        
-      </div>
- 
-</div>
-</section>
-<script>
-  console.log("Home page");
-  var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 3,
-  spaceBetween: 10,
-  slidesPerGroup: 2,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      // clickable: true,
-  },
-  navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-  },
-  breakpoints: {
-      0: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          slidesPerGroup: 1,
-      },
-      640: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-          slidesPerGroup: 2,
-      },
-      768: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-          slidesPerGroup: 2,
-      },
-      1024: {
-          slidesPerView: 4,
-          spaceBetween: 40,
-          slidesPerGroup: 1,
-      },
-  },
-});
-
-</script>
-</body>
-</html>  
-
-
+      <br />
+    </section>
+    <script>
+      console.log("Home page");
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 10,
+        slidesPerGroup: 2,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          // clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            slidesPerGroup: 1,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            slidesPerGroup: 2,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 2,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+            slidesPerGroup: 1,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
 
 <!-- this is dynamic implementation section where pages are redesign for dynamic implementation of data from databse 
    -->
 
-  <!-- section of cards of genre wise event display section -->
+<!-- section of cards of genre wise event display section -->
 
-  <!-- 
+<!-- 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     <div th:each="genre : ${genres}" class="group cursor-pointer" 
          th:onclick="'window.location.href=\'/events/genre/' + ${genre.name} + '\''">

@@ -101,7 +101,11 @@ public class RootController {
         // return"comedy";
     }
 
-
+    @ModelAttribute
+    public void getallEvent(Model model){
+        List<Event> events = eventService.getAll();
+        model.addAttribute("allEvent", events);
+    }
 
 
 }
