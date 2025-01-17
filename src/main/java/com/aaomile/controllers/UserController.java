@@ -30,9 +30,9 @@ public class UserController {
         return "user/CreateEvent";
     }
 
-    @RequestMapping("/bookings")    //       user/bookings
+    @RequestMapping("/booking")    //       user/bookings
     public String book(Model model) {
-        return "user/bookings";
+        return "user/book";
     }
     @RequestMapping("/dashboard")
     public String dashboard(Model model) {
@@ -72,10 +72,6 @@ public class UserController {
     // }
 
 
-    // @RequestMapping("/book")
-    // public String book(Model model) {
-    //     return "user/book";
-    // }
     // user/dashboard
     // user/edit profile
     // user/bookevent 
