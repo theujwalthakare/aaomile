@@ -1,4 +1,55 @@
-
+.dark{
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --primary-color: #63b3ed;
+  --secondary-color: #4299e1;
+  --accent-color: #f56565;
+  --accent-color-light: #f56565;
+  --accent-color-dark: #f56565;
+  --border-color: #2d3748;
+  --shadow-color: #000;
+  --shadow-color-light: #000;
+  --shadow-color-dark: #000;
+  --shadow-color-extra-light: #000;
+  --shadow-color-extra-dark: #000;
+  --shadow-color-lighter: #000;
+  --shadow-color-darker: #000;
+  --shadow-color-soft: #000;
+  --shadow-color-hard: #000;
+  --shadow-color-hover: #000;
+  --shadow-color-active: #000;
+  --shadow-color-focus: #000;
+  --shadow-color-focus-visible: #000;
+  --shadow-color-focus-not-visible: #000;
+  --shadow-color-focus-within: #000;
+  --shadow-color-focus-within-visible: #000;
+  --shadow-color-focus-within-not-visible: #000;
+  --shadow-color-disabled: #000;
+  --shadow-color-disabled-hover: #000;
+  --shadow-color-disabled-active: #000;
+  --shadow-color-disabled-focus: #000;
+  --shadow-color-disabled-focus-visible: #000;
+  --shadow-color-disabled-focus-not-visible: #000;
+  --shadow-color-disabled-focus-within: #000;
+  --shadow-color-disabled-focus-within-visible: #000;
+  --shadow-color-disabled-focus-within-not-visible: #000;
+  --shadow-color-disabled-soft: #000;
+  --shadow-color-disabled-hard: #000;
+  --shadow-color-disabled-hover-soft: #000;
+  --shadow-color-disabled-hover-hard: #000;
+  --shadow-color-disabled-active-soft: #000;
+  --shadow-color-disabled-active-hard: #000;
+  --shadow-color-disabled-focus-soft: #000;
+  --shadow-color-disabled-focus-hard: #000;
+  --shadow-color-disabled-focus-visible-soft: #000;
+  --shadow-color-disabled-focus-visible-hard: #000;
+  --shadow-color-disabled-focus-not-visible-soft: #000;
+  --shadow-color-disabled-focus-not-visible-hard: #
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
 #menu-toggle i {
   font-size: 1.5rem;
 }
@@ -18,7 +69,21 @@ body {
     margin: 0;
     padding: 0;
 }
+#theme-logo[data-theme-light] {
+  display: block;
+}
 
+#theme-logo[data-theme-dark] {
+  display: none;
+}
+
+html.dark #theme-logo[data-theme-light] {
+  display: none;
+}
+
+html.dark #theme-logo[data-theme-dark] {
+  display: block;
+}
 /* Hero Section */
 #about-banner {
     position: relative;
