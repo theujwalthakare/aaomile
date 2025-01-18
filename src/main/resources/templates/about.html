@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaomile - About Aaomile</title>
-
+    <title>Aaomile - About Aaomile</title> 
 </head>
 <body>
     <section id="content">
@@ -73,7 +72,28 @@
     </section>
     
 <script>
-    
+     // Smooth scroll for navigation
+     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    });
+
+    document.querySelectorAll('.section').forEach((section) => {
+        observer.observe(section);
+    });
 </script>
 </body>
 </html>
