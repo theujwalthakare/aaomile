@@ -12,8 +12,8 @@
         <section id="about-banner">
             <div class="overlay"></div>
             <div class="hero-content">
-                <h1>Welcome to <span>Aaomile</span></h1>
-                <p>Your Event, Your Global Stage 🌍</p>
+                <h1><span>Welcome to </span>BOOKNJOY</h1>
+                <p>From seats to memories we've got you !🌍</p>
             </div>
         </section>
 
@@ -58,16 +58,151 @@
         <!-- Our Vision Section -->
         <section class="section">
             <h2>Our Vision 🌍</h2>
-            <p>We envision a world where every event can be discovered, attended, and celebrated by people from different cultures and communities. Our platform aims to break barriers, foster connections, and make event management easier for everyone. By giving your events a global stage, AamOile helps you create unforgettable experiences.</p>
+            <p class="">We envision a world where every event can be discovered, attended, and celebrated by people from different cultures and communities. Our platform aims to break barriers, foster connections, and make event management easier for everyone. By giving your events a global stage, AamOile helps you create unforgettable experiences.</p>
         </section>
 
-        <!-- Join Section -->
-        <section class="section join">
-            <h2>Join the AamOile Community Today! 🎉</h2>
-            <p>With AamOile, you can take your events to the next level. Our platform allows you to focus on what you do best—creating amazing events—while we take care of the rest. Whether you're an organizer looking to expand your audience or an attendee searching for unique experiences, AamOile has got you covered.</p>
-            <p>Don't just create an event; create an experience that resonates across borders. Join the AamOile community today and see your events flourish!</p>
-            <button onclick="alert('Thank you for joining AamOile!')">Join Us Now</button>
+        
+        <section class="section flex justify-end items-start px-36 gap-8">
+           
+        
+            <!-- Join Section (Right) -->
+            <div class="flex-1 max-w-3xl bg-red-400 shadow-lg rounded-lg p-8">
+                <h1 class="text-3xl font-bold mb-6 ">Join the BOOKNJOY Community Today! 🎉</h1>
+                <p>With BooknJoy, you can take your events to the next level. Our platform allows you to focus on what you do best—creating amazing events—while we take care of the rest. Whether you're an organizer looking to expand your audience or an attendee searching for unique experiences, BOOKNJOY has got you covered.</p>
+            <p class="pb-5">Don't just create an event, create an experience that resonates across borders. Join the BooknJoy community today and see your events flourish!</p>
+                <button 
+                    onclick="alert('Thank you for joining BOOKNJOY !')"
+                    class=" bg-red-900 hover:bg-red-400 py-2 text-white px-6  rounded-lg  transition duration-300"
+                >
+                    Join Us Now
+                </button>
+            </div>
+             <!-- Developer Card (Left) -->
+             <!-- <div class="w-[300px] bg-white shadow-lg rounded-lg p-6">
+                <div class="text-center">
+                    <img 
+                        src="https://via.placeholder.com/100" 
+                        alt="Developer" 
+                        class="w-24 h-24 rounded-full mx-auto mb-4"
+                    >
+                    <h3 class="text-xl font-semibold mb-2">Developer Info</h3>
+                    <p class="text-gray-600 mb-2">Full Stack Developer</p>
+                    <div class="flex justify-center space-x-3 mb-4">
+                        <a href="#" class="text-blue-600 hover:text-blue-800">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-800 hover:text-gray-600">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-500">
+                        Passionate about creating seamless user experiences and robust applications
+                    </p>
+                </div>
+            </div> -->
+            
+            
+    <!-- Developer Card -->
+    <div class="w-[300px]">
+        <div class="bg-white shadow-lg rounded-lg p-6 transform transition-transform hover:-translate-y-1">
+            <div class="text-center">
+                <img 
+                    src="images/dev-image.png" 
+                    alt="Developer" 
+                    class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                >
+                <h3 class="text-xl font-semibold mb-2">Know about Developers</h3>
+              
+                <button 
+                    onclick="openDevModal('dev1')"
+                    class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300"
+                >
+                    Know More
+                </button>
+            </div>
+        </div>
+    </div>
+        
         </section>
+        <!-- Modal -->
+<div id="devModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-5xl w-full mx-4 relative">
+        <button 
+            onclick="closeDevModal()"
+            class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+        >
+            <i class="fas fa-times text-xl"></i>
+        </button>
+
+        <h2 class="text-3xl font-bold mb-8 text-center">Our Development Team</h2>
+        
+        <!-- Developers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Developer 1 -->
+            <div class="flex flex-col md:flex-row gap-6 bg-gray-50 p-6 rounded-lg">
+                <img 
+                    src="/images/blank.jpg" 
+                    alt="Ujwal-Thakare" 
+                    class="w-40 h-40 rounded-lg object-cover mx-auto md:mx-0"
+                >
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">Ujwal Thakare</h2>
+                    <p class="text-gray-600 mb-3">Full Stack Developer</p>
+                    <div class="space-y-2 mb-4">
+                        <p><strong>Skills:</strong>HTML,Javascript, Tailwind-CSS,Java</p>
+                        <p><strong>Education:</strong> B.Sc in Computer Science</p>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Passionate about creating user-friendly web applications and solving complex problems through elegant solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/ujwal-thakare-300b25264/" class="text-red-600 hover:text-red-800 text-2xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/theujwalthakare" class="text-gray-800 hover:text-gray-600 text-2xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/theujwalthakre/" class="text-red-400 hover:text-red-600 text-2xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Developer 2 -->
+            <div class="flex flex-col md:flex-row gap-6 bg-gray-50 p-6 rounded-lg">
+                <img 
+                    src="/images/blank.jpg" 
+                    alt="Yadnyesh-Sawant" 
+                    class="w-40 h-40 rounded-lg object-cover mx-auto md:mx-0"
+                >
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">Yadnyesh Sawant</h2>
+                    <p class="text-gray-600 mb-3">Backend Developer</p>
+                    <div class="space-y-2 mb-4">
+                        <p><strong>Skills:</strong> Java, Spring Boot, PostgreSQL,hibernate,Github</p>
+                        <p><strong>Education:</strong> B.Sc Computer Science</p>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Specialized in building robust and scalable backend systems with a focus on performance and security.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/yadnyesh-sawant-3ba3a5270/" class="text-red-600 hover:text-red-800 text-2xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/YadnyeshSawant" class="text-gray-800 hover:text-gray-600 text-2xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/shooter_yadnyesh/" class="text-red-400 hover:text-red-600 text-2xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     </section>
     
@@ -93,6 +228,22 @@
 
     document.querySelectorAll('.section').forEach((section) => {
         observer.observe(section);
+    });
+    function openDevModal() {
+        const modal = document.getElementById('devModal');
+        modal.classList.remove('hidden');
+    }
+
+    function closeDevModal() {
+        const modal = document.getElementById('devModal');
+        modal.classList.add('hidden');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('devModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeDevModal();
+        }
     });
 </script>
 </body>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOKNJOY -My Events</title>
+</head>
+<body>
+    <section id="content" class="py-12  justify-center  px-8  md:px-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-800">My Bookings</h1>
+                <p class="text-gray-600">Manage and view all your event bookings</p>
+            </div>
+    
+            <!-- Booking Status Tabs -->
+            <div class="mb-6 border-b">
+                <nav class="flex space-x-8">
+                    <button class="px-4 py-2 text-sm font-medium text-red-600 border-b-2 border-red-600">
+                        Upcoming Events
+                    </button>
+                    <button class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">
+                        Past Events
+                    </button>
+                    <button class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">
+                        Cancelled
+                    </button>
+                </nav>
+            </div>
+    
+            <!-- Bookings Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Booking Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4" 
+                             alt="Event Image" 
+                             class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 text-sm font-medium bg-green-100 text-green-800 rounded-full">
+                                Confirmed
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Summer Music Festival 2024</h3>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>June 15, 2024</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="far fa-clock mr-2"></i>
+                                <span>6:00 PM</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>Central Park, New York</span>
+                            </div>
+                        </div>
+    
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-600">Tickets</span>
+                                <span class="text-sm text-gray-800">2 × VIP Pass</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm font-medium text-gray-600">Total Amount</span>
+                                <span class="text-sm font-semibold text-gray-800">₹10,000</span>
+                            </div>
+                            
+                            <div class="flex space-x-3">
+                                <button class="flex-1 px-4 py-2 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-50">
+                                    View E-Tickets
+                                </button>
+                                <button class="flex-1 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
+                                    Cancel Booking
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Booking Card 2 (Past Event) -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden opacity-75">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30" 
+                             alt="Event Image" 
+                             class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Tech Conference 2024</h3>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>May 1, 2024</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="far fa-clock mr-2"></i>
+                                <span>9:00 AM</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>Convention Center</span>
+                            </div>
+                        </div>
+    
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-600">Tickets</span>
+                                <span class="text-sm text-gray-800">1 × Regular Entry</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm font-medium text-gray-600">Total Amount</span>
+                                <span class="text-sm font-semibold text-gray-800">₹2,000</span>
+                            </div>
+                            
+                            <button class="w-full px-4 py-2 text-sm font-medium text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Booking Card 3 (Cancelled) -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden opacity-75">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2" 
+                             alt="Event Image" 
+                             class="w-full h-48 object-cover grayscale">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 text-sm font-medium bg-red-100 text-red-800 rounded-full">
+                                Cancelled
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Food Festival 2024</h3>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>July 20, 2024</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="far fa-clock mr-2"></i>
+                                <span>12:00 PM</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>City Square</span>
+                            </div>
+                        </div>
+    
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-600">Refund Status</span>
+                                <span class="text-sm text-green-600">Processed</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm font-medium text-gray-600">Refund Amount</span>
+                                <span class="text-sm font-semibold text-gray-800">₹3,000</span>
+                            </div>
+                            
+                            <button class="w-full px-4 py-2 text-sm font-medium text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Empty State (When no bookings) -->
+            <div class="hidden text-center py-12">
+                <div class="mb-4">
+                    <i class="fas fa-ticket-alt text-4xl text-gray-400"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No Bookings Found</h3>
+                <p class="text-gray-600 mb-6">You haven't made any bookings yet.</p>
+                <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
+                    Explore Events
+                </a>
+            </div>
+        </div>
+    </section>
+    
+ 
+<script></script>
+ 
+</body>
+</html>
+
+
+
+<!-- To display data dynamically we can use this templete which display users booked event, past events, canceled event -->
+
+<!-- 
+<section id="content" class="py-12 px-4 md:px-8">
+    <div class="max-w-6xl mx-auto">
+        
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-gray-800">My Bookings</h1>
+            <p class="text-gray-600">Welcome, <span th:text="${user.name}">User</span></p>
+        </div>
+
+        
+        <div class="mb-6 border-b">
+            <nav class="flex space-x-8">
+                <button th:each="status : ${bookingStatuses}"
+                        th:class="${currentStatus == status} ? 'px-4 py-2 text-sm font-medium text-red-600 border-b-2 border-red-600' : 'px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700'"
+                        th:text="${status}"
+                        th:data-status="${status}"
+                        onclick="filterBookings(this)">
+                </button>
+            </nav>
+        </div>
+
+      
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div th:each="booking : ${bookings}" 
+                 th:class="${booking.status == 'CANCELLED'} ? 'bg-white rounded-lg shadow-md overflow-hidden opacity-75' : 'bg-white rounded-lg shadow-md overflow-hidden'">
+                <div class="relative">
+                    <img th:src="${booking.event.imageUrl}" 
+                         alt="Event Image" 
+                         th:class="${booking.status == 'CANCELLED'} ? 'w-full h-48 object-cover grayscale' : 'w-full h-48 object-cover'">
+                    <div class="absolute top-4 right-4">
+                         
+                        <span th:class="${
+                            booking.status == 'CONFIRMED'} ? 'px-3 py-1 text-sm font-medium bg-green-100 text-green-800 rounded-full' :
+                            ${booking.status == 'COMPLETED'} ? 'px-3 py-1 text-sm font-medium bg-gray-100 text-gray-800 rounded-full' :
+                            'px-3 py-1 text-sm font-medium bg-red-100 text-red-800 rounded-full'">
+                            <span th:text="${booking.status}">Status</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2" th:text="${booking.event.name}">Event Name</h3>
+                    
+                    <div class="space-y-3 mb-4">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span th:text="${#temporals.format(booking.event.date, 'MMMM d, yyyy')}">Date</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="far fa-clock mr-2"></i>
+                            <span th:text="${#temporals.format(booking.event.time, 'h:mm a')}">Time</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span th:text="${booking.event.location}">Location</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t pt-4">
+                       
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-medium text-gray-600">Tickets</span>
+                            <span class="text-sm text-gray-800">
+                                <span th:text="${booking.quantity}">0</span> × 
+                                <span th:text="${booking.ticketType}">Ticket Type</span>
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm font-medium text-gray-600">Total Amount</span>
+                            <span class="text-sm font-semibold text-gray-800">
+                                ₹<span th:text="${#numbers.formatDecimal(booking.totalAmount, 0, 'COMMA', 0, 'POINT')}">0</span>
+                            </span>
+                        </div>
+                        
+                       
+                        <div th:if="${booking.status == 'CONFIRMED'}" class="flex space-x-3">
+                            <a th:href="@{/bookings/{id}/ticket(id=${booking.id})}" 
+                               class="flex-1 px-4 py-2 text-sm font-medium text-red-600 border border-red-600 rounded-md hover:bg-red-50 text-center">
+                                View E-Tickets
+                            </a>
+                            <button th:onclick="'cancelBooking(' + ${booking.id} + ')'"
+                                    class="flex-1 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
+                                Cancel Booking
+                            </button>
+                        </div>
+
+                       
+                        <div th:if="${booking.status == 'COMPLETED'}" class="flex">
+                            <a th:href="@{/bookings/{id}(id=${booking.id})}" 
+                               class="w-full px-4 py-2 text-sm font-medium text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50 text-center">
+                                View Details
+                            </a>
+                        </div>
+
+                        
+                        <div th:if="${booking.status == 'CANCELLED'}" class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-gray-600">Refund Status</span>
+                                <span class="text-sm text-green-600" th:text="${booking.refundStatus}">Refund Status</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm font-medium text-gray-600">Refund Amount</span>
+                                <span class="text-sm font-semibold text-gray-800">
+                                    ₹<span th:text="${#numbers.formatDecimal(booking.refundAmount, 0, 'COMMA', 0, 'POINT')}">0</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div th:if="${#lists.isEmpty(bookings)}" class="text-center py-12">
+            <div class="mb-4">
+                <i class="fas fa-ticket-alt text-4xl text-gray-400"></i>
+            </div>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">No Bookings Found</h3>
+            <p class="text-gray-600 mb-6">You haven't made any bookings yet.</p>
+            <a th:href="@{/events}" 
+               class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
+                Explore Events
+            </a>
+        </div>
+    </div>
+</section>
+
+ 
+<script th:inline="javascript">
+   
+    function cancelBooking(bookingId) {
+        if (confirm('Are you sure you want to cancel this booking?')) {
+            fetch(`/api/bookings/${bookingId}/cancel`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="_csrf"]').content
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Failed to cancel booking. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while cancelling the booking.');
+            });
+        }
+    }
+
+   
+    function filterBookings(button) {
+        const status = button.getAttribute('data-status');
+        window.location.href = `/bookings?status=${status}`;
+    }
+</script>
+
+ 
+
+
+-->

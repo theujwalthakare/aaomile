@@ -3,255 +3,199 @@
 
 <head>
     <title>Event Details</title>
-    <!-- this page is design to display event information and booking 
-     form added to confirm the booking and added user details to db as event booked by this user 
-    -->
-</head>
-<body class="bg-slate-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-   <section id="content">
-
-    <div class="bg-gray-100 rounded-lg p-3 flex items-center justify-center flex-wrap">
-        <ul class="flex items-center">
-          
-      
-          <li class="inline-flex items-center">
-            <a href="" class="text-gray-600 hover:text-blue-500">
-              Page 1
-            </a>
-      
-            <span class="mx-4 h-auto text-gray-400 font-medium">/</span>
-          </li>
-      
-          <li class="inline-flex items-center">
-            <a href="#" class="text-gray-600 hover:text-blue-500">
-              Page 2
-            </a>
-      
-            <span class="mx-4 h-auto text-gray-400 font-medium">/</span>
-          </li>
-      
-          <li class="inline-flex items-center">
-            <a href="#" class="text-gray-600 hover:text-blue-500 ">
-              Page 3
-            </a>
-          </li>
-        </ul>
-      </div>
-   </section>
-
-    <script>
-
-    </script>
-</body>
-</html>
-<!-- 
-     If you want to see how this page will look like the comment out the above code and uncomment the below code.
--->
-
-<!-- 
-<!DOCTYPE html >
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">>
-<head>
-    <title>Event Details</title>
-    <style>
-        .booking-section {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .booking-section.active {
-            display: block;
-        }
-
-        .booking-content {
-            max-width: 600px;
-            margin: 2rem auto;
-            animation: slideUp 0.3s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    </style>
-</head>
-<body class="bg-slate-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-    
-        <div class="w-full h-[400px] relative mb-8">
-          <img src="/sample-event-banner.jpg"
-               class="w-full h-full object-cover" alt="Event banner">
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-              <div class="max-w-7xl mx-auto flex justify-between items-end">
-                  <div>
-                      <h1 class="text-4xl font-bold text-white mb-2">Summer Music Festival 2024</h1>
-                      <p class="text-xl text-white/90">Join us for an amazing evening of live music</p>
-                  </div>
-                  <button onclick="showBooking()" 
-                          class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
-                      Book Now
-                  </button>
-              </div>
-          </div>
-      </div>
-
    
-      <div class="max-w-7xl mx-auto px-4 py-8">
+</head>
+  <body>
+    <!-- <section id="content" class="pt-16 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
            
-          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg mb-8">
-              <div class="max-w-3xl mx-auto">
-                  <h2 class="text-2xl font-bold mb-4">About the Event</h2>
-                  <p class="text-gray-600 dark:text-gray-300 mb-6">
-                      Join us for an amazing evening of live music featuring top artists from around the world. 
-                      Experience an unforgettable night of entertainment, food, and celebration.
-                  </p>
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">All Events</h1>
+                <p class="text-gray-600 mt-2">Discover amazing events happening around you</p>
+            </div>
+    
+         
+            <div th:unless="${allEvent.empty}" 
+                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         
+                <div th:each="allEvents: ${allEvent}" class="flex flex-col items-center">
                   
-                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                      <div class="flex items-center space-x-3 bg-slate-50 dark:bg-gray-700 p-4 rounded-lg">
-                          <i class="far fa-calendar-alt text-2xl text-blue-500"></i>
-                          <div>
-                              <p class="text-sm text-gray-500 dark:text-gray-400">Date</p>
-                              <p class="font-semibold">March 15, 2024</p>
-                          </div>
-                      </div>
-                      <div class="flex items-center space-x-3 bg-slate-50 dark:bg-gray-700 p-4 rounded-lg">
-                          <i class="far fa-clock text-2xl text-blue-500"></i>
-                          <div>
-                              <p class="text-sm text-gray-500 dark:text-gray-400">Time</p>
-                              <p class="font-semibold">7:00 PM</p>
-                          </div>
-                      </div>
-                      <div class="flex items-center space-x-3 bg-slate-50 dark:bg-gray-700 p-4 rounded-lg">
-                          <i class="fas fa-map-marker-alt text-2xl text-blue-500"></i>
-                          <div>
-                              <p class="text-sm text-gray-500 dark:text-gray-400">Location</p>
-                              <p class="font-semibold">Central Park, New York</p>
-                          </div>
-                      </div>
-                      <div class="flex items-center space-x-3 bg-slate-50 dark:bg-gray-700 p-4 rounded-lg">
-                          <i class="fas fa-hourglass-half text-2xl text-blue-500"></i>
-                          <div>
-                              <p class="text-sm text-gray-500 dark:text-gray-400">Duration</p>
-                              <p class="font-semibold">3 hours</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      
-      <div id="bookingSection" class="booking-section">
-          <div class="booking-content bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl mx-4">
-              <div class="flex justify-between items-center mb-6">
-                  <h2 class="text-2xl font-bold">Book Tickets</h2>
-                  <button onclick="hideBooking()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                      <i class="fas fa-times text-2xl"></i>
-                  </button>
-              </div>
-
-              <form action="/event/123/book" method="post" class="space-y-6">
-                  <div>
-                      <label class="block text-gray-700 dark:text-gray-300 mb-2">Number of Tickets</label>
-                      <div class="flex items-center space-x-4">
-                          <button type="button" onclick="decrementTickets()" 
-                                  class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg">-</button>
-                          <input type="number" name="ticketCount" id="ticketCount" value="1" min="1" max="10"
-                                 class="w-20 text-center border rounded-lg py-2 dark:bg-gray-700">
-                          <button type="button" onclick="incrementTickets()"
-                                  class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg">+</button>
-                      </div>
-                  </div>
-
-                  <div class="grid grid-cols-2 gap-4">
-                      <div>
-                          <label class="block text-gray-700 dark:text-gray-300 mb-2">Price per Ticket</label>
-                          <p class="text-2xl font-bold text-green-600 dark:text-green-400">₹1500</p>
-                      </div>
-                      <div>
-                          <label class="block text-gray-700 dark:text-gray-300 mb-2">Total Amount</label>
-                          <p class="text-2xl font-bold text-green-600 dark:text-green-400">
-                              ₹<span id="totalAmount">1500</span>
-                          </p>
-                      </div>
-                  </div>
-
-                  <div class="space-y-4">
-                      <label class="block text-gray-700 dark:text-gray-300 mb-2">Contact Information</label>
-                      <input type="text" name="name" placeholder="Full Name" required
-                             class="w-full border rounded-lg p-3 dark:bg-gray-700">
-                      <input type="email" name="email" placeholder="Email" required
-                             class="w-full border rounded-lg p-3 dark:bg-gray-700">
-                      <input type="tel" name="phone" placeholder="Phone Number" required
-                             class="w-full border rounded-lg p-3 dark:bg-gray-700">
-                  </div>
-
-                  <button type="submit" 
-                          class="w-full bg-blue-500 text-white py-4 px-6 rounded-lg hover:bg-blue-600 transition duration-300 font-semibold">
-                      Proceed to Payment
-                  </button>
-              </form>
-          </div>
-      </div>
-  </div>
-
-  <script>
-      const ticketPrice = 1500;
-      
-      function showBooking() {
-          document.getElementById('bookingSection').classList.add('active');
-          document.body.style.overflow = 'hidden';
-      }
-
-      function hideBooking() {
-          document.getElementById('bookingSection').classList.remove('active');
-          document.body.style.overflow = 'auto';
-      }
-
-      function updateTotal() {
-          const count = parseInt(document.getElementById('ticketCount').value);
-          const total = count * ticketPrice;
-          document.getElementById('totalAmount').textContent = total;
-      }
-
-      function incrementTickets() {
-          const input = document.getElementById('ticketCount');
-          if (input.value < 10) {
-              input.value = parseInt(input.value) + 1;
-              updateTotal();
-          }
-      }
-
-      function decrementTickets() {
-          const input = document.getElementById('ticketCount');
-          if (input.value > 1) {
-              input.value = parseInt(input.value) - 1;
-              updateTotal();
-          }
-      }
-
-      document.getElementById('ticketCount').addEventListener('change', updateTotal);
-
+                    <a th:href="@{'/event/' + ${allEvents.eventId}}" 
+                       class="group1 relative w-64 h-[280px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                     
+                        <span class="absolute top-3 right-2 z-10 bg-red-300 text-gray-900 text-sm font-medium px-2.5 py-0.5 rounded-md dark:bg-red-900 dark:text-red-200 border-black"
+                              data-th-text="${allEvents.eventGenre}">
+                        </span>
+    
+                    
+                        <div class="w-full h-full overflow-hidden">
+                            <img th:src="@{${allEvents.eventBanner}}"
+                                 alt="Event Image"
+                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                    </a>
+    
+                
+                    <div class="w-64 pt-4 px-2">
+                        <h3 class="text-lg font-bold text-gray-950 dark:text-white truncate" 
+                            data-th-text="${allEvents.eventName}">
+                        </h3>
+                        <div class="flex items-center text-gray-600 text-sm mt-1">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span data-th-text="${allEvents.eventDate}"></span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-red-600 font-semibold" 
+                                  data-th-text="${'Rs.' + allEvents.ticketPrice}">
+                            </span>
+                            <span class="text-sm text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span data-th-text="${allEvents.eventCity}"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
        
-      document.getElementById('bookingSection').addEventListener('click', function(e) {
-          if (e.target === this) {
-              hideBooking();
-          }
-      });
-  </script>
-</body>
-</html>
-
--->
+            <div th:if="${allEvent.empty}" 
+                 class="text-center py-16">
+                <div class="mb-4">
+                    <i class="fas fa-calendar-alt text-4xl text-gray-400"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No Events Available</h3>
+                <p class="text-gray-600">Check back later for upcoming events.</p>
+            </div>
+        </div>
+    </section>
+     -->
+     <section id="content" class="pt-16 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Page Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">All Events</h1>
+                <p class="text-gray-600 mt-2">Discover amazing events happening around you</p>
+            </div>
+    
+            <!-- Filter Section -->
+            <div class="mb-8">
+                <form id="filterForm" method="GET" th:action="@{/events}" 
+                      class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Genre Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Event Genre
+                            </label>
+                            <select name="genre" 
+                                    class="w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <option value="">All Genres</option>
+                                <option value="MUSIC" th:selected="${param.genre == 'MUSIC'}">Music</option>
+                                <option value="SPORTS" th:selected="${param.genre == 'SPORTS'}">Sports</option>
+                                <option value="THEATRE" th:selected="${param.genre == 'THEATRE'}">Theatre</option>
+                                <option value="COMEDY" th:selected="${param.genre == 'COMEDY'}">Comedy</option>
+                            </select>
+                        </div>
+    
+                        <!-- Price Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Price Category
+                            </label>
+                            <select name="priceCategory" 
+                                    class="w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <option value="">All Events</option>
+                                <option value="FREE" th:selected="${param.priceCategory == 'FREE'}">Free Events</option>
+                                <option value="PAID" th:selected="${param.priceCategory == 'PAID'}">Paid Events</option>
+                            </select>
+                        </div>
+    
+                        <!-- Filter Buttons -->
+                        <div class="flex items-end gap-4">
+                            <button type="submit" 
+                                    class="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300">
+                                Apply Filters
+                            </button>
+                            <a href="/events" 
+                               class="flex-1 text-center border border-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-50 transition duration-300">
+                                Clear Filters
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+            <!-- Events Count -->
+            <div class="mb-6 flex justify-between items-center">
+                <p class="text-gray-600 dark:text-gray-400">
+                    Showing <span th:text="${#lists.size(allEvent)}">0</span> events
+                </p>
+            </div>
+    
+            <!-- Events Grid -->
+            <div th:unless="${allEvent.empty}" 
+                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Event Card -->
+                <div th:each="allEvents: ${allEvent}" class="flex flex-col items-center">
+                    <!-- Card Container -->
+                    <a th:href="@{'/event/' + ${allEvents.eventId}}" 
+                       class="group1 relative w-64 h-[280px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                        <!-- Genre Badge -->
+                        <span class="absolute top-3 right-2 z-10 bg-red-300 text-gray-900 text-sm font-medium px-2.5 py-0.5 rounded-md dark:bg-red-900 dark:text-red-200 border-black"
+                              data-th-text="${allEvents.eventGenre}">
+                        </span>
+    
+                        <!-- Event Image -->
+                        <div class="w-full h-full overflow-hidden">
+                            <img th:src="@{${allEvents.eventBanner}}"
+                                 alt="Event Image"
+                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                    </a>
+    
+                    <!-- Event Details Below Card -->
+                    <div class="w-64 pt-4 px-2">
+                        <h3 class="text-lg font-bold text-gray-950 dark:text-white truncate" 
+                            data-th-text="${allEvents.eventName}">
+                        </h3>
+                        <div class="flex items-center text-gray-600 text-sm mt-1">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span data-th-text="${allEvents.eventDate}"></span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-red-600 font-semibold" 
+                                  data-th-text="${'Rs.' + allEvents.ticketPrice}">
+                            </span>
+                            <span class="text-sm text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-1"></i>
+                                <span data-th-text="${allEvents.eventCity}"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Empty State -->
+            <div th:if="${allEvent.empty}" 
+                 class="text-center py-16">
+                <div class="mb-4">
+                    <i class="fas fa-calendar-alt text-4xl text-gray-400"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No Events Found</h3>
+                <p class="text-gray-600 mb-4">Try adjusting your filters or browse all events.</p>
+                <a href="/events" 
+                   class="inline-block bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition duration-300">
+                    View All Events
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+   
+    </script>
+    
+  </body>
+ 
+  </html>

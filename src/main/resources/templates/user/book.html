@@ -6,95 +6,329 @@
     <title>Document</title>
 </head>
 <body>
-    <section id="content">
-    <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-        <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-          <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
-            <div class="max-w-2xl mx-auto">
-              <div class="flex items-center space-x-5">
-                <div class="block pl-2 font-semibold text-xl text-gray-700">
-                  <h2 class="leading-relaxed">Event Booking</h2>
-                  <p class="text-sm text-gray-500 font-normal leading-relaxed">Please fill in your details to book the event</p>
+  <!-- <section id="content" class="py-12 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+       
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+              
+                <div class="w-full md:w-1/3">
+                    <img th:src="${event.imageUrl}" 
+                         alt="Event Image" 
+                         class="w-full h-48 object-cover rounded-lg">
                 </div>
-              </div>
-              <form class="divide-y divide-gray-200">
-                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                  <!-- Name Field -->
-                  <div class="flex flex-col">
-                    <label class="leading-loose">Full Name</label>
-                    <input type="text" 
-                      class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" 
-                      placeholder="Enter your full name">
-                  </div>
-      
-                  <!-- Email Field -->
-                  <div class="flex flex-col">
-                    <label class="leading-loose">Email</label>
-                    <input type="email" 
-                      class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" 
-                      placeholder="Enter your email">
-                  </div>
-      
-                  <!-- Event Selection -->
-                  <div class="flex flex-col">
-                    <label class="leading-loose">Select Event</label>
-                    <select class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
-                      <option value="">Select an event</option>
-                      <option value="comedy">Comedy Show</option>
-                      <option value="music">Music Concert</option>
-                      <option value="workshop">Workshop</option>
-                      <option value="exhibition">Exhibition</option>
-                      <option value="theater">Theater</option>
-                      <option value="hackathon">Hackathon</option>
-                    </select>
-                  </div>
-      
-                  <!-- Number of Tickets -->
-                  <div class="flex flex-col">
-                    <label class="leading-loose">Number of Tickets</label>
-                    <input type="number" 
-                      class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" 
-                      min="1" 
-                      placeholder="Enter number of tickets">
-                  </div>
-      
-                  <!-- Date Selection -->
-                  <div class="flex flex-col">
-                    <label class="leading-loose">Event Date</label>
-                    <input type="date" 
-                      class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
-                  </div>
-      
-                  <!-- Special Requirements -->
-                  <div class="flex flex-col">
-                    <label class="leading-loose">Special Requirements (Optional)</label>
-                    <textarea 
-                      class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" 
-                      rows="3" 
-                      placeholder="Any special requirements or requests?"></textarea>
-                  </div>
+
+            
+                <div class="w-full md:w-2/3">
+                    <h1 th:text="${event.name}" class="text-2xl font-bold text-gray-800 mb-2">Event Name</h1>
+                    <p th:text="${event.description}" class="text-gray-600 mb-4">Event description goes here...</p>
+                    
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                        <div class="flex items-center">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span th:text="${event.date}">Date</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="far fa-clock mr-2"></i>
+                            <span th:text="${event.time}">Time</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span th:text="${event.location}">Location</span>
+                        </div>
+                    </div>
                 </div>
-      
-                <!-- Form Buttons -->
-                <div class="pt-4 flex items-center space-x-4">
-                  <button class="flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none hover:bg-gray-100 border">
-                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg> Cancel
-                  </button>
-                  <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none hover:bg-blue-600">
-                    Book Now
-                  </button>
-                </div>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-      <script>
-        
-      </script>
-  
+
+         
+        <form class="bg-white rounded-lg shadow-md p-6" th:action="@{/book-event}" method="post">
+            <h2 class="text-xl font-semibold mb-6">Book Your Tickets</h2>
+ 
+            <input type="hidden" name="eventId" th:value="${event.id}">
+
+             
+            <div class="space-y-4 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" 
+                               name="fullName" 
+                               required 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" 
+                               name="email" 
+                               required 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                </div>
+            </div>
+
+             
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Select Ticket Type</label>
+                <div class="space-y-3">
+                    <div th:each="ticket : ${event.ticketTypes}" 
+                         class="flex items-center justify-between p-3 border rounded-md hover:bg-gray-50">
+                        <div>
+                            <p class="font-medium" th:text="${ticket.name}">Ticket Type</p>
+                            <p class="text-sm text-gray-500" th:text="${ticket.description}">Description</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <p class="font-semibold" th:text="${'₹' + ticket.price}">Price</p>
+                            <div class="flex items-center border rounded-md">
+                                <button type="button" 
+                                        onclick="decrementTicket(this)"
+                                        class="px-3 py-1 border-r hover:bg-gray-100">-</button>
+                                <input type="number" 
+                                       th:name="${'ticket_' + ticket.id}"
+                                       value="0" 
+                                       min="0" 
+                                       th:max="${ticket.availableQuantity}"
+                                       class="w-16 text-center py-1 focus:outline-none"
+                                       onchange="calculateTotal()">
+                                <button type="button" 
+                                        onclick="incrementTicket(this)"
+                                        class="px-3 py-1 border-l hover:bg-gray-100">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             
+            <div class="flex justify-between items-center py-4 border-t border-b mb-6">
+                <span class="text-lg font-medium">Total Amount:</span>
+                <span class="text-2xl font-bold text-red-600" id="totalAmount">₹0</span>
+            </div>
+
+             
+            <div class="flex justify-end">
+                <button type="submit" 
+                        class="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50"
+                        id="bookButton"
+                        disabled>
+                    Proceed to Payment
+                </button>
+            </div>
+        </form>
+    </div>
+</section> -->
+
+<!-- <script>
+function incrementTicket(button) {
+    const input = button.previousElementSibling;
+    const currentValue = parseInt(input.value);
+    const maxValue = parseInt(input.max);
+    if (currentValue < maxValue) {
+        input.value = currentValue + 1;
+        calculateTotal();
+    }
+}
+
+function decrementTicket(button) {
+    const input = button.nextElementSibling;
+    const currentValue = parseInt(input.value);
+    if (currentValue > 0) {
+        input.value = currentValue - 1;
+        calculateTotal();
+    }
+}
+
+function calculateTotal() {
+    let total = 0;
+    const ticketInputs = document.querySelectorAll('input[type="number"]');
+    
+    ticketInputs.forEach(input => {
+        const ticketPrice = parseFloat(input.closest('.flex').querySelector('.font-semibold').textContent.replace('₹', ''));
+        const quantity = parseInt(input.value);
+        total += ticketPrice * quantity;
+    });
+
+    document.getElementById('totalAmount').textContent = `₹${total}`;
+    
+     
+    const bookButton = document.getElementById('bookButton');
+    bookButton.disabled = total === 0;
+}
+</script> -->
+
+<section id="content" class="py-12 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto">
+        <!-- Event Details Card -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Event Image -->
+                <div class="w-full md:w-1/3">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4" 
+                         alt="Event Image" 
+                         class="w-full h-48 object-cover rounded-lg">
+                </div>
+
+                <!-- Event Information -->
+                <div class="w-full md:w-2/3">
+                    <h1 class="text-2xl font-bold text-gray-800 mb-2">Summer Music Festival 2024</h1>
+                    <p class="text-gray-600 mb-4">Join us for an unforgettable evening of live music featuring top artists from around the world. Experience amazing performances, great food, and create lasting memories.</p>
+                    
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                        <div class="flex items-center">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>June 15, 2024</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>6:00 PM</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Central Park, New York</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <form class="bg-white rounded-lg shadow-md p-6" action="#" method="post">
+            <h2 class="text-xl font-semibold mb-6">Book Your Tickets</h2>
+
+            <!-- Personal Details -->
+            <div class="space-y-4 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" 
+                               name="fullName" 
+                               required 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" 
+                               name="email" 
+                               required 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket Selection -->
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Select Ticket Type</label>
+                <div class="space-y-3">
+                    <!-- VIP Ticket -->
+                    <div class="flex items-center justify-between p-3 border rounded-md hover:bg-gray-50">
+                        <div>
+                            <p class="font-medium">VIP Pass</p>
+                            <p class="text-sm text-gray-500">Access to VIP area with complimentary drinks</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <p class="font-semibold">₹5000</p>
+                            <div class="flex items-center border rounded-md">
+                                <button type="button" 
+                                        onclick="decrementTicket(this)"
+                                        class="px-3 py-1 border-r hover:bg-gray-100">-</button>
+                                <input type="number" 
+                                       name="ticket_vip"
+                                       value="0" 
+                                       min="0" 
+                                       max="10"
+                                       class="w-16 text-center py-1 focus:outline-none"
+                                       onchange="calculateTotal()">
+                                <button type="button" 
+                                        onclick="incrementTicket(this)"
+                                        class="px-3 py-1 border-l hover:bg-gray-100">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regular Ticket -->
+                    <div class="flex items-center justify-between p-3 border rounded-md hover:bg-gray-50">
+                        <div>
+                            <p class="font-medium">Regular Entry</p>
+                            <p class="text-sm text-gray-500">General admission ticket</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <p class="font-semibold">₹2000</p>
+                            <div class="flex items-center border rounded-md">
+                                <button type="button" 
+                                        onclick="decrementTicket(this)"
+                                        class="px-3 py-1 border-r hover:bg-gray-100">-</button>
+                                <input type="number" 
+                                       name="ticket_regular"
+                                       value="0" 
+                                       min="0" 
+                                       max="10"
+                                       class="w-16 text-center py-1 focus:outline-none"
+                                       onchange="calculateTotal()">
+                                <button type="button" 
+                                        onclick="incrementTicket(this)"
+                                        class="px-3 py-1 border-l hover:bg-gray-100">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Amount -->
+            <div class="flex justify-between items-center py-4 border-t border-b mb-6">
+                <span class="text-lg font-medium">Total Amount:</span>
+                <span class="text-2xl font-bold text-red-600" id="totalAmount">₹0</span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-end">
+                <button type="submit" 
+                        class="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50"
+                        id="bookButton"
+                        disabled>
+                    Proceed to Payment
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+function incrementTicket(button) {
+    const input = button.previousElementSibling;
+    const currentValue = parseInt(input.value);
+    const maxValue = parseInt(input.max);
+    if (currentValue < maxValue) {
+        input.value = currentValue + 1;
+        calculateTotal();
+    }
+}
+
+function decrementTicket(button) {
+    const input = button.nextElementSibling;
+    const currentValue = parseInt(input.value);
+    if (currentValue > 0) {
+        input.value = currentValue - 1;
+        calculateTotal();
+    }
+}
+
+function calculateTotal() {
+    let total = 0;
+    const ticketInputs = document.querySelectorAll('input[type="number"]');
+    
+    ticketInputs.forEach(input => {
+        const ticketPrice = parseFloat(input.closest('.flex').querySelector('.font-semibold').textContent.replace('₹', ''));
+        const quantity = parseInt(input.value);
+        total += ticketPrice * quantity;
+    });
+
+    document.getElementById('totalAmount').textContent = `₹${total}`;
+    
+    // Enable/disable book button based on total
+    const bookButton = document.getElementById('bookButton');
+    bookButton.disabled = total === 0;
+}
+</script>
+
 </body>
 </html>

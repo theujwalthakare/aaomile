@@ -38,7 +38,10 @@ public class UserController {
     public String dashboard(Model model) {
         return "user/dashboard";
     }
-
+    @RequestMapping("/user-booking")
+    public String userBooking(Model model) {
+        return "user/user-booking";
+    }
     @RequestMapping("/eventFormApplication")
     public String eventFormApplication(Model model) {
         return "user/eventFormApplication";

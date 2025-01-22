@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aaomile-Home Page</title>
+    <title>BOOKNJOY-Home Page</title>
   </head>
   <body>
     <!-- Landing page headline -->
@@ -26,9 +26,9 @@
         Meets Community!
       </h1>
       <p
-        class="text-xl text-gray-800 mt-5 mx-auto italic font-semibold text-center w-9/12"
+        class="text-xl  mt-5 mx-auto italic text-center w-9/12"
       >
-        Welcome to Aaomile — your go-to platform for discovering exciting events
+        Welcome to BOOKNJOY — your go-to platform for discovering exciting events
         and experiences happening around you! Whether it's a concert, art
         exhibition, workshop, or festival, we make it easy for you to find and
         book your favorite events in just a few clicks.
@@ -205,15 +205,15 @@
 
               <div class="w-64">
                 <h3 class="text-lg font-bold text-gray-950 dark:text-white" data-th-text="${allEvents.eventName}"></h3>
-                <p class="text-gray-600" data-th-text="${allEvents.eventDate}"></p>
-                <p data-th-text="${'Rs.' + allEvents.ticketPrice}"> </p>
+                <p class="text-gray-600" data-th-text="${allEvents.eventGenre}"><span>Type:</span></p>
+              
               </div>
           </div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-      <br />
+      <br/>
     </section>
     <script>
       console.log("Home page");
