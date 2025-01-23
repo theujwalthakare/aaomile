@@ -459,7 +459,22 @@ html.dark #theme-logo[data-theme-dark] {
 .group1:hover::after {
   opacity: 1;
 }
+ /* Additional Custom Styles */
+ .ticket-booking-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
+/* Smooth transitions */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.hover-scale:hover {
+  transform: scale(1.02);
+}
 
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
