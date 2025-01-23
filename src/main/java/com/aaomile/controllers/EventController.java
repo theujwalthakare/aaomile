@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -120,4 +121,12 @@ public class EventController {
 
     }
 
+    @RequestMapping("/booking/{eventId}")
+    public String bookEvent(@PathVariable int eventId, Model model) {
+    Event event1 = eventService.getById(eventId);
+    model.addAttribute("event", event1);
+    System.out.println("Book event triggered");
+
+    return "user/book";
+    }
 }

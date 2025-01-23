@@ -34,14 +34,19 @@ public class UserController {
     public String book(Model model) {
         return "user/book";
     }
+
+    // user/dashboard
     @RequestMapping("/dashboard")
     public String dashboard(Model model) {
         return "user/dashboard";
     }
+
+    // user/bookevent 
     @RequestMapping("/user-booking")
     public String userBooking(Model model) {
         return "user/user-booking";
     }
+    
     @RequestMapping("/eventFormApplication")
     public String eventFormApplication(Model model) {
         return "user/eventFormApplication";
@@ -74,8 +79,6 @@ public class UserController {
     //     return"hackathon";
     // }
 
-
-    // user/dashboard
     // user/edit profile
-    // user/bookevent 
+
 }

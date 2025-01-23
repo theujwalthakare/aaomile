@@ -36,7 +36,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public Event getById(int id) {
-        return eventRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(id + " => Event Not Found"));
+        return eventRepo.findByEventId(id);
     }
     @Override
     public void delete(int id) {
