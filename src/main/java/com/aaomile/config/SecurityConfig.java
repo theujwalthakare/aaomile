@@ -60,7 +60,7 @@ public class SecurityConfig {
         httpSecurity.formLogin(formLogin -> {
             formLogin.loginPage("/login");
             formLogin.loginProcessingUrl("/authentication");
-            formLogin.successForwardUrl("/user/after_login");
+            formLogin.successForwardUrl("/user/home");
             formLogin.usernameParameter("email");
             formLogin.passwordParameter("password");
         });
