@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" 
-th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}" xmlns:th="http://www.thymeleaf.org">
-
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+  xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,97 +11,75 @@ th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}" xmlns:th="h
     
 </head>
 <body>
-    <section id="content" class="py-12 px-4 md:px-8">
-        <div class="max-w-6xl mx-auto">
-            <!-- Header -->
-            <div class="mb-8">
-                <h1 class="text-2xl font-bold dark:text-white">My Booked Events</h1>
-                <p class="dark:text-white text-slate-950">View your booking history</p>
+   <section id="content"  class="py-12 px-4 md:px-8">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold dark:text-white">My Booked Events</h1>
+            <p class="dark:text-white text-slate-950">View your booking history</p>
+        </div>
+
+        <!-- Events Table Panel -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <!-- Table Header -->
+            <div class="grid grid-cols-6 bg-gray-50 border-b">
+                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Booking ID</div>
+                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event Name</div>
+                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</div>
+                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tickets</div>
+                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</div>
+                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</div>
             </div>
-    
-            <!-- Events Table Panel -->
-            <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <!-- Table Header -->
-                <div class="grid grid-cols-6 bg-gray-50 border-b">
-                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Booking ID</div>
-                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event Name</div>
-                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</div>
-                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tickets</div>
-                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</div>
-                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</div>
-                </div>
-    
-                <!-- Dynamic Booking Rows -->
-                <div th:unless="${bookings.empty}" class="divide-y divide-gray-200">
-                    <div th:each="booking: ${bookings}" class="grid grid-cols-6 hover:bg-gray-50">
-                        <!-- Booking ID -->
-                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.bookingId}">
-                            BK001
-                        </div>
-    
-                        <!-- Event Name -->
-                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.event.eventName}">
-                            Event Name
-                        </div>
-    
-                        <!-- Event Date -->
-                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.event.eventDate}">
-                            Jan 01, 2024
-                        </div>
-    
-                        <!-- Number of Tickets -->
-                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.ticketQuantity + ' tickets'}">
-                            2 tickets
-                        </div>
-    
-                        <!-- Amount -->
-                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="'₹' + ${booking.totalAmount}">
-                            ₹999
-                        </div>
-    
-                        <!-- Status -->
-                        <div class="px-6 py-4 whitespace-nowrap">
-                            <span th:class="${
-                                booking.status == 'CONFIRMED'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800' :
-                                ${booking.status == 'COMPLETED'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800' :
-                                'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800'"
-                                  th:text="${booking.status}">
-                                Status
-                            </span>
-                        </div>
+
+            <!-- Dynamic Booking Rows -->
+            <div th:if="${not #lists.isEmpty(bookings)}" class="divide-y divide-gray-200">
+                <div th:each="booking : ${bookings}" class="grid grid-cols-6 hover:bg-gray-50">
+                    <!-- Booking ID -->
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.bookingId}"></div>
+
+                    <!-- Event Name -->
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.event.eventName}"></div>
+
+                    <!-- Event Date -->
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.event.eventDate}"></div>
+
+                    <!-- Number of Tickets -->
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.ticketQuantity + ' tickets'}"></div>
+
+                    <!-- Amount -->
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="'₹' + ${booking.totalAmount}"></div>
+
+                    <!-- Status -->
+                    <div class="px-6 py-4 whitespace-nowrap">
+                        <span th:class="${booking.status == 'CONFIRMED'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800' : 
+                                      ${booking.status == 'COMPLETED'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800' : 
+                                      'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800'"
+                              th:text="${booking.status}">
+                        </span>
                     </div>
                 </div>
-    
-                <!-- Empty State -->
-                <div th:if="${#lists.isEmpty(bookings)}" class="text-center py-12">
-                    <div class="mb-4">
-                        <i class="fas fa-ticket-alt text-4xl text-gray-400"></i>
-                    </div>
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">No Bookings Found</h3>
-                    <p class="text-gray-600 mb-6">You haven't booked any events yet.</p>
-                    <a href="/events" 
-                       class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
-                        Explore Events
-                    </a>
-                </div>
             </div>
-    
-            <!-- Export Button -->
-            <div class="mt-4 flex justify-end">
-                <button onclick="exportBookings()" 
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                    <i class="fas fa-download mr-2"></i>
-                    Export Bookings
-                </button>
+
+            <!-- Empty State -->
+            <div th:if="${#lists.isEmpty(bookings)}" class="text-center py-12">
+                <div class="mb-4">
+                    <i class="fas fa-ticket-alt text-4xl text-gray-400"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No Bookings Found</h3>
+                <p class="text-gray-600 mb-6">You haven't booked any events yet.</p>
+                <a href="/Events-details" 
+                   class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
+                    Explore Events
+                </a>
             </div>
         </div>
-    </section>
-        <script>
-            function exportBookings() {
-                // Implement export functionality
-                console.log('Exporting bookings...');
-            }
-        </script>
+
+       
+    </div>
+   </section>
+ <script>
+
+ </script>
 </body>
 </html>
 
