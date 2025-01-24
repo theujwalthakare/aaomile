@@ -1,15 +1,24 @@
 package com.aaomile.controllers;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.aaomile.entities.Event;
+import com.aaomile.entities.User;
+import com.aaomile.helper.Helper;
 import com.aaomile.service.EventService;
 import com.aaomile.service.UserService;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 
@@ -80,6 +89,21 @@ public class UserController {
     @RequestMapping("/home/hackathon")
     public String eventByHackathon(Model model){
         return"hackathon";
+    }
+
+
+    @RequestMapping("path", method=RequestMethod.GET)
+    public String requestMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
+    public void getUserCreatedEvents(Model model,
+                                    Authentication authentication){
+        
+        String email = Helper.getEmailOfLoggedInUser(authentication);
+        User user = userService.getUserByEmail(email);
+        List<Event> events = eventService.getByUserId(user);
+        model.addAttribute("createdEvents", events);
     }
 
     // user/edit profile
