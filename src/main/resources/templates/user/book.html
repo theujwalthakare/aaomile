@@ -12,12 +12,8 @@
   <body>
   
     <section id="content" class="pb-96 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-            <!-- Header Section -->
-            <div class="text-center mb-8">
-                <h2 class="text-4xl font-extrabold text-gray-900 ">Complete Your Booking</h2>
-                <p class="text-lg text-gray-600">Welcome, <span th:text="${loggedInUser.firstName}">User</span></p>
-            </div>
+        <div class="max-w-4xl mx-auto pt-4">
+         
     
             <form id="bookingForm" class="space-y-4">
                 <!-- Event Card -->
@@ -168,12 +164,12 @@
                     </div>
     
                     <!-- Submit Button -->
-                    <button type="submit" 
+                    <a href="/user/event/booking/UserPaySuccess"
                             class="w-full mt-8 bg-red-600 text-white py-4 px-6 rounded-lg text-lg font-semibold
                                    hover:bg-red-700 transition-colors duration-300 
                                    focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
                         Proceed to Payment
-                    </button>
+                </a>
     
                     <!-- Security Notice -->
                     <p class="text-sm text-gray-500 text-center mt-4">

@@ -78,7 +78,12 @@ public class UserController {
     public String eventFormApplication(Model model) {
         return "user/eventFormApplication";
     }
+    // /user/event/booking/UserPaySuccess.html
 
+    @RequestMapping("/UserPaySuccess")
+    public String UserPaySuccess(Model model) {
+        return "user/UserPaySuccess";
+    }
     @Autowired 
     private EventService eventService;
     
