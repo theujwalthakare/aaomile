@@ -107,7 +107,15 @@ public class RootController {
         model.addAttribute("allEvent", events);
     }
 
-    
+    @ModelAttribute
+    public void getUserCreatedEvents(Model model,
+                                    Authentication authentication){
+        String email = Helper.getEmailOfLoggedInUser(authentication);
+        User user = userService.getUserByEmail(email);
+        List<Event> events = eventService.getByUserId(user);
+        model.addAttribute("createdEvents", events);
+    }
+
 
 
 }

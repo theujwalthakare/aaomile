@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.aaomile.entities.Event;
+import com.aaomile.entities.User;
 
 
 public interface EventService {
@@ -31,5 +32,8 @@ public interface EventService {
     List<Event> getByUserId(int id);
 
     List<Event> getByGenre(String genre);
+
+    List<Event> getByUserId(User user);
+
 }
  
