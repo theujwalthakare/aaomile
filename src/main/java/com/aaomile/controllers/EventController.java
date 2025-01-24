@@ -1,6 +1,7 @@
 package com.aaomile.controllers;
 
 
+import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.aaomile.entities.Booking;
 import com.aaomile.entities.Event;
 import com.aaomile.entities.User;
+import com.aaomile.forms.BookingForm;
 import com.aaomile.forms.EventFrom;
 import com.aaomile.helper.Helper;
 import com.aaomile.helper.Message;
 import com.aaomile.helper.MessageType;
+import com.aaomile.service.BookingService;
 import com.aaomile.service.EventService;
 import com.aaomile.service.ImageService;
 import com.aaomile.service.UserService;
@@ -42,6 +46,9 @@ public class EventController {
 
     @Autowired
     private ImageService imageService;
+
+    @Autowired
+    private BookingService bookingService;
 
     @RequestMapping("/create")
     public String addEventView(Model model){
@@ -126,11 +133,44 @@ public class EventController {
     Event event1 = eventService.getById(eventId);
     model.addAttribute("event", event1);
     System.out.println("Book event triggered");
-
+    BookingForm bookingForm = new BookingForm();
+    model.addAttribute("bookingForm", bookingForm);
     return "user/book";
     }
-    @RequestMapping("/booking/{eventId}/UserPaySuccess")
-    public String UserPaySuccess(@PathVariable int eventId, Model model) {
-        return "user/UserPaySuccess";
-    }
+    
+    @RequestMapping(value  ="/booking/{eventId}/book", method=RequestMethod.POST)
+    public String bookEvent(@PathVariable int eventId,
+                            @ModelAttribute BookingForm bookingForm,
+                            BindingResult result ,
+                            Authentication authentication, 
+                            HttpSession session) {
+        
+    String email = Helper.getEmailOfLoggedInUser(authentication);
+    User user = userService.getUserByEmail(email);
+    
+    Event event1 = eventService.getById(eventId);
+    int seats = Integer.parseInt(bookingForm.getSeates());
+    int amt = (int) Double.parseDouble(event1.getTicketPrice());
+    System.out.println(bookingForm);
+    Booking booking = new Booking();
+    booking.setEventName(event1.getEventName());
+    booking.setSeates(bookingForm.getSeates());
+    booking.setUserEmail(bookingForm.getUserEmail());
+    booking.setUserName(bookingForm.getUserName());
+    booking.setUserPhone(bookingForm.getUserPhone());
+    booking.setAmount(seats * amt);
+    booking.setUser(user);
+    booking.setEvent(event1);
+    booking.setEventDate(event1.getEventDate());
+    
+    bookingService.save(booking);
+    logger.info("Event Booked"+ eventId);
+    
+    return "redirect:/user/event/booking/"+ eventId +"/UserPaySuccess";
+}
+
+@RequestMapping("/booking/{eventId}/UserPaySuccess")
+public String UserPaySuccess(@PathVariable int eventId, Model model) {
+    return "user/UserPaySuccess";
+}
 }
