@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" 
+th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,94 +9,97 @@
     
 </head>
 <body>
-<section id="content" class="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto">
-        <!-- Header Section -->
-        <div class="text-center mb-8">
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-2">Complete Your Booking</h2>
-            <p class="text-lg text-gray-600">Welcome, <span th:text="${loggedInUser.firstName}">User</span></p>
-        </div>
-
-        <!-- Horizontal Layout -->
-        <div class="horizontal-container bg-white rounded-xl shadow-lg overflow-hidden">
-            <!-- Event Image -->
-            <div class="event-image">
-                <img th:src="${booking.event.imageUrl}" alt="Event Image" class="w-full h-full object-cover">
+    <section id="content" class="py-12 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold dark:text-white">My Booked Events</h1>
+                <p class="dark:text-white text-slate-950">View your booking history</p>
             </div>
-
-            <!-- Event Details -->
-            <div class="event-details">
-                <h3 class="text-2xl font-bold text-gray-900" th:text="${booking.event.name}">Event Name</h3>
-                <div class="text-gray-600 mt-4">
-                    <p><i class="fas fa-calendar mr-2"></i><span th:text="${#temporals.format(booking.event.date, 'MMMM d, yyyy')}">Date</span></p>
-                    <p><i class="fas fa-clock mr-2"></i><span th:text="${#temporals.format(booking.event.time, 'h:mm a')}">Time</span></p>
-                    <p><i class="fas fa-map-marker-alt mr-2"></i><span th:text="${booking.event.location}">Location</span></p>
+    
+            <!-- Events Table Panel -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <!-- Table Header -->
+                <div class="grid grid-cols-6 bg-gray-50 border-b">
+                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Booking ID</div>
+                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event Name</div>
+                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</div>
+                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tickets</div>
+                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</div>
+                    <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</div>
                 </div>
-                <div class="mt-4 font-semibold">
-                    <span>Total Amount: ₹</span><span class="text-red-600" th:text="${#numbers.formatDecimal(booking.totalAmount, 0, 'COMMA', 0, 'POINT')}">0</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Input Sections -->
-        <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- User Input Section -->
-            <div class="bg-white rounded-xl shadow-lg p-6 input-section">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Enter Your Details</h3>
-                <form th:action="@{/update-user-info}" method="POST">
-                    <div class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm" required>
+    
+                <!-- Dynamic Booking Rows -->
+                <div th:unless="${bookings.empty}" class="divide-y divide-gray-200">
+                    <div th:each="booking: ${bookings}" class="grid grid-cols-6 hover:bg-gray-50">
+                        <!-- Booking ID -->
+                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.bookingId}">
+                            BK001
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm" required>
+    
+                        <!-- Event Name -->
+                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.event.eventName}">
+                            Event Name
                         </div>
-                        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Update Info</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Payment Options Section -->
-            <div class="bg-white rounded-xl shadow-lg p-6 input-section">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Select Payment Method</h3>
-                <form id="paymentForm" th:action="@{/process-payment}" method="POST">
-                    <!-- Hidden Fields -->
-                    <input type="hidden" name="bookingId" th:value="${booking.id}">
-                    <input type="hidden" name="amount" th:value="${booking.totalAmount}">
-
-                    <!-- Payment Options -->
-                    <div class="space-y-4">
-                        <div>
-                            <input type="radio" id="upi" name="paymentMethod" value="upi" class="hidden peer" required>
-                            <label for="upi" class="block border p-4 rounded-lg cursor-pointer peer-checked:border-red-500 peer-checked:ring-2 peer-checked:ring-red-500 hover:bg-gray-50">
-                                <i class="fas fa-mobile-alt text-red-500 mr-2"></i> UPI Payment
-                            </label>
+    
+                        <!-- Event Date -->
+                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.event.eventDate}">
+                            Jan 01, 2024
                         </div>
-                        <div>
-                            <input type="radio" id="card" name="paymentMethod" value="card" class="hidden peer" required>
-                            <label for="card" class="block border p-4 rounded-lg cursor-pointer peer-checked:border-blue-500 peer-checked:ring-2 peer-checked:ring-blue-500 hover:bg-gray-50">
-                                <i class="fas fa-credit-card text-blue-500 mr-2"></i> Credit/Debit Card
-                            </label>
+    
+                        <!-- Number of Tickets -->
+                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.ticketQuantity + ' tickets'}">
+                            2 tickets
                         </div>
-                        <div>
-                            <input type="radio" id="netbanking" name="paymentMethod" value="netbanking" class="hidden peer" required>
-                            <label for="netbanking" class="block border p-4 rounded-lg cursor-pointer peer-checked:border-green-500 peer-checked:ring-2 peer-checked:ring-green-500 hover:bg-gray-50">
-                                <i class="fas fa-university text-green-500 mr-2"></i> Net Banking
-                            </label>
+    
+                        <!-- Amount -->
+                        <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="'₹' + ${booking.totalAmount}">
+                            ₹999
+                        </div>
+    
+                        <!-- Status -->
+                        <div class="px-6 py-4 whitespace-nowrap">
+                            <span th:class="${
+                                booking.status == 'CONFIRMED'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800' :
+                                ${booking.status == 'COMPLETED'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800' :
+                                'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800'"
+                                  th:text="${booking.status}">
+                                Status
+                            </span>
                         </div>
                     </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="w-full bg-red-600 text-white py-3 px-6 rounded-lg font-semibold mt-6 hover:bg-red-700 transition">
-                        Pay ₹<span th:text="${#numbers.formatDecimal(booking.totalAmount, 0, 'COMMA', 0, 'POINT')}">0</span>
-                    </button>
-                </form>
+                </div>
+    
+                <!-- Empty State -->
+                <div th:if="${#lists.isEmpty(bookings)}" class="text-center py-12">
+                    <div class="mb-4">
+                        <i class="fas fa-ticket-alt text-4xl text-gray-400"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">No Bookings Found</h3>
+                    <p class="text-gray-600 mb-6">You haven't booked any events yet.</p>
+                    <a href="/events" 
+                       class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
+                        Explore Events
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Export Button -->
+            <div class="mt-4 flex justify-end">
+                <button onclick="exportBookings()" 
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
+                    <i class="fas fa-download mr-2"></i>
+                    Export Bookings
+                </button>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+        <script>
+            function exportBookings() {
+                // Implement export functionality
+                console.log('Exporting bookings...');
+            }
+        </script>
 </body>
 </html>
 

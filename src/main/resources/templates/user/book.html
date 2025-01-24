@@ -7,256 +7,402 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>BOOKNJOY-booking event</title>
   </head>
   <body>
-    <section id="content">
-     <div class="ticket-booking-container">
-    <h2 class="font-extrabold text-4xl pb-5 text-center text-black dark:text-white">Booking Details</h2>
-    <form id="bookingForm" class="bg-white rounded-lg shadow-xl p-6 mb-8">
-        <div class="flex flex-col md:flex-row gap-6">
-            <!-- Left: Image Section -->
-            <div class="w-full md:w-1/3">
-                <div class="h-[300px] rounded-lg overflow-hidden shadow-md">
-                    <img th:if="${event.eventBanner}" 
-                         th:src="@{${event.eventBanner}}"
-                         alt="Event Image" 
-                         class="w-full h-full object-cover">
-                    <div th:unless="${event.eventBanner}" 
-                         class="w-full h-full bg-gray-200 flex items-center justify-center">
-                        <span class="text-gray-400">No Image Available</span>
-                    </div>
-                </div>
+  
+    <section id="content" class="pb-96 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-extrabold text-gray-900 ">Complete Your Booking</h2>
+                <p class="text-lg text-gray-600">Welcome, <span th:text="${loggedInUser.firstName}">User</span></p>
             </div>
-
-            <!-- Middle: User Details Section -->
-            <div class="w-full md:w-1/3">
-                <div class="bg-white p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-6">Personal Details</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">
-                                Full Name
-                            </label>
-                            <input type="text" 
-                                   id="fullName"
-                                   name="fullName"
-                                   required
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md 
-                                          focus:outline-none focus:ring-2 focus:ring-red-500">
+    
+            <form id="bookingForm" class="space-y-4">
+                <!-- Event Card -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Left: Event Image -->
+                        <div class="w-full space-y-6 md:w-2/6">
+                            <div class="w-full  h-[250 px] relative">
+                                <img th:if="${event.eventBanner}" 
+                                     th:src="@{${event.eventBanner}}"
+                                     alt="Event Banner" 
+                                     class="w-full  object-cover">
+                                <div th:unless="${event.eventBanner}" 
+                                     class="w-80 h-full bg-gray-200 flex items-center justify-center">
+                                    <span class="text-gray-400">No Image Available</span>
+                                </div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden"></div>
+                            </div>
                         </div>
-
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-                                Email
-                            </label>
-                            <input type="email" 
-                                   id="email"
-                                   name="email"
-                                   required
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md 
-                                          focus:outline-none focus:ring-2 focus:ring-red-500">
-                        </div>
-
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
-                                Phone Number
-                            </label>
-                            <input type="tel" 
-                                   id="phone"
-                                   name="phone"
-                                   required
-                                   pattern="[0-9]{10}"
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md 
-                                          focus:outline-none focus:ring-2 focus:ring-red-500">
+    
+                        <!-- Right: Event Details & Pricing -->
+                        <div class="w-full md:w-3/5 py-3 px-3">
+                            <div class="space-y-8">
+                                <!-- Event Info -->
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900" th:text="${event.eventName}">Event Name</h3>
+                                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="flex items-center text-gray-600">
+                                            <i class="far fa-calendar w-6 text-red-500"></i>
+                                            <span th:text="${event.eventDate}">March 15, 2024</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <i class="far fa-clock w-6 text-red-500"></i>
+                                            <span th:text="${event.eventTime}">7:00 PM</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-600 col-span-2">
+                                            <i class="fas fa-map-marker-alt w-6 text-red-500"></i>
+                                            <span th:text="${event.eventVenue}">Venue Name</span>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- Pricing Section -->
+                                <div class="border-t pt-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <div>
+                                            <p class="text-sm text-gray-500">Price per ticket</p>
+                                            <p class="text-xl font-bold text-gray-900">₹<span th:text="${event.ticketPrice}">500</span></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-500">Available Tickets</p>
+                                            <p class="text-xl font-bold text-gray-900" th:text="${event.seates}">100</p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Quantity Selector -->
+                                    <div class="flex items-center justify-between gap-4 p-4 bg-gray-50 rounded-lg">
+                                        <span class="text-gray-700 font-medium">Select Quantity</span>
+                                        <div class="flex items-center gap-4">
+                                            <button type="button" id="decrementBtn"
+                                                    class="w-10 h-10 rounded-full bg-white hover:bg-gray-100 
+                                                           flex items-center justify-center shadow-sm border
+                                                           transition duration-200">
+                                                <span class="text-xl font-bold text-gray-600">-</span>
+                                            </button>
+                                            
+                                            <input type="number" 
+                                                   id="ticketQuantity"
+                                                   name="ticketQuantity"
+                                                   value="1" 
+                                                   min="1" 
+                                                   th:max="${event.seates}"
+                                                   class="w-16 text-center py-2 border rounded-md font-semibold">
+                                            
+                                            <button type="button" id="incrementBtn"
+                                                    class="w-10 h-10 rounded-full bg-white hover:bg-gray-100 
+                                                           flex items-center justify-center shadow-sm border
+                                                           transition duration-200">
+                                                <span class="text-xl font-bold text-gray-600">+</span>
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Total Amount -->
+                                    <div class="mt-4 text-right">
+                                        <p class="text-sm text-gray-500">Total Amount</p>
+                                        <p class="text-2xl font-bold text-red-600">
+                                            ₹<span id="totalAmount" th:text="${event.ticketPrice}">500</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Right: Event and Payment Details -->
-            <div class="w-full md:w-1/3 space-y-6">
-                <!-- Event Details -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6" th:text="${event.eventName}">
-                        Event Name
-                    </h3>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center text-gray-600">
-                            <i class="far fa-calendar w-6"></i>
-                            <span th:text="${event.eventDate}">March 15, 2024</span>
-                        </div>
-                        
-                        <div class="flex items-center text-gray-600">
-                            <i class="far fa-clock w-6"></i>
-                            <span th:text="${event.eventTime}">7:00 PM</span>
-                        </div>
-                        
-                        <div class="flex items-center text-gray-600">
-                            <i class="fas fa-map-marker-alt w-6"></i>
-                            <span th:text="${event.eventVenue}">Venue Name</span>
-                        </div>
+    
+                <!-- Payment Methods -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6">Select Payment Method</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- UPI -->
+                        <label class="relative">
+                            <input type="radio" name="paymentMethod" value="upi" class="peer hidden">
+                            <div class="border rounded-lg p-4 cursor-pointer hover:bg-gray-50
+                                      peer-checked:border-red-500 peer-checked:ring-2 peer-checked:ring-red-500
+                                      transition duration-200">
+                                <div class="flex items-center">
+                                    <i class="fas fa-mobile-alt text-2xl text-red-500 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium">UPI</p>
+                                        <p class="text-sm text-gray-500">Pay via UPI</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+    
+                        <!-- Card -->
+                        <label class="relative">
+                            <input type="radio" name="paymentMethod" value="card" class="peer hidden">
+                            <div class="border rounded-lg p-4 cursor-pointer hover:bg-gray-50
+                                      peer-checked:border-red-500 peer-checked:ring-2 peer-checked:ring-red-500
+                                      transition duration-200">
+                                <div class="flex items-center">
+                                    <i class="fas fa-credit-card text-2xl text-blue-500 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium">Card</p>
+                                        <p class="text-sm text-gray-500">Credit/Debit Card</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+    
+                        <!-- Net Banking -->
+                        <label class="relative">
+                            <input type="radio" name="paymentMethod" value="netbanking" class="peer hidden">
+                            <div class="border rounded-lg p-4 cursor-pointer hover:bg-gray-50
+                                      peer-checked:border-red-500 peer-checked:ring-2 peer-checked:ring-red-500
+                                      transition duration-200">
+                                <div class="flex items-center">
+                                    <i class="fas fa-university text-2xl text-green-500 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium">Net Banking</p>
+                                        <p class="text-sm text-gray-500">Pay via Net Banking</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
                     </div>
-                </div>
-
-                <!-- Payment Details -->
-                <div class="bg-gray-50 rounded-lg p-6">
-                    <div class="text-center mb-6">
-                        <h3 class="text-xl font-semibold mb-2">Amount to Pay</h3>
-                        <p class="text-3xl font-bold text-red-600">
-                            ₹<span id="totalAmount" th:text="${event.ticketPrice}">500</span>
-                        </p>
-                    </div>
-
-                    <!-- Ticket Quantity Selector -->
-                    <div class="flex items-center justify-center gap-4 mb-6">
-                        <button type="button" id="decrementBtn"
-                                class="w-10 h-10 rounded-full bg-white hover:bg-gray-100 
-                                       flex items-center justify-center shadow-sm border">
-                            <span class="text-xl font-bold">-</span>
-                        </button>
-                        
-                        <input type="number" 
-                               id="ticketQuantity"
-                               name="ticketQuantity"
-                               value="1" 
-                               min="1" 
-                               th:max="${event.seates}"
-                               class="w-16 text-center py-2 border rounded-md">
-                        
-                        <button type="button" id="incrementBtn"
-                                class="w-10 h-10 rounded-full bg-white hover:bg-gray-100 
-                                       flex items-center justify-center shadow-sm border">
-                            <span class="text-xl font-bold">+</span>
-                        </button>
-                    </div>
-
-                    <!-- Hidden Fields -->
-                    <input type="hidden" name="eventId" th:value="${event.eventId}">
-                    <input type="hidden" name="totalAmount" id="hiddenTotalAmount">
-
-                    <!-- Payment Button -->
-                    <button type="submit" id="paymentBtn" 
-                            class="w-full bg-red-600 text-white py-3 px-6 rounded-lg 
+    
+                    <!-- Submit Button -->
+                    <button type="submit" 
+                            class="w-full mt-8 bg-red-600 text-white py-4 px-6 rounded-lg text-lg font-semibold
                                    hover:bg-red-700 transition-colors duration-300 
-                                   focus:outline-none focus:ring-2 focus:ring-red-500">
+                                   focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
                         Proceed to Payment
                     </button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-        
-        
-    </section>
-     <script> 
-     // Add this at the start of your DOMContentLoaded function
-console.log('DOM Elements:', {
-    basePrice: document.getElementById('totalAmount'),
-    ticketQuantity: document.getElementById('ticketQuantity'),
-    incrementBtn: document.getElementById('incrementBtn'),
-    decrementBtn: document.getElementById('decrementBtn'),
-    paymentBtn: document.getElementById('paymentBtn')
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const basePrice = parseFloat(document.getElementById('totalAmount').textContent);
-    const maxTickets = parseInt(document.getElementById('ticketQuantity').getAttribute('max'));
-    const ticketQuantity = document.getElementById('ticketQuantity');
-    const incrementBtn = document.getElementById('incrementBtn');
-    const decrementBtn = document.getElementById('decrementBtn');
-    const totalAmount = document.getElementById('totalAmount');
-    const hiddenTotalAmount = document.getElementById('hiddenTotalAmount');
-    const bookingForm = document.getElementById('bookingForm');
-
-    // Function to update total amount
-    function updateTotal() {
-        const quantity = parseInt(ticketQuantity.value);
-        const total = basePrice * quantity;
-        totalAmount.textContent = total.toFixed(2);
-        hiddenTotalAmount.value = total.toFixed(2);
-    }
-
-    // Add event listeners for buttons
-    incrementBtn.addEventListener('click', function() {
-        const currentValue = parseInt(ticketQuantity.value);
-        if (currentValue < maxTickets) {
-            ticketQuantity.value = currentValue + 1;
-            updateTotal();
-        }
-    });
-
-    decrementBtn.addEventListener('click', function() {
-        const currentValue = parseInt(ticketQuantity.value);
-        if (currentValue > 1) {
-            ticketQuantity.value = currentValue - 1;
-            updateTotal();
-        }
-    });
-
-    // Add input validation
-    ticketQuantity.addEventListener('input', function(e) {
-        let value = parseInt(e.target.value);
-        if (isNaN(value) || value < 1) {
-            e.target.value = 1;
-        } else if (value > maxTickets) {
-            e.target.value = maxTickets;
-        }
-        updateTotal();
-    });
-
-    // Phone number validation
-    const phoneInput = document.getElementById('phone');
-    phoneInput.addEventListener('input', function(e) {
-        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
-    });
-
-    // Form submission
-    bookingForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Basic validation
-        const fullName = document.getElementById('fullName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-
-        if (!fullName || !email || !phone || phone.length !== 10) {
-            alert('Please fill all fields correctly');
-            return;
-        }
-
-        // Create form data
-        const formData = new FormData(this);
-
-        // Submit to payment endpoint
-        fetch('/initiate-payment', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                window.location.href = data.paymentUrl;
-            } else {
-                alert('Error initiating payment. Please try again.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Something went wrong. Please try again.');
-        });
-    });
-
-    // Initialize total on page load
-    updateTotal();
-});
-
-    </script>
     
+                    <!-- Security Notice -->
+                    <p class="text-sm text-gray-500 text-center mt-4">
+                        <i class="fas fa-lock mr-2"></i>
+                        Secure payment powered by Razorpay
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+ 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const basePrice = parseFloat(document.getElementById('totalAmount').textContent);
+            const maxTickets = parseInt(document.getElementById('ticketQuantity').getAttribute('max'));
+            const ticketQuantity = document.getElementById('ticketQuantity');
+            const incrementBtn = document.getElementById('incrementBtn');
+            const decrementBtn = document.getElementById('decrementBtn');
+            const totalAmount = document.getElementById('totalAmount');
+            const bookingForm = document.getElementById('bookingForm');
+        
+            // Function to update total amount
+            function updateTotal() {
+                const quantity = parseInt(ticketQuantity.value);
+                const total = basePrice * quantity;
+                totalAmount.textContent = total.toFixed(2);
+            }
+        
+            // Function to validate quantity
+            function validateQuantity() {
+                let value = parseInt(ticketQuantity.value);
+                if (isNaN(value) || value < 1) {
+                    value = 1;
+                } else if (value > maxTickets) {
+                    value = maxTickets;
+                }
+                ticketQuantity.value = value;
+                updateTotal();
+            }
+        
+            // Add event listeners for quantity controls
+            incrementBtn.addEventListener('click', function() {
+                const currentValue = parseInt(ticketQuantity.value);
+                if (currentValue < maxTickets) {
+                    ticketQuantity.value = currentValue + 1;
+                    updateTotal();
+                } else {
+                    showNotification('Maximum ticket limit reached!', 'warning');
+                }
+            });
+        
+            decrementBtn.addEventListener('click', function() {
+                const currentValue = parseInt(ticketQuantity.value);
+                if (currentValue > 1) {
+                    ticketQuantity.value = currentValue - 1;
+                    updateTotal();
+                }
+            });
+        
+            // Add input validation for quantity
+            ticketQuantity.addEventListener('input', validateQuantity);
+            ticketQuantity.addEventListener('blur', validateQuantity);
+        
+            // Function to show notifications
+            function showNotification(message, type = 'info') {
+                // You can replace this with your preferred notification system
+                alert(message);
+            }
+        
+            // Function to validate payment method selection
+            function validatePaymentMethod() {
+                const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+                if (!selectedPayment) {
+                    showNotification('Please select a payment method', 'error');
+                    return false;
+                }
+                return true;
+            }
+        
+            // Function to handle loading state
+            function setLoadingState(isLoading) {
+                const submitBtn = bookingForm.querySelector('button[type="submit"]');
+                if (isLoading) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Proceed to Payment';
+                }
+            }
+        
+            // Handle form submission
+            bookingForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+        
+                if (!validatePaymentMethod()) {
+                    return;
+                }
+        
+                try {
+                    setLoadingState(true);
+        
+                    // Create form data
+                    const formData = new FormData(this);
+                    formData.append('totalAmount', totalAmount.textContent);
+        
+                    // Send booking request
+                    const response = await fetch('/api/bookings/create', {
+                        method: 'POST',
+                        body: formData
+                    });
+        
+                    if (!response.ok) {
+                        throw new Error('Booking failed');
+                    }
+        
+                    const data = await response.json();
+        
+                    // Handle Razorpay integration
+                    if (data.razorpayOrderId) {
+                        const options = {
+                            key: data.razorpayKeyId, // Replace with your Razorpay key
+                            amount: data.amount,
+                            currency: "INR",
+                            name: "BOOKNJOY",
+                            description: "Event Booking Payment",
+                            order_id: data.razorpayOrderId,
+                            handler: function (response) {
+                                // Handle successful payment
+                                window.location.href = `/booking/success?payment_id=${response.razorpay_payment_id}`;
+                            },
+                            prefill: {
+                                name: data.customerName,
+                                email: data.customerEmail,
+                                contact: data.customerPhone
+                            },
+                            theme: {
+                                color: "#DC2626"
+                            }
+                        };
+        
+                        const rzp = new Razorpay(options);
+                        rzp.open();
+                    }
+        
+                } catch (error) {
+                    console.error('Error:', error);
+                    showNotification('An error occurred. Please try again.', 'error');
+                } finally {
+                    setLoadingState(false);
+                }
+            });
+        
+            // Add input masking for quantity (optional)
+            ticketQuantity.addEventListener('keypress', function(e) {
+                if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+        
+            // Add hover effects for payment methods
+            const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    // Remove active class from all methods
+                    paymentMethods.forEach(m => {
+                        m.parentElement.classList.remove('active-payment');
+                    });
+                    // Add active class to selected method
+                    if (this.checked) {
+                        this.parentElement.classList.add('active-payment');
+                    }
+                });
+            });
+        
+            // Initialize total amount on page load
+            updateTotal();
+        
+            // Add window beforeunload warning
+            window.addEventListener('beforeunload', function(e) {
+                if (bookingForm.querySelector('button[type="submit"]').disabled) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                }
+            });
+        });
+        
+        // Add these styles to your CSS
+        const styles = `
+            .active-payment {
+                border-color: #DC2626;
+                box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+            }
+        
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+        
+            .fa-spin {
+                animation: spin 1s linear infinite;
+            }
+        
+            .notification {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 50;
+                transition: transform 0.3s ease-in-out;
+            }
+        
+            .notification.info {
+                border-left: 4px solid #3B82F6;
+            }
+        
+            .notification.warning {
+                border-left: 4px solid #F59E0B;
+            }
+        
+            .notification.error {
+                border-left: 4px solid #DC2626;
+            }
+        `;
+        </script>
+        
   </body>
 </html>
 

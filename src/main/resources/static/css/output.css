@@ -292,7 +292,11 @@ html.dark #theme-logo[data-theme-dark] {
 
 }
 #eventformbg{
-  background:linear-gradient(45deg, rgb(246, 237, 255), rgb(108, 107, 107));
+  background-image: linear-gradient(rgba(118, 110, 110, 0.5), rgba(0,0,0,0.5)), url('/images/form-banner.jpg');
+  background-size: cover;
+  background-position: center;
+
+
 }
 .swiper-slide .event-details h3 {
   font-size: 18px;
