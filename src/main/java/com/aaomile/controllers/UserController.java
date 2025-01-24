@@ -47,6 +47,10 @@ public class UserController {
     @RequestMapping("/user-booking")
     public String userBooking(Model model) {
         return "user/user-booking";
+    } 
+    @RequestMapping("/user-created-event")
+    public String userCreatedEvent(Model model) {
+        return "user/user-created-event";
     }
     
     @RequestMapping("/eventFormApplication")
