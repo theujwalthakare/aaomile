@@ -475,7 +475,31 @@ html.dark #theme-logo[data-theme-dark] {
 .hover-scale:hover {
   transform: scale(1.02);
 }
-
+     /* Custom Styles for Horizontal Layout */
+     .horizontal-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+  }
+  .event-image {
+      flex: 1 1 40%;
+      max-width: 40%;
+  }
+  .event-details, .input-section {
+      flex: 1 1 30%;
+      max-width: 30%;
+  }
+  .event-details {
+      padding: 1rem;
+  }
+  @media (max-width: 768px) {
+      .horizontal-container {
+          flex-direction: column;
+      }
+      .event-image, .event-details, .input-section {
+          max-width: 100%;
+      }
+  }
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

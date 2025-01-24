@@ -6,69 +6,6 @@
    
 </head>
   <body>
-    <!-- <section id="content" class="pt-16 px-4 md:px-8">
-        <div class="max-w-7xl mx-auto">
-           
-            <div class="mb-8">
-                <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">All Events</h1>
-                <p class="text-gray-600 mt-2">Discover amazing events happening around you</p>
-            </div>
-    
-         
-            <div th:unless="${allEvent.empty}" 
-                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-         
-                <div th:each="allEvents: ${allEvent}" class="flex flex-col items-center">
-                  
-                    <a th:href="@{'/event/' + ${allEvents.eventId}}" 
-                       class="group1 relative w-64 h-[280px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                     
-                        <span class="absolute top-3 right-2 z-10 bg-red-300 text-gray-900 text-sm font-medium px-2.5 py-0.5 rounded-md dark:bg-red-900 dark:text-red-200 border-black"
-                              data-th-text="${allEvents.eventGenre}">
-                        </span>
-    
-                    
-                        <div class="w-full h-full overflow-hidden">
-                            <img th:src="@{${allEvents.eventBanner}}"
-                                 alt="Event Image"
-                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        </div>
-                    </a>
-    
-                
-                    <div class="w-64 pt-4 px-2">
-                        <h3 class="text-lg font-bold text-gray-950 dark:text-white truncate" 
-                            data-th-text="${allEvents.eventName}">
-                        </h3>
-                        <div class="flex items-center text-gray-600 text-sm mt-1">
-                            <i class="far fa-calendar-alt mr-2"></i>
-                            <span data-th-text="${allEvents.eventDate}"></span>
-                        </div>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="text-red-600 font-semibold" 
-                                  data-th-text="${'Rs.' + allEvents.ticketPrice}">
-                            </span>
-                            <span class="text-sm text-gray-500">
-                                <i class="fas fa-map-marker-alt mr-1"></i>
-                                <span data-th-text="${allEvents.eventCity}"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-       
-            <div th:if="${allEvent.empty}" 
-                 class="text-center py-16">
-                <div class="mb-4">
-                    <i class="fas fa-calendar-alt text-4xl text-gray-400"></i>
-                </div>
-                <h3 class="text-lg font-medium text-gray-900 mb-2">No Events Available</h3>
-                <p class="text-gray-600">Check back later for upcoming events.</p>
-            </div>
-        </div>
-    </section>
-     -->
      <section id="content" class="pt-16 px-4 md:px-8">
         <div class="max-w-7xl mx-auto">
             <!-- Page Header -->

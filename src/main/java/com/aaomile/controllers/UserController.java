@@ -16,6 +16,9 @@ import com.aaomile.entities.User;
 import com.aaomile.helper.Helper;
 import com.aaomile.service.EventService;
 import com.aaomile.service.UserService;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -56,6 +59,19 @@ public class UserController {
     @RequestMapping("/user-booking")
     public String userBooking(Model model) {
         return "user/user-booking";
+    } 
+    @RequestMapping(path = "/user-created-event", method=RequestMethod.GET)
+    public String userCreatedEvent( Model model,
+                                    Authentication authentication,
+                                    HttpSession session) {
+
+        String email = Helper.getEmailOfLoggedInUser(authentication);
+        User user = userService.getUserByEmail(email);
+        int id = user.getId();
+        System.out.println("User ID"+id);
+        List<Event> events = eventService.getByUserId(id);
+        model.addAttribute("createdEvent", events);
+        return "user/user-created-event";
     }
     
     @RequestMapping("/eventFormApplication")
@@ -91,21 +107,5 @@ public class UserController {
         return"hackathon";
     }
 
-
-    @RequestMapping("path", method=RequestMethod.GET)
-    public String requestMethodName(@RequestParam String param) {
-        return new String();
-    }
-    
-    public void getUserCreatedEvents(Model model,
-                                    Authentication authentication){
-        
-        String email = Helper.getEmailOfLoggedInUser(authentication);
-        User user = userService.getUserByEmail(email);
-        List<Event> events = eventService.getByUserId(user);
-        model.addAttribute("createdEvents", events);
-    }
-
-    // user/edit profile
 
 }
