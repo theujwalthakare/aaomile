@@ -54,18 +54,12 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<Event> getByUserId(int id) {
-        
         return eventRepo.findByUserId(id);
     }
 
     @Override
     public List<Event> getByGenre(String genre) {
         return eventRepo.findByEventGenre(genre);
-    }
-
-    @Override
-    public List<Event> getByUserId(User user) {
-        return eventRepo.findByUserId(user);
     }
 
 }

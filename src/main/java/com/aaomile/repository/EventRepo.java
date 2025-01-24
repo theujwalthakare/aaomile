@@ -20,7 +20,7 @@ public interface EventRepo extends JpaRepository<Event, Integer> {
 
     //custom query method
     @Query("SELECT c FROM Event c WHERE c.user.id = :userId")
-    List<Event> findByUserId(@Param("userId") int userId);
+    List<Event> findByUserId(int userId);
 
     List<Event> findByEventGenre(String eventGenre);
 

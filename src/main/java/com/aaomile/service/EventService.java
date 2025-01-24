@@ -33,7 +33,5 @@ public interface EventService {
 
     List<Event> getByGenre(String genre);
 
-    List<Event> getByUserId(User user);
-
 }
  
