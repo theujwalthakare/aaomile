@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.aaomile.service.EventService;
 import com.aaomile.service.UserService;
 
 @Controller
@@ -22,7 +23,8 @@ public class UserController {
 
     @RequestMapping("/after_login")
     public String after_login(Model model, Authentication authentication) {
-        return "user/after_login";
+        // return "user/after_login";
+        return "home";
     }
 
     @RequestMapping("/CreateEvent")    //       user/create event
@@ -52,32 +54,33 @@ public class UserController {
         return "user/eventFormApplication";
     }
 
-    // @Autowired 
-    // private EventService eventService;
-    // @RequestMapping("/home/comedy")
-    // public String eventByComedy(Model model){
-    //     return"comedy";
-    // }
-    // @RequestMapping("/home/music")
-    // public String eventByMusic(Model model){
-    //     return"music";
-    // }
-    // @RequestMapping("/home/workshop")
-    // public String eventByWorkshop(Model model){
-    //     return"workshop";
-    // }
-    // @RequestMapping("/home/exhibition")
-    // public String eventByExhibition(Model model){
-    //     return"exhibition";
-    // }
-    // @RequestMapping("/home/theater")
-    // public String eventByTheater(Model model){
-    //     return"theater";
-    // }
-    // @RequestMapping("/home/hackathon")
-    // public String eventByHackathon(Model model){
-    //     return"hackathon";
-    // }
+    @Autowired 
+    private EventService eventService;
+    
+    @RequestMapping("/home/comedy")
+    public String eventByComedy(Model model){
+        return"comedy";
+    }
+    @RequestMapping("/home/music")
+    public String eventByMusic(Model model){
+        return"music";
+    }
+    @RequestMapping("/home/workshop")
+    public String eventByWorkshop(Model model){
+        return"workshop";
+    }
+    @RequestMapping("/home/exhibition")
+    public String eventByExhibition(Model model){
+        return"exhibition";
+    }
+    @RequestMapping("/home/theater")
+    public String eventByTheater(Model model){
+        return"theater";
+    }
+    @RequestMapping("/home/hackathon")
+    public String eventByHackathon(Model model){
+        return"hackathon";
+    }
 
     // user/edit profile
 
