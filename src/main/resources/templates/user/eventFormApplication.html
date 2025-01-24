@@ -8,7 +8,7 @@
 </head>
 
 <body >
-    <section id="content" class="text-black py-10 mx-auto max-w-screen-xl p-4 mt-10 pt-38">
+    <section id="content" class=" py-10 mx-auto max-w-screen-xl p-4 mt-10 pt-38">
               
 <div id="eventformbg" class="  mx-auto p-8 max-w-screen-md rounded-lg ">
 
@@ -25,7 +25,7 @@
         <!-- Basic Event Information -->
         <h2 class="text-2xl  font-bold mb-4">Basic Event Information</h2>
         <div class="mb-4">
-            <label class="block text-sm font-medium">Event Name</label>
+            <label class="block text-base  font-bold">Event Name</label>
             <input data-th-field="*{eventName}" type="text" name="EventName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
         <!-- <p
@@ -35,7 +35,7 @@
         Name cant be empty </p> -->
 
         <div class="mb-4">
-            <label class="block text-sm font-medium">Description</label>
+            <label class="block text-base  font-bold">Description</label>
             <textarea data-th-field="*{eventDiscription}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"></textarea>
         </div>
 
@@ -46,7 +46,7 @@
 
         <!-- genre info -->
         <div class="mb-4">
-            <label class="block text-sm font-medium">Genre</label>
+            <label class="block text-base  font-bold">Genre</label>
             <select name="genre" data-th-field="*{eventGenre}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
                 <option value="None">Select a Genre</option>
                 <option value="music">Music</option>
@@ -67,7 +67,7 @@
         <div class="mb-4">
 
         <div class="mb-4">
-            <label class="block text-sm font-medium">Event Type</label>
+            <label class="block text-base  font-bold">Event Type</label>
             <div class="flex items-center space-x-4">
                 <label class="inline-flex items-center">
                     <input type="radio" name="type" data-th-field="*{eventType}" value="in-person" class="form-radio" >
@@ -90,7 +90,7 @@
         </div> -->
         <div class="mb-4 flex items-start gap-4">
             <div>
-                <label class="block text-sm font-medium">Event Image</label>
+                <label class="block text-base  font-bold">Event Image</label>
                 <input type="file"data-th-field="*{eventBanner}"  id="imageInput"  accept="image/*" class="mt-1 rounded-md bg-slate-900 w-screen border-spacing-1 border-2" >
                 <span id="imageInput" class="text-red-800 block font-thin ">Image Name Should be similar to Event name</span>
 
@@ -131,7 +131,7 @@
         data-th-errors="*{eventTime}">Event Time is required</p> -->
         </div>
         <div class="max-w-md  pt-4">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label class="block mb-2 text-base  font-bold text-gray-900 dark:text-white">
                 Duration (HH:MM:SS)
             </label>
             <div class="flex gap-2">
@@ -179,7 +179,7 @@
         <!-- Location Information -->
         <h2 class="text-2xl font-bold pt-10 mb-4">Location Information</h2>
         <div class="mb-4">
-            <label class="block text-sm font-medium">Venue Name</label>
+            <label class="block text-base  font-bold">Venue Name</label>
             <input type="text" data-th-field="*{eventVenue}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
 
@@ -189,7 +189,7 @@
         data-th-errors="*{eventVenue}">Event Venue is required</p> -->
 
         <div class="mb-4">
-            <label class="block text-sm font-medium">Address</label>
+            <label class="block text-base  font-bold">Address</label>
             <input type="text" data-th-field="*{eventAddress}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
 
@@ -200,7 +200,7 @@
 
         <div class="grid grid-cols-2 gap-4">
             <div class="mb-4">
-                <label class="block text-sm font-medium">City</label>
+                <label class="block text-base  font-bold">City</label>
                 <input type="text" data-th-field="*{eventCity}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
             </div>
 
@@ -210,7 +210,7 @@
         data-th-errors="*{eventCity}">Event City is required</p> -->
             
             <div class="mb-4">
-                <label class="block text-sm font-medium">State/Province</label>
+                <label class="block text-base  font-bold">State/Province</label>
                 <input type="text" data-th-field="*{eventState}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
             </div>
 
@@ -221,7 +221,7 @@
 
         </div>
         <div class="mb-4">
-            <label class="block text-sm font-medium">Postal Code</label>
+            <label class="block text-base  font-bold">Postal Code</label>
             <input type="text" data-th-field="*{eventPincode}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
 
@@ -233,7 +233,7 @@
         <!-- Ticketing Options -->
         <h2 class="text-2xl font-bold pt-10 mb-4">Ticketing Options</h2>
         <div class="mb-4">
-            <label class="block text-sm font-medium">Ticket Type</label>
+            <label class="block text-base  font-bold">Ticket Type</label>
             <select data-th-field="*{ticketType}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
                 <option value="free">Free</option>
                 <option value="paid">Paid</option>
@@ -246,7 +246,7 @@
         data-th-errors="*{ticketType}">Ticket type is required</p> -->
 
         <div class="mb-4">
-            <label class="block text-sm font-medium">Ticket Price (if paid)</label>
+            <label class="block text-base  font-bold">Ticket Price (if paid)</label>
             <input type="number" data-th-field="*{ticketPrice}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
         </div>
 
@@ -256,7 +256,7 @@
         data-th-errors="*{ticketPrice}">Ticket price is required</p> -->
 
         <div class="mb-4">
-            <label class="block text-sm font-medium">Total Tickets</label>
+            <label class="block text-base  font-bold">Total Tickets</label>
             <input type="number" data-th-field="*{seates}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" >
         </div>
 
