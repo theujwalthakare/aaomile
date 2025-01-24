@@ -129,4 +129,8 @@ public class EventController {
 
     return "user/book";
     }
+    @RequestMapping("/booking/{eventId}/UserPaySuccess")
+    public String UserPaySuccess(@PathVariable int eventId, Model model) {
+        return "user/UserPaySuccess";
+    }
 }
