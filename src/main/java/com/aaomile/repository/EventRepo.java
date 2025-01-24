@@ -25,4 +25,7 @@ public interface EventRepo extends JpaRepository<Event, Integer> {
     List<Event> findByEventGenre(String eventGenre);
 
     Event findByEventId(int eventID);
+
+    //To find event using user id.
+    List<Event> findByUserId(User user);
 }

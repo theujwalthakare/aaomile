@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aaomile.entities.Event;
+import com.aaomile.entities.User;
 import com.aaomile.helper.ResourceNotFoundException;
 import com.aaomile.repository.EventRepo;
 import com.aaomile.service.EventService;
@@ -60,6 +61,11 @@ public class EventServiceImpl implements EventService {
     @Override
     public List<Event> getByGenre(String genre) {
         return eventRepo.findByEventGenre(genre);
+    }
+
+    @Override
+    public List<Event> getByUserId(User user) {
+        return eventRepo.findByUserId(user);
     }
 
 }
