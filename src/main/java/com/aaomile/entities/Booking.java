@@ -32,7 +32,7 @@ public class Booking {
 
     private String seates;
 
-    private String transactionId = UUID.randomUUID().toString() ;
+    private String transactionId = UUID.randomUUID().toString();
 
     private int amount;
 
@@ -41,8 +41,5 @@ public class Booking {
 
     @ManyToOne
     private Event event;
-
-
-
 
 }
