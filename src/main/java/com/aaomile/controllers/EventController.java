@@ -169,8 +169,8 @@ public class EventController {
     return "redirect:/user/event/booking/"+ eventId +"/UserPaySuccess";
 }
 
-@RequestMapping("/booking/{eventId}/UserPaySuccess")
-public String UserPaySuccess(@PathVariable int eventId, Model model) {
-    return "user/UserPaySuccess";
-}
+    @RequestMapping("/booking/{eventId}/UserPaySuccess")
+    public String UserPaySuccess(@PathVariable int eventId, Model model) {
+        return "user/UserPaySuccess";
+    }
 }
