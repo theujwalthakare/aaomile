@@ -58,8 +58,18 @@
                     <!-- Left Column -->
                     <div class="space-y-4">
                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900 dark:text-white mb-3">Date & Time</h3>
-                            <div class="space-y-2">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="flex items-center mb-3">
+                                   <h2 class="font-semibold text-gray-900 dark:text-white">Dates</h2>
+                                </div>
+                                <div class="flex items-center mb-3">
+                                    <h2 class="font-semibold text-gray-900 dark:text-white">Time</h2>
+                                </div>
+                                <div class="flex items-center mb-3">
+                                    <h2 class="font-semibold text-gray-900 dark:text-white">Duration</h2>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 ">
                                 <div class="flex items-center">
                                     <i class="far fa-calendar-alt w-6 text-red-500"></i>
                                     <span th:text="${eventSetting.eventDate}" 
@@ -77,9 +87,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">                          
-                                <a href="https://www.google.com/maps/@20.0374633,73.806616,15z?entry=ttu&g_ep=EgoyMDI1MDExMC4wIKXMDSoASAFQAw%3D%3D" class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                                    <h3 class="font-semibold text-gray-900 dark:text-white mb-3">Venue</h3>
+                        <div class="bg-gray-50 dark:bg-gray-700  rounded-lg">                          
+                                <a href="https://www.google.com/maps/@20.0374633,73.806616,15z?entry=ttu&g_ep=EgoyMDI1MDExMC4wIKXMDSoASAFQAw%3D%3D" class="bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                    <h3 class="font-semibold text-gray-900 dark:text-white p-3">Venue</h3>
                                     <div class="flex items-center">
                                         <i class="fas fa-map-marker-alt w-6 text-red-500"></i>
                                         <div class="ml-2">
@@ -127,7 +137,7 @@
                         <button class="w-full md:w-auto px-8 py-3 bg-red-500 text-white rounded-lg 
                                      hover:bg-red-600 transition duration-300 flex items-center justify-center">
                             <i class="fas fa-ticket-alt mr-2"></i>
-                            Book Now
+                            Delete Event
                         </button></a>
                     </div>
                 </div>

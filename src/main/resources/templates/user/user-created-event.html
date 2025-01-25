@@ -7,35 +7,32 @@
 </head>
 <body>
 <section id="content" class="py-12 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-screen-2xl mx-auto">
         <!-- Header -->
         <div class="mb-8">
-            <h1 class="text-2xl font-bold dark:text-white">My Created Events</h1>
-            <p class="dark:text-white text-slate-950">Manage your events</p>
+            <h1 class="text-2xl font-extrabold text-center text-indigo-900 dark:text-white">My Created Events</h1>
+            <p class=" text-center underline  dark:text-white text-indigo-950    ">Manage your events</p>
         </div>
 
         <!-- Events Table Panel -->
         <div class="bg-white shadow-md rounded-lg overflow-hidden">
             <!-- Table Header -->
-            <div class="grid grid-cols-5 bg-gray-50 border-b">
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event ID</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event Name</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</div>
+            <div class="grid grid-cols-4 bg-gray-50 border-b">
+                <div class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event ID</div>
+                <div class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event Name</div>
+                <div class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</div>
+               
+                <div class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</div>
             </div>
 
             <!-- Dynamic Event Rows -->
             <div th:unless="${createdEvent.empty}"  class="divide-y divide-gray-200">
-                <div th:each="created: ${createdEvent}" class="grid grid-cols-5 hover:bg-gray-50">
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text=" ${created.eventId}" >EVT001</div>
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" data-th-text="${created.eventName}">Event Name</div>
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" data-th-text="${created.eventDate}">Jan 01, 2024</div>
-                    <div class="px-6 py-4 whitespace-nowrap">
-                        <!-- <span th:class="${event.status == 'ACTIVE'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800' : 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800'"
-                              th:text="${event.status}">Status</span> -->
-                    </div>
-                    <div class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                <div th:each="created: ${createdEvent}" class="grid grid-cols-4 hover:bg-gray-50">
+                    <div class="px-6 py-5 whitespace-nowrap text-sm text-gray-900" th:text=" ${created.eventId}" >EVT001</div>
+                    <div class="px-6 py-5 whitespace-nowrap text-sm text-gray-900" data-th-text="${created.eventName}">Event Name</div>
+                    <div class="px-6 py-5 whitespace-nowrap text-sm text-gray-900" data-th-text="${created.eventDate}">Jan 01, 2024</div>
+                     
+                    <div class="px-8 py-4 whitespace-nowrap text-sm font-medium">
                         <div class="flex space-x-3">
                             
                             <a  th:href="@{'event/user-created-event/' + ${created.eventId} + '/createdEventSetting'}"

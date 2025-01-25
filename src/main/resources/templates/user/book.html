@@ -153,7 +153,9 @@
             const decrementBtn = document.getElementById('decrementBtn');
             const totalAmount = document.getElementById('totalAmount');
             const bookingForm = document.getElementById('bookingForm');
-        
+            
+            ticketQuantity.value = 1;
+            updateTotal();
             // Function to update total amount
             function updateTotal() {
                 const quantity = parseInt(ticketQuantity.value);
