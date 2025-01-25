@@ -15,7 +15,7 @@
         <div class="max-w-4xl shadow-2xl mx-auto pt-4">
          
     
-            <form id="bookingForm" class="space-y-4" method="post">
+            <form id="bookingForm" class="space-y-4">
                 <!-- Event Card -->
                 <div class="bg-white rounded-xl py-3 px-6 shadow-lg overflow-hidden">
                     <div class="flex flex-col md:flex-row">
@@ -191,7 +191,169 @@
             ticketQuantity.addEventListener('input', validateQuantity);
             ticketQuantity.addEventListener('blur', validateQuantity);
         
+            // Function to show notifications
+            function showNotification(message, type = 'info') {
+                // You can replace this with your preferred notification system
+                alert(message);
+            }
+        
+            // Function to validate payment method selection
+            function validatePaymentMethod() {
+                const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+                if (!selectedPayment) {
+                    showNotification('Please select a payment method', 'error');
+                    return false;
+                }
+                return true;
+            }
+        
+            // Function to handle loading state
+            function setLoadingState(isLoading) {
+                const submitBtn = bookingForm.querySelector('button[type="submit"]');
+                if (isLoading) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Proceed to Payment';
+                }
+            }
+        
+            // Handle form submission
+            bookingForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+        
+                if (!validatePaymentMethod()) {
+                    return;
+                }
+        
+                try {
+                    setLoadingState(true);
+        
+                    // Create form data
+                    const formData = new FormData(this);
+                    formData.append('totalAmount', totalAmount.textContent);
+        
+                    // Send booking request
+                    const response = await fetch('/api/bookings/create', {
+                        method: 'POST',
+                        body: formData
+                    });
+        
+                    if (!response.ok) {
+                        throw new Error('Booking failed');
+                    }
+        
+                    const data = await response.json();
+        
+                    // Handle Razorpay integration
+                    if (data.razorpayOrderId) {
+                        const options = {
+                            key: data.razorpayKeyId, // Replace with your Razorpay key
+                            amount: data.amount,
+                            currency: "INR",
+                            name: "BOOKNJOY",
+                            description: "Event Booking Payment",
+                            order_id: data.razorpayOrderId,
+                            handler: function (response) {
+                                // Handle successful payment
+                                window.location.href = `/booking/success?payment_id=${response.razorpay_payment_id}`;
+                            },
+                            prefill: {
+                                name: data.customerName,
+                                email: data.customerEmail,
+                                contact: data.customerPhone
+                            },
+                            theme: {
+                                color: "#DC2626"
+                            }
+                        };
+        
+                        const rzp = new Razorpay(options);
+                        rzp.open();
+                    }
+        
+                } catch (error) {
+                    console.error('Error:', error);
+                    showNotification('An error occurred. Please try again.', 'error');
+                } finally {
+                    setLoadingState(false);
+                }
+            });
+        
+            // Add input masking for quantity (optional)
+            ticketQuantity.addEventListener('keypress', function(e) {
+                if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+        
+            // Add hover effects for payment methods
+            const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    // Remove active class from all methods
+                    paymentMethods.forEach(m => {
+                        m.parentElement.classList.remove('active-payment');
+                    });
+                    // Add active class to selected method
+                    if (this.checked) {
+                        this.parentElement.classList.add('active-payment');
+                    }
+                });
+            });
+        
+            // Initialize total amount on page load
+            updateTotal();
+        
+            // Add window beforeunload warning
+            window.addEventListener('beforeunload', function(e) {
+                if (bookingForm.querySelector('button[type="submit"]').disabled) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                }
+            });
         });
+        
+        // Add these styles to your CSS
+        const styles = `
+            .active-payment {
+                border-color: #DC2626;
+                box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+            }
+        
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+        
+            .fa-spin {
+                animation: spin 1s linear infinite;
+            }
+        
+            .notification {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 50;
+                transition: transform 0.3s ease-in-out;
+            }
+        
+            .notification.info {
+                border-left: 4px solid #3B82F6;
+            }
+        
+            .notification.warning {
+                border-left: 4px solid #F59E0B;
+            }
+        
+            .notification.error {
+                border-left: 4px solid #DC2626;
+            }
+        `;
         </script>
         
   </body>

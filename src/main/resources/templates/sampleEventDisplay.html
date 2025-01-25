@@ -12,7 +12,7 @@
             <!-- Blurred Background -->
             <div class="absolute inset-0 bg-black">
                 <img th:if="${event.eventBanner}" th:src="@{${event.eventBanner}}"
-                    class="w-full h-full object-cover blur-3xl scale-110 opacity-50"
+                    class="w-full h-[250px] object-cover blur-3xl scale-110 opacity-50"
                     alt="Blurred background">
             </div>
             
@@ -20,7 +20,7 @@
             <div class="relative max-w-4xl mx-auto h-full flex items-center justify-center">
                 <!-- Main Banner Image -->
                 <img th:if="${event.eventBanner}" th:src="@{${event.eventBanner}}"
-                    class="max-h-[300px] w-auto object-contain shadow-2xl"
+                    class=" w-auto object-contain shadow-2xl"
                     alt="Event banner">
                  
             </div>
