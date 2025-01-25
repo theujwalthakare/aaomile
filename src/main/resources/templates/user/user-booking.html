@@ -28,40 +28,38 @@
                 <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</div>
                 <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tickets</div>
                 <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</div>
+                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transaction ID</div>
             </div>
 
             <!-- Dynamic Booking Rows -->
-            <div th:if="${not #lists.isEmpty(bookings)}" class="divide-y divide-gray-200">
-                <div th:each="booking : ${bookings}" class="grid grid-cols-6 hover:bg-gray-50">
+            <div th:unless="${bookedEvents.isEmpty}" class="divide-y divide-gray-200">
+                <div th:each="booking : ${bookedEvents}" class="grid grid-cols-6 hover:bg-gray-50">
                     <!-- Booking ID -->
                     <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.bookingId}"></div>
 
                     <!-- Event Name -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.event.eventName}"></div>
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.eventName}"></div>
 
                     <!-- Event Date -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.event.eventDate}"></div>
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.eventDate}"></div>
 
                     <!-- Number of Tickets -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.ticketQuantity + ' tickets'}"></div>
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.seates}"></div>
 
                     <!-- Amount -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="'₹' + ${booking.totalAmount}"></div>
+                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="'₹' + ${booking.amount}"></div>
 
                     <!-- Status -->
                     <div class="px-6 py-4 whitespace-nowrap">
-                        <span th:class="${booking.status == 'CONFIRMED'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800' : 
-                                      ${booking.status == 'COMPLETED'} ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800' : 
-                                      'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800'"
-                              th:text="${booking.status}">
+                        <span
+                              th:text="${booking.transactionId}">
                         </span>
                     </div>
                 </div>
             </div>
 
             <!-- Empty State -->
-            <div th:if="${#lists.isEmpty(bookings)}" class="text-center py-12">
+            <div th:if="${bookedEvents.isEmpty}" class="text-center py-12">
                 <div class="mb-4">
                     <i class="fas fa-ticket-alt text-4xl text-gray-400"></i>
                 </div>

@@ -8,6 +8,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.*;
 
 @Getter
 @Setter
@@ -21,6 +22,8 @@ public class Booking {
 
     private String eventName;
 
+    private String eventDate;
+
     private String userName;
 
     private String userEmail;
@@ -29,7 +32,7 @@ public class Booking {
 
     private String seates;
 
-    private int transactionId;
+    private String transactionId = UUID.randomUUID().toString() ;
 
     private int amount;
 
