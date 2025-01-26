@@ -173,4 +173,11 @@ public class EventController {
     public String UserPaySuccess(@PathVariable int eventId, Model model) {
         return "user/UserPaySuccess";
     }
+
+
+    @RequestMapping("delete/{eventId}")
+    public String deleteEvent(@PathVariable int eventId) {
+        eventService.delete(eventId);
+        return"user/EventDeleteSuccess";
+    }
 }
