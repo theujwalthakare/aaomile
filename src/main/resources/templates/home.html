@@ -11,6 +11,18 @@
   </head>
   <body>
     <!-- Landing page headline -->
+     <section id="content" class="mx-auto py-1  md:flex max-w-screen-2xl hidden">
+      <swiper-container class="mySwiper1" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+      centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+      <swiper-slide class="sw-slide"><img src="/images/1.png" alt="banner-poster"></swiper-slide>
+      <swiper-slide class="sw-slide"><img src="/images/2.png" alt="banner-poster"></swiper-slide>
+      <swiper-slide class="sw-slide"><img src="/images/3.png" alt="banner-poster"></swiper-slide>
+      <swiper-slide class="sw-slide"><img src="/images/4.png" alt="banner-poster"></swiper-slide>
+      <swiper-slide class="sw-slide"><img src="/images/5.png" alt="banner-poster"></swiper-slide>
+    
+    </swiper-container>
+
+     </section>
     <section id="content" class="py-10 mx-auto max-w-screen-xl p-4 pt-36">
       <h1
         class="text-center font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
@@ -26,7 +38,7 @@
         Meets Community!
       </h1>
       <p
-        class="text-xl  mt-5 mx-auto italic text-center w-9/12"
+        class="text-xl  mt-5 mx-auto italic text-center w-9/12 text-black dark:text-white"
       >
         Welcome to BOOKNJOY — your go-to platform for discovering exciting events
         and experiences happening around you! Whether it's a concert, art
@@ -38,7 +50,7 @@
     <!-- Categories section -->
     <section id="content" class="px-4 py-8 justify-center">
       <div class="max-w-screen-xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-8 dark:text">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
           Discover Events by Category
         </h2>
   
@@ -75,7 +87,7 @@
   
           <!-- Workshop Card -->
           <a class="group cursor-pointer flex-shrink-0 w-48" href="home/workshop">
-            <div class="bg-white rounded-xl shadow-lg p-4 transform transition duration-300 group-hover:scale-105">
+            <div class="bg-blue-300 rounded-xl shadow-lg p-4 transform transition duration-300 group-hover:scale-105">
               <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-paint-brush text-2xl text-blue-500"></i>
               </div>
@@ -90,14 +102,14 @@
   
           <!-- Music Concert Card -->
           <a class="group cursor-pointer flex-shrink-0 w-48" href="home/music">
-            <div class="bg-white rounded-xl shadow-lg p-4 transform transition duration-300 group-hover:scale-105">
+            <div class="bg-red-600 rounded-xl shadow-lg p-4 transform transition duration-300 group-hover:scale-105">
               <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-music text-2xl text-green-500"></i>
               </div>
-              <h3 class="text-lg font-bold text-center text-gray-800 mb-1">
+              <h3 class="text-lg font-bold text-center text-gray-900 mb-1">
                 Music Concerts
               </h3>
-              <p class="text-gray-600 text-center text-xs">
+              <p class="text-gray-900 text-center text-xs">
                 Live Music
               </p>
             </div>
@@ -105,14 +117,14 @@
   
           <!-- Exhibition Card -->
           <a class="group cursor-pointer flex-shrink-0 w-48" href="home/exhibition">
-            <div class="bg-white rounded-xl shadow-lg p-4 transform transition duration-300 group-hover:scale-105">
+            <div class="bg-black rounded-xl shadow-lg p-4 transform transition duration-300 group-hover:scale-105 border-2 border-s-gray-600">
               <div class="bg-yellow-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-image text-2xl text-yellow-500"></i>
               </div>
-              <h3 class="text-lg font-bold text-center text-gray-800 mb-1">
+              <h3 class="text-lg font-bold text-center text-white mb-1">
                 Exhibitions
               </h3>
-              <p class="text-gray-600 text-center text-xs">
+              <p class="text-white text-center text-xs">
                 Art & Culture
               </p>
             </div>
@@ -120,7 +132,7 @@
   
           <!-- Hackathon Card -->
           <a class="group cursor-pointer flex-shrink-0 w-48" href="home/hackathon">
-            <div class="bg-white rounded-xl shadow-lg p-4 transform transition duration-300 group-hover:scale-105">
+            <div class="bg-green-400 rounded-xl shadow-lg p-4 transform transition duration-300 group-hover:scale-105">
               <div class="bg-red-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
                 <i class="fas fa-laptop-code text-2xl text-red-500"></i>
               </div>
@@ -233,8 +245,10 @@
           },
         },
       });
-  
+    
     </script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
   </body>
 </html>
 

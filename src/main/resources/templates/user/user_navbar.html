@@ -221,18 +221,18 @@
                   </li>
                  
                   <li>
-                    <a href="#"
-                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <button id="notificationBtn"
+                      class="flex items-center w-full text-left p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                       <svg
                         class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
                       </svg>
-                      <span class="flex-1 ms-3 whitespace-nowrap">Notifications</span>
-                      <span
-                        class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
-                    </a>
+                      <span class="flex-1 ms-3 whitespace-nowrap" th:if="${notifications != null and !notifications.empty}">Notifications</span>
+                      <span class="flex-1 ms-3 whitespace-nowrap" th:if="${notifications == null or notifications.empty}">No
+                        Notifications</span>
+                    </button>
                   </li>
                   <!-- <li>
                     <a href="#"
@@ -336,4 +336,90 @@
     </div>
   </div>
   <hr class="border-t-4 border-gray-300 dark:border-gray-700">
+
+  <!--  -->
+   <!-- Notification Popup --><div class="flex items-center justify-center">
+<div id="notificationPopup" class="hidden fixed    z-40">
+  <!-- Backdrop -->
+  
+  
+  
+  <!-- Popup Content -->
+  <div class="fixed   w-80 bg-white dark:bg-gray-800 rounded-lg shadow-xl transform transition-all">
+      <!-- Header -->
+      <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Notifications</h3>
+      </div>
+      
+      <!-- Notification List -->
+      <div class="max-h-96 overflow-y-auto">
+          <!-- If there are notifications -->
+          <div th:if="${notifications != null and !notifications.empty}" 
+               class="divide-y divide-gray-200 dark:divide-gray-700">
+              <div th:each="notification : ${notifications}" 
+                   class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition duration-150 ease-in-out">
+                  <div class="flex items-start">
+                      <div class="flex-shrink-0">
+                          <i class="fas fa-info-circle text-blue-500"></i>
+                      </div>
+                      <div class="ml-3 w-0 flex-1">
+                          <p class="text-sm text-gray-900 dark:text-white" 
+                             th:text="${notification.message}"></p>
+                          <p class="mt-1 text-xs text-gray-500 dark:text-gray-400" 
+                             th:text="${notification.timestamp}"></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Empty State -->
+          <div th:if="${notifications == null or notifications.empty}" 
+               class="p-4 text-center text-gray-500 dark:text-gray-400">
+              <i class="fas fa-bell-slash text-2xl mb-2"></i>
+              <p>No new notifications</p>
+          </div>
+      </div>
+      
+      <!-- Footer -->
+      <div class="px-4 py-3 border-t border-gray-200 dark:border-gray-700 text-right">
+          <button id="closeNotificationBtn" 
+                  class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+              Close
+          </button>
+      </div>
+  </div>
+  </div>
+</div>
+<script>// Get DOM elements
+  const notificationBtn = document.getElementById('notificationBtn');
+  const notificationPopup = document.getElementById('notificationPopup');
+  const popupBackdrop = document.getElementById('popupBackdrop');
+  const closeNotificationBtn = document.getElementById('closeNotificationBtn');
+  
+  // Function to toggle popup
+  function toggleNotificationPopup() {
+      notificationPopup.classList.toggle('hidden');
+  }
+  
+  // Event listeners
+  notificationBtn.addEventListener('click', toggleNotificationPopup);
+  closeNotificationBtn.addEventListener('click', toggleNotificationPopup);
+  popupBackdrop.addEventListener('click', toggleNotificationPopup);
+  
+  // Close popup when clicking outside
+  document.addEventListener('click', (event) => {
+      if (!notificationPopup.contains(event.target) && 
+          !notificationBtn.contains(event.target) && 
+          !notificationPopup.classList.contains('hidden')) {
+          toggleNotificationPopup();
+      }
+  });
+  
+  // Optional: Close on escape key
+  document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !notificationPopup.classList.contains('hidden')) {
+          toggleNotificationPopup();
+      }
+  });
+  </script>
 </nav>

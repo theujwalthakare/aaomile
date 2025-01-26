@@ -11,7 +11,7 @@
     
 </head>
 <body>
-   <section id="content"  class="py-12 pb-96 px-4 md:px-8">
+   <section id="content"  class="py-12 pb-96 px-4 md:px-8 max-w-screen-xl mx-auto">
     <div class=" mx-auto  ">
         <!-- Header -->
         <div class="mb-8">
@@ -20,40 +20,37 @@
         </div>
 
         <!-- Events Table Panel -->
-        <div class="  shadow-md rounded-lg overflow-hidden">
+        <div class=" shadow-xl rounded-md w-auto">
             <!-- Table Header -->
-            <div class="grid grid-cols-6  border-b">
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Booking ID</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event Name</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tickets</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</div>
-                <div class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transaction ID</div>
+            <div class="grid grid-cols-7 gap-3 dark:bg-gray-500 bg-gray-50 text-black dark:text-white  border-b">
+                <div class="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">Booking ID</div>
+                <div class="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">Event Name</div>
+                <div class="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">Date</div>
+                <div class="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">Tickets</div>
+                <div class="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">Amount</div>
+                <div class="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">Transaction ID</div>
             </div>
 
             <!-- Dynamic Booking Rows -->
-            <div th:unless="${bookedEvents.isEmpty}" class="divide-y divide-gray-200">
-                <div th:each="booking : ${bookedEvents}" class="grid grid-cols-6 hover:bg-gray-50">
+            <div th:unless="${bookedEvents.isEmpty}" class="">
+                <div th:each="booking : ${bookedEvents}" class="grid grid-cols-7 gap-8 bg-gray-100 dark:bg-slate-500 hover:bg-gray-200 dark:hover:bg-slate-600">
                     <!-- Booking ID -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.bookingId}"></div>
+                    <div class="px-6 py-4 whitespace-nowrap text-sm " th:text="${booking.bookingId}"></div>
 
                     <!-- Event Name -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.eventName}"></div>
+                    <div class="px-1 py-4 whitespace-nowrap text-sm " th:text="${booking.eventName}"></div>
 
                     <!-- Event Date -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.eventDate}"></div>
+                    <div class="px-6 py-4 whitespace-nowrap text-sm " th:text="${booking.eventDate}"></div>
 
                     <!-- Number of Tickets -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${booking.seates}"></div>
+                    <div class="px-6 py-4 whitespace-nowrap text-sm " th:text="${booking.seates}"></div>
 
                     <!-- Amount -->
-                    <div class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="'₹' + ${booking.amount}"></div>
+                    <div class="px-6 py-4 whitespace-nowrap text-sm " th:text="'₹' + ${booking.amount}"></div>
 
                     <!-- Status -->
-                    <div class="px-6 py-4 whitespace-nowrap">
-                        <span
-                              th:text="${booking.transactionId}">
-                        </span>
+                    <div class="px-6 py-4 whitespace-nowrap" th:text="${booking.transactionId}">
                     </div>
                 </div>
             </div>
