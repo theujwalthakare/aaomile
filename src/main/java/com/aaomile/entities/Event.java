@@ -27,7 +27,7 @@ import lombok.Setter;
 public class Event {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int eventId;
 
     private String eventName;
